@@ -11,7 +11,7 @@
         name="viewport"
         content="width=device-width, initial-scale=1, maximum-scale=1"
       />
-      <title>Archives: 2022 |  Hexo</title>
+      <title>vue-day1 |  Hexo</title>
   <meta name="generator" content="hexo-theme-ayer">
       
       <link rel="shortcut icon" href="/favicon.ico" />
@@ -52,68 +52,177 @@
       
     <main class="content on">
       <section class="outer">
-  
-  <ul class="ads">
+  <article
+  id="post-vue-day1"
+  class="article article-type-post"
+  itemscope
+  itemprop="blogPost"
+  data-scroll-reveal
+>
+  <div class="article-inner">
     
-        <li>
-            <a target="_blank" rel="noopener" href="https://curl.qcloud.com/kvO7hb43">
-                <img src="https://pic.imgdb.cn/item/62174b452ab3f51d912a5ccc.jpg" width="300" alt="云服务器限时秒杀">
-            </a>
-        </li>
-    
-        <li>
-            <a target="_blank" rel="noopener" href="https://www.vultr.com/?ref=8630075">
-                <img src="https://pic.imgdb.cn/item/62174b452ab3f51d912a5cd7.png" width="300" alt="vultr优惠vps">
-            </a>
-        </li>
-    
-</ul>
-  
-  
-  <article class="articles">
-    
-    
-    <h1 class="page-type-title">2022</h1>
-    
-    
-  
-  
-  
-  
-  
-  
-  <div class="archives-wrap">
-    <div class="archive-year-wrap">
-      <a href="/archives/2022" class="archive-year">2022</a>
-    </div>
-    <div class="archives">
-      
-      <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      <a href="/2022/05/25/vue-day1/" class="archive-article-date">
-  <time datetime="2022-05-25T14:02:16.160Z" itemprop="datePublished">05/25</time>
-</a>
+    <header class="article-header">
        
-<h2 itemprop="name">
-  <a class="archive-article-title" href="/2022/05/25/vue-day1/"
-    >vue-day1</a> 
-</h2>
+<h1 class="article-title sea-center" style="border-left:0" itemprop="name">
+  vue-day1
+</h1>
  
 
+      
     </header>
-    
-    
-  </div>
-</article>
-      
-      
+     
+    <div class="article-meta">
+      <a href="/2022/05/25/vue-day1/" class="article-date">
+  <time datetime="2022-05-25T14:02:16.160Z" itemprop="datePublished">2022-05-25</time>
+</a>   
+<div class="word_count">
+    <span class="post-time">
+        <span class="post-meta-item-icon">
+            <i class="ri-quill-pen-line"></i>
+            <span class="post-meta-item-text"> Word count:</span>
+            <span class="post-count">616</span>
+        </span>
+    </span>
+
+    <span class="post-time">
+        &nbsp; | &nbsp;
+        <span class="post-meta-item-icon">
+            <i class="ri-book-open-line"></i>
+            <span class="post-meta-item-text"> Reading time≈</span>
+            <span class="post-count">2 min</span>
+        </span>
+    </span>
+</div>
+ 
     </div>
-  </div>
-  
-  
+      
+    <div class="tocbot"></div>
+
+
+
 
   
+    <div class="article-entry" itemprop="articleBody">
+       
+  <h4 id="说说对vue的理解"><a href="#说说对vue的理解" class="headerlink" title="说说对vue的理解"></a>说说对vue的理解</h4><p>Vue.js（&#x2F;vjuː&#x2F;，或简称为Vue）是一个用于创建用户界面的开源JavaScript框架，也是一个创建单页应用的Web应用框架。Vue所关注的核心是MVC模式中的视图层，同时，它也能方便地获取数据更新，并通过组件内部特定的方法实现视图与模型的交互。</p>
+<h3 id="数据驱动（MVVM"><a href="#数据驱动（MVVM" class="headerlink" title="数据驱动（MVVM)"></a>数据驱动（MVVM)</h3><pre><code>MVVM`表示的是 `Model-View-ViewModel
+</code></pre>
+<ul>
+<li>Model：模型层，负责处理业务逻辑以及和服务器端进行交互</li>
+<li>View：视图层：负责将数据模型转化为UI展示出来，可以简单的理解为HTML页面</li>
+<li>ViewModel：视图模型层，用来连接Model和View，是Model和View之间的通信桥梁</li>
+</ul>
+<p>这时候需要一张直观的关系图，如下 <img src="https://static.vue-js.com/4402c560-3ac6-11eb-85f6-6fac77c0c9b3.png" alt="image.png"></p>
+<h3 id="组件化"><a href="#组件化" class="headerlink" title="#组件化"></a><a target="_blank" rel="noopener" href="https://vue3js.cn/interview/vue/vue.html#%E7%BB%84%E4%BB%B6%E5%8C%96">#</a>组件化</h3><p>1.什么是组件化一句话来说就是把图形、非图形的各种逻辑均抽象为一个统一的概念（组件）来实现开发的模式，在<code>Vue</code>中每一个<code>.vue</code>文件都可以视为一个组件2.组件化的优势</p>
+<ul>
+<li>降低整个系统的耦合度，在保持接口不变的情况下，我们可以替换不同的组件快速完成需求，例如输入框，可以替换为日历、时间、范围等组件作具体的实现</li>
+<li>调试方便，由于整个系统是通过组件组合起来的，在出现问题的时候，可以用排除法直接移除组件，或者根据报错的组件快速定位问题，之所以能够快速定位，是因为每个组件之间低耦合，职责单一，所以逻辑会比分析整个系统要简单</li>
+<li>提高可维护性，由于每个组件的职责单一，并且组件在系统中是被复用的，所以对代码进行优化可获得系统的整体升级</li>
+</ul>
+<h3 id="指令系统"><a href="#指令系统" class="headerlink" title="#指令系统"></a><a target="_blank" rel="noopener" href="https://vue3js.cn/interview/vue/vue.html#%E6%8C%87%E4%BB%A4%E7%B3%BB%E7%BB%9F">#</a>指令系统</h3><p>解释：指令 (Directives) 是带有 v- 前缀的特殊属性作用：当表达式的值改变时，将其产生的连带影响，响应式地作用于 DOM</p>
+<ul>
+<li>常用的指令<ul>
+<li>条件渲染指令 <code>v-if</code></li>
+<li>列表渲染指令<code>v-for</code></li>
+<li>属性绑定指令<code>v-bind</code></li>
+<li>事件绑定指令<code>v-on</code></li>
+<li>双向数据绑定指令<code>v-model</code></li>
+</ul>
+</li>
+</ul>
+<p>没有指令之前我们是怎么做的？是不是先要获取到DOM然后在….干点啥</p>
+<h2 id="四、Vue跟传统开发的区别"><a href="#四、Vue跟传统开发的区别" class="headerlink" title="#四、Vue跟传统开发的区别"></a><a target="_blank" rel="noopener" href="https://vue3js.cn/interview/vue/vue.html#%E5%9B%9B%E3%80%81vue%E8%B7%9F%E4%BC%A0%E7%BB%9F%E5%BC%80%E5%8F%91%E7%9A%84%E5%8C%BA%E5%88%AB">#</a>四、Vue跟传统开发的区别</h2><h2 id=""><a href="#" class="headerlink" title=""></a></h2> 
+      <!-- reward -->
+      
+      <div id="reword-out">
+        <div id="reward-btn">
+          Donate
+        </div>
+      </div>
+      
+    </div>
+    
+
+    <!-- copyright -->
+    
+    <div class="declare">
+      <ul class="post-copyright">
+        <li>
+          <i class="ri-copyright-line"></i>
+          <strong>Copyright： </strong>
+          
+          Copyright is owned by the author. For commercial reprints, please contact the author for authorization. For non-commercial reprints, please indicate the source.
+          
+        </li>
+      </ul>
+    </div>
+    
+    <footer class="article-footer">
+       
+<div class="share-btn">
+      <span class="share-sns share-outer">
+        <i class="ri-share-forward-line"></i>
+        分享
+      </span>
+      <div class="share-wrap">
+        <i class="arrow"></i>
+        <div class="share-icons">
+          
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="ri-weibo-fill"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="ri-wechat-fill"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="ri-qq-fill"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="ri-douban-line"></i>
+          </a>
+          <!-- <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a> -->
+          
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="ri-facebook-circle-fill"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="ri-twitter-fill"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="ri-google-fill"></i>
+          </a>
+        </div>
+      </div>
+</div>
+
+<div class="wx-share-modal">
+    <a class="modal-close" href="javascript:;"><i class="ri-close-circle-line"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//api.qrserver.com/v1/create-qr-code/?size=150x150&data=http://example.com/2022/05/25/vue-day1/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div id="share-mask"></div>  
+    </footer>
+  </div>
+
+   
+  
+   
+    
+    <script src="https://cdn.staticfile.org/twikoo/1.4.18/twikoo.all.min.js"></script>
+    <div id="twikoo" class="twikoo"></div>
+    <script>
+        twikoo.init({
+            envId: ""
+        })
+    </script>
+ 
+</article>
+
 </section>
       <footer class="footer">
   <div class="outer">
@@ -262,6 +371,22 @@
 <script src="/js/lazyload.min.js"></script>
 
 <!-- Tocbot -->
+ 
+<script src="/js/tocbot.min.js"></script>
+
+<script>
+  tocbot.init({
+    tocSelector: ".tocbot",
+    contentSelector: ".article-entry",
+    headingSelector: "h1, h2, h3, h4, h5, h6",
+    hasInnerContainers: true,
+    scrollSmooth: true,
+    scrollContainer: "main",
+    positionFixedSelector: ".tocbot",
+    positionFixedClass: "is-position-fixed",
+    fixedSidebarOffset: "auto",
+  });
+</script>
 
 <script src="https://cdn.staticfile.org/jquery-modal/0.9.2/jquery.modal.min.js"></script>
 <link
