@@ -11,7 +11,7 @@
         name="viewport"
         content="width=device-width, initial-scale=1, maximum-scale=1"
       />
-      <title> Yu&#39;s Blog</title>
+      <title>如何理解v-if和v-show |  Yu&#39;s Blog</title>
   <meta name="generator" content="hexo-theme-ayer">
       
       <link rel="shortcut icon" href="/images/90.jpg" />
@@ -60,6 +60,16 @@
   data-scroll-reveal
 >
   <div class="article-inner">
+    
+    <header class="article-header">
+       
+<h1 class="article-title sea-center" style="border-left:0" itemprop="name">
+  如何理解v-if和v-show
+</h1>
+ 
+
+      
+    </header>
      
     <div class="article-meta">
       <a href="/2022/05/26/vue%E4%B8%AD%E7%9A%84v-if%E5%92%8Cv-show/" class="article-date">
@@ -70,7 +80,7 @@
         <span class="post-meta-item-icon">
             <i class="ri-quill-pen-line"></i>
             <span class="post-meta-item-text"> 字数统计:</span>
-            <span class="post-count">471</span>
+            <span class="post-count">462</span>
         </span>
     </span>
 
@@ -94,8 +104,7 @@
   
     <div class="article-entry" itemprop="articleBody">
        
-  <hr>
-<h2 id="title-如何理解v-if和v-show"><a href="#title-如何理解v-if和v-show" class="headerlink" title="title:如何理解v-if和v-show"></a>title:如何理解v-if和v-show</h2><h2 id="一、v-show与v-if原理分析"><a href="#一、v-show与v-if原理分析" class="headerlink" title="一、v-show与v-if原理分析"></a>一、v-show与v-if原理分析</h2><h3 id="v-show原理"><a href="#v-show原理" class="headerlink" title="v-show原理"></a>v-show原理</h3><p>不管初始条件是什么，元素总是会被渲染</p>
+  <h2 id="一、v-show与v-if原理分析"><a href="#一、v-show与v-if原理分析" class="headerlink" title="一、v-show与v-if原理分析"></a>一、v-show与v-if原理分析</h2><h3 id="v-show原理"><a href="#v-show原理" class="headerlink" title="v-show原理"></a>v-show原理</h3><p>不管初始条件是什么，元素总是会被渲染</p>
 <h3 id="v-if原理"><a href="#v-if原理" class="headerlink" title="v-if原理"></a>v-if原理</h3><p><code>v-if</code>在实现上比<code>v-show</code>要复杂的多，因为还有<code>else</code> <code>else-if</code> 等条件需要处理，这里我们也只摘抄源码中处理 <code>v-if</code> 的一小部分</p>
 <p>返回一个<code>node</code>节点，<code>render</code>函数通过表达式的值来决定是否生成<code>DOM</code></p>
 <h2 id="二、v-show与v-if的区别"><a href="#二、v-show与v-if的区别" class="headerlink" title="二、v-show与v-if的区别"></a>二、v-show与v-if的区别</h2><ul>
@@ -290,7 +299,7 @@
     </li>
     
     <li class="nav-item">
-      <a class="nav-item-link" href="/">摄影</a>
+      <a class="nav-item-link" href="/photos">摄影</a>
     </li>
     
     <li class="nav-item">
@@ -569,6 +578,23 @@
 </script>
 
 
+    
+    <div id="music">
+    
+    
+    
+    <iframe frameborder="no" border="1" marginwidth="0" marginheight="0" width="200" height="52"
+        src="//music.163.com/outchain/player?type=2&id=22707008&auto=1&height=32"></iframe>
+</div>
+
+<style>
+    #music {
+        position: fixed;
+        right: 15px;
+        bottom: 0;
+        z-index: 998;
+    }
+</style>
     
     
 
