@@ -80,7 +80,7 @@
         <span class="post-meta-item-icon">
             <i class="ri-quill-pen-line"></i>
             <span class="post-meta-item-text"> 字数统计:</span>
-            <span class="post-count">375</span>
+            <span class="post-count">377</span>
         </span>
     </span>
 
@@ -113,9 +113,9 @@
 <li>开放更多底层功能</li>
 </ul>
 <p>一句话概述，就是更小更快更友好了</p>
-<p>移除一些不常用的 <code>API</code></p>
+<h3 id="更小"><a href="#更小" class="headerlink" title="更小"></a>更小</h3><p>移除一些不常用的 <code>API</code></p>
 <p>引入<code>tree-shaking</code>，可以将无用模块“剪辑”，仅打包需要的，使打包的整体体积变小了</p>
-<h3 id="更快"><a href="#更快" class="headerlink" title="#更快"></a><a target="_blank" rel="noopener" href="https://vue3js.cn/interview/vue3/goal.html#%E6%9B%B4%E5%BF%AB">#</a>更快</h3><p>主要体现在编译方面：</p>
+<h3 id="更快"><a href="#更快" class="headerlink" title="更快"></a>更快</h3><p>主要体现在编译方面：</p>
 <ul>
 <li>diff算法优化</li>
 <li>静态提升</li>
@@ -123,14 +123,14 @@
 <li>SSR优化</li>
 </ul>
 <p>下篇文章我们会进一步介绍</p>
-<h3 id="更友好"><a href="#更友好" class="headerlink" title="#更友好"></a><a target="_blank" rel="noopener" href="https://vue3js.cn/interview/vue3/goal.html#%E6%9B%B4%E5%8F%8B%E5%A5%BD">#</a>更友好</h3><p><code>vue3</code>在兼顾<code>vue2</code>的<code>options API</code>的同时还推出了<code>composition API</code>，大大增加了代码的逻辑组织和代码复用能力</p>
+<h3 id="更友好"><a href="#更友好" class="headerlink" title="更友好"></a>更友好</h3><p><code>vue3</code>在兼顾<code>vue2</code>的<code>options API</code>的同时还推出了<code>composition API</code>，大大增加了代码的逻辑组织和代码复用能力</p>
 <h2 id="二、优化方案"><a href="#二、优化方案" class="headerlink" title="二、优化方案"></a>二、优化方案</h2><p><code>vue3</code>从很多层面都做了优化，可以分成三个方面：</p>
 <ul>
 <li>源码</li>
 <li>性能</li>
 <li>语法 API</li>
 </ul>
-<h3 id="源码"><a href="#源码" class="headerlink" title="#源码"></a><a target="_blank" rel="noopener" href="https://vue3js.cn/interview/vue3/goal.html#%E6%BA%90%E7%A0%81">#</a>源码</h3><p>源码可以从两个层面展开：</p>
+<h3 id="源码"><a href="#源码" class="headerlink" title="源码"></a>源码</h3><p>源码可以从两个层面展开：</p>
 <ul>
 <li>源码管理</li>
 <li>TypeScript</li>
@@ -143,7 +143,7 @@
 </ul>
 <p><code>vue3</code>是通过<code>proxy</code>监听整个对象，那么对于删除还是监听当然也能监听到</p>
 <p>同时<code>Proxy</code> 并不能监听到内部深层次的对象变化，而 <code>Vue3</code> 的处理方式是在<code>getter</code> 中去递归响应式，这样的好处是真正访问到的内部对象才会变成响应式，而不是无脑递归</p>
-<h3 id="语法-API"><a href="#语法-API" class="headerlink" title="#语法 API"></a><a target="_blank" rel="noopener" href="https://vue3js.cn/interview/vue3/goal.html#%E8%AF%AD%E6%B3%95-api">#</a>语法 API</h3><p>这里当然说的就是<code>composition API</code>，其两大显著的优化：</p>
+<h3 id="语法-API"><a href="#语法-API" class="headerlink" title="语法 API"></a>语法 API</h3><p>这里当然说的就是<code>composition API</code>，其两大显著的优化：</p>
 <ul>
 <li>优化逻辑组织</li>
 <li>优化逻辑复用</li>
