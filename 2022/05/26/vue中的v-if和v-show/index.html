@@ -11,7 +11,7 @@
         name="viewport"
         content="width=device-width, initial-scale=1, maximum-scale=1"
       />
-      <title>归档 |  Yu&#39;s Blog</title>
+      <title>如何理解v-if和v-show |  Yu&#39;s Blog</title>
   <meta name="generator" content="hexo-theme-ayer">
       
       <link rel="shortcut icon" href="/images/90.jpg" />
@@ -52,246 +52,189 @@
       
     <main class="content on">
       <section class="outer">
-  
-  
-  <article class="articles">
+  <article
+  id="post-vue中的v-if和v-show"
+  class="article article-type-post"
+  itemscope
+  itemprop="blogPost"
+  data-scroll-reveal
+>
+  <div class="article-inner">
     
-    
-    <h1 class="page-type-title">归档</h1>
-    
-    
-  
-  
-  
-  
-  
-  
-  <div class="archives-wrap">
-    <div class="archive-year-wrap">
-      <a href="/archives/2022" class="archive-year">2022</a>
+    <header class="article-header">
+       
+<h1 class="article-title sea-center" style="border-left:0" itemprop="name">
+  如何理解v-if和v-show
+</h1>
+ 
+
+      
+    </header>
+     
+    <div class="article-meta">
+      <a href="/2022/05/26/vue%E4%B8%AD%E7%9A%84v-if%E5%92%8Cv-show/" class="article-date">
+  <time datetime="2022-05-26T08:25:23.742Z" itemprop="datePublished">2022-05-26</time>
+</a>   
+<div class="word_count">
+    <span class="post-time">
+        <span class="post-meta-item-icon">
+            <i class="ri-quill-pen-line"></i>
+            <span class="post-meta-item-text"> 字数统计:</span>
+            <span class="post-count">462</span>
+        </span>
+    </span>
+
+    <span class="post-time">
+        &nbsp; | &nbsp;
+        <span class="post-meta-item-icon">
+            <i class="ri-book-open-line"></i>
+            <span class="post-meta-item-text"> 阅读时长≈</span>
+            <span class="post-count">1 分钟</span>
+        </span>
+    </span>
+</div>
+ 
     </div>
-    <div class="archives">
       
-      <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      <a href="/2022/05/29/Plugin/" class="archive-article-date">
-  <time datetime="2022-05-29T13:09:31.725Z" itemprop="datePublished">05/29</time>
-</a>
-       
-<h2 itemprop="name">
-  <a class="archive-article-title" href="/2022/05/29/Plugin/"
-    >说说webpack中常见的Plugin？解决了什么问题？</a> 
-</h2>
- 
+    <div class="tocbot"></div>
 
-    </header>
-    
-    
-  </div>
-</article>
-      
-  
-  
-      <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      <a href="/2022/05/29/%E8%AF%B4%E8%AF%B4webpack%E4%B8%AD%E5%B8%B8%E8%A7%81%E7%9A%84Loader/" class="archive-article-date">
-  <time datetime="2022-05-29T11:46:44.836Z" itemprop="datePublished">05/29</time>
-</a>
-       
-<h2 itemprop="name">
-  <a class="archive-article-title" href="/2022/05/29/%E8%AF%B4%E8%AF%B4webpack%E4%B8%AD%E5%B8%B8%E8%A7%81%E7%9A%84Loader/"
-    >说说webpack中常见的Loader？解决了什么问题？</a> 
-</h2>
- 
 
-    </header>
-    
-    
-  </div>
-</article>
-      
-  
-  
-      <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      <a href="/2022/05/29/Webpack%E6%89%A7%E8%A1%8C%E6%B5%81%E7%A8%8B/" class="archive-article-date">
-  <time datetime="2022-05-29T11:33:35.084Z" itemprop="datePublished">05/29</time>
-</a>
-       
-<h2 itemprop="name">
-  <a class="archive-article-title" href="/2022/05/29/Webpack%E6%89%A7%E8%A1%8C%E6%B5%81%E7%A8%8B/"
-    >说说webpack的构建流程?</a> 
-</h2>
- 
 
-    </header>
-    
-    
-  </div>
-</article>
-      
-  
-  
-      <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      <a href="/2022/05/29/webpack%E7%90%86%E8%A7%A3/" class="archive-article-date">
-  <time datetime="2022-05-29T10:49:17.870Z" itemprop="datePublished">05/29</time>
-</a>
-       
-<h2 itemprop="name">
-  <a class="archive-article-title" href="/2022/05/29/webpack%E7%90%86%E8%A7%A3/"
-    >Webpack理解？解决什么问题</a> 
-</h2>
- 
 
-    </header>
-    
-    
-  </div>
-</article>
-      
   
-  
-      <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      <a href="/2022/05/28/vue%E5%92%8Creact/" class="archive-article-date">
-  <time datetime="2022-05-28T03:34:44.666Z" itemprop="datePublished">05/28</time>
-</a>
+    <div class="article-entry" itemprop="articleBody">
        
-<h2 itemprop="name">
-  <a class="archive-article-title" href="/2022/05/28/vue%E5%92%8Creact/"
-    >Vue &amp; React</a> 
-</h2>
+  <h2 id="一、v-show与v-if原理分析"><a href="#一、v-show与v-if原理分析" class="headerlink" title="一、v-show与v-if原理分析"></a>一、v-show与v-if原理分析</h2><h3 id="v-show原理"><a href="#v-show原理" class="headerlink" title="v-show原理"></a>v-show原理</h3><p>不管初始条件是什么，元素总是会被渲染</p>
+<h3 id="v-if原理"><a href="#v-if原理" class="headerlink" title="v-if原理"></a>v-if原理</h3><p><code>v-if</code>在实现上比<code>v-show</code>要复杂的多，因为还有<code>else</code> <code>else-if</code> 等条件需要处理，这里我们也只摘抄源码中处理 <code>v-if</code> 的一小部分</p>
+<p>返回一个<code>node</code>节点，<code>render</code>函数通过表达式的值来决定是否生成<code>DOM</code></p>
+<h2 id="二、v-show与v-if的区别"><a href="#二、v-show与v-if的区别" class="headerlink" title="二、v-show与v-if的区别"></a>二、v-show与v-if的区别</h2><ul>
+<li>控制手段不同</li>
+<li>编译过程不同</li>
+<li>编译条件不同</li>
+</ul>
+<p>控制手段：<code>v-show</code>隐藏则是为该元素添加<code>css--display:none</code>，<code>dom</code>元素依旧还在。<code>v-if</code>显示隐藏是将<code>dom</code>元素整个添加或删除</p>
+<p>编译过程：<code>v-if</code>切换有一个局部编译&#x2F;卸载的过程，切换过程中合适地销毁和重建内部的事件监听和子组件；<code>v-show</code>只是简单的基于css切换</p>
+<p>编译条件：<code>v-if</code>是真正的条件渲染，它会确保在切换过程中条件块内的事件监听器和子组件适当地被销毁和重建。只有渲染条件为假时，并不做操作，直到为真才渲染</p>
+<ul>
+<li><code>v-show</code> 由<code>false</code>变为<code>true</code>的时候不会触发组件的生命周期</li>
+<li><code>v-if</code>由<code>false</code>变为<code>true</code>的时候，触发组件的<code>beforeCreate</code>、<code>create</code>、<code>beforeMount</code>、<code>mounted</code>钩子，由<code>true</code>变为<code>false</code>的时候触发组件的<code>beforeDestory</code>、<code>destoryed</code>方法</li>
+</ul>
+<p>性能消耗：<code>v-if</code>有更高的切换消耗；<code>v-show</code>有更高的初始渲染消耗</p>
+<h2 id="三、v-show与v-if的使用场景"><a href="#三、v-show与v-if的使用场景" class="headerlink" title="三、v-show与v-if的使用场景"></a>三、v-show与v-if的使用场景</h2><p><code>v-if</code> 与 <code>v-show</code> 都能控制<code>dom</code>元素在页面的显示</p>
+<p><code>v-if</code> 相比 <code>v-show</code> 开销更大的（直接操作<code>dom</code>节点增加与删除）</p>
+<p>如果需要非常频繁地切换，则使用 v-show 较好</p>
+<p>如果在运行时条件很少改变，则使用 v-if 较好</p>
  
-
-    </header>
-    
-    
-  </div>
-</article>
+      <!-- reward -->
       
-  
-  
-      <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      <a href="/2022/05/27/Treeshaking/" class="archive-article-date">
-  <time datetime="2022-05-27T12:41:27.362Z" itemprop="datePublished">05/27</time>
-</a>
-       
-<h2 itemprop="name">
-  <a class="archive-article-title" href="/2022/05/27/Treeshaking/"
-    >说说Vue 3.0中Treeshaking特性？举例说明一下？</a> 
-</h2>
- 
-
-    </header>
-    
-    
-  </div>
-</article>
-      
-  
-  
-      <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      <a href="/2022/05/27/defineProperty%E5%92%8Cproxy%20/" class="archive-article-date">
-  <time datetime="2022-05-27T12:30:29.130Z" itemprop="datePublished">05/27</time>
-</a>
-       
-<h2 itemprop="name">
-  <a class="archive-article-title" href="/2022/05/27/defineProperty%E5%92%8Cproxy%20/"
-    >Vue3.0里为什么要用 Proxy API 替代 defineProperty API ？</a> 
-</h2>
- 
-
-    </header>
-    
-    
-  </div>
-</article>
-      
-  
-  
-      <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      <a href="/2022/05/27/Vue3%E6%80%A7%E8%83%BD%E6%8F%90%E5%8D%87/" class="archive-article-date">
-  <time datetime="2022-05-26T23:54:22.148Z" itemprop="datePublished">05/27</time>
-</a>
-       
-<h2 itemprop="name">
-  <a class="archive-article-title" href="/2022/05/27/Vue3%E6%80%A7%E8%83%BD%E6%8F%90%E5%8D%87/"
-    >Vue3性能提升</a> 
-</h2>
- 
-
-    </header>
-    
-    
-  </div>
-</article>
-      
-  
-  
-      <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      <a href="/2022/05/27/Vue3/" class="archive-article-date">
-  <time datetime="2022-05-26T23:31:53.295Z" itemprop="datePublished">05/27</time>
-</a>
-       
-<h2 itemprop="name">
-  <a class="archive-article-title" href="/2022/05/27/Vue3/"
-    >Vue3</a> 
-</h2>
- 
-
-    </header>
-    
-    
-  </div>
-</article>
-      
-  
-  
-      <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      <a href="/2022/05/26/vue%E4%B8%AD%E7%9A%84v-if%E5%92%8Cv-show/" class="archive-article-date">
-  <time datetime="2022-05-26T08:25:23.742Z" itemprop="datePublished">05/26</time>
-</a>
-       
-<h2 itemprop="name">
-  <a class="archive-article-title" href="/2022/05/26/vue%E4%B8%AD%E7%9A%84v-if%E5%92%8Cv-show/"
-    >如何理解v-if和v-show</a> 
-</h2>
- 
-
-    </header>
-    
-    
-  </div>
-</article>
-      
+      <div id="reword-out">
+        <div id="reward-btn">
+          打赏
+        </div>
+      </div>
       
     </div>
-  </div>
-  
-  
-
-  
-  <nav class="page-nav">
     
-    <span class="page-number current">1</span><a class="page-number" href="/archives/page/2/">2</a><a class="extend next" rel="next" href="/archives/page/2/">下一页</a>
+
+    <!-- copyright -->
+    
+    <div class="declare">
+      <ul class="post-copyright">
+        <li>
+          <i class="ri-copyright-line"></i>
+          <strong>版权声明： </strong>
+          
+          本博客所有文章除特别声明外，著作权归作者所有。转载请注明出处！
+          
+        </li>
+      </ul>
+    </div>
+    
+    <footer class="article-footer">
+       
+<div class="share-btn">
+      <span class="share-sns share-outer">
+        <i class="ri-share-forward-line"></i>
+        分享
+      </span>
+      <div class="share-wrap">
+        <i class="arrow"></i>
+        <div class="share-icons">
+          
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="ri-weibo-fill"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="ri-wechat-fill"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="ri-qq-fill"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="ri-douban-line"></i>
+          </a>
+          <!-- <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a> -->
+          
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="ri-facebook-circle-fill"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="ri-twitter-fill"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="ri-google-fill"></i>
+          </a>
+        </div>
+      </div>
+</div>
+
+<div class="wx-share-modal">
+    <a class="modal-close" href="javascript:;"><i class="ri-close-circle-line"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//api.qrserver.com/v1/create-qr-code/?size=150x150&data=http://example.com/2022/05/26/vue%E4%B8%AD%E7%9A%84v-if%E5%92%8Cv-show/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div id="share-mask"></div>  
+    </footer>
+  </div>
+
+   
+  <nav class="article-nav">
+    
+      <a href="/2022/05/27/Vue3/" class="article-nav-link">
+        <strong class="article-nav-caption">上一篇</strong>
+        <div class="article-nav-title">
+          
+            Vue3
+          
+        </div>
+      </a>
+    
+    
+      <a href="/2022/05/26/%E6%9C%89%E5%85%B3SPA/" class="article-nav-link">
+        <strong class="article-nav-caption">下一篇</strong>
+        <div class="article-nav-title">有关SPA</div>
+      </a>
+    
   </nav>
+
   
+   
+    
+    <script src="https://cdn.staticfile.org/twikoo/1.4.18/twikoo.all.min.js"></script>
+    <div id="twikoo" class="twikoo"></div>
+    <script>
+        twikoo.init({
+            envId: ""
+        })
+    </script>
+ 
+</article>
+
 </section>
       <footer class="footer">
   <div class="outer">
@@ -428,6 +371,22 @@
 <script src="/js/lazyload.min.js"></script>
 
 <!-- Tocbot -->
+ 
+<script src="/js/tocbot.min.js"></script>
+
+<script>
+  tocbot.init({
+    tocSelector: ".tocbot",
+    contentSelector: ".article-entry",
+    headingSelector: "h1, h2, h3, h4, h5, h6",
+    hasInnerContainers: true,
+    scrollSmooth: true,
+    scrollContainer: "main",
+    positionFixedSelector: ".tocbot",
+    positionFixedClass: "is-position-fixed",
+    fixedSidebarOffset: "auto",
+  });
+</script>
 
 <script src="https://cdn.staticfile.org/jquery-modal/0.9.2/jquery.modal.min.js"></script>
 <link
