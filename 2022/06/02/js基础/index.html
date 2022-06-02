@@ -11,7 +11,7 @@
         name="viewport"
         content="width=device-width, initial-scale=1, maximum-scale=1"
       />
-      <title>说说webpack中常见的Plugin？解决了什么问题？ |  Yu&#39;s Blog</title>
+      <title>有关js基础的分享（五） |  Yu&#39;s Blog</title>
   <meta name="generator" content="hexo-theme-ayer">
       
       <link rel="shortcut icon" href="/images/90.jpg" />
@@ -53,7 +53,7 @@
     <main class="content on">
       <section class="outer">
   <article
-  id="post-Plugin"
+  id="post-js基础"
   class="article article-type-post"
   itemscope
   itemprop="blogPost"
@@ -64,7 +64,7 @@
     <header class="article-header">
        
 <h1 class="article-title sea-center" style="border-left:0" itemprop="name">
-  说说webpack中常见的Plugin？解决了什么问题？
+  有关js基础的分享（五）
 </h1>
  
 
@@ -72,15 +72,15 @@
     </header>
      
     <div class="article-meta">
-      <a href="/2022/05/29/Plugin/" class="article-date">
-  <time datetime="2022-05-29T13:09:31.725Z" itemprop="datePublished">2022-05-29</time>
+      <a href="/2022/06/02/js%E5%9F%BA%E7%A1%80/" class="article-date">
+  <time datetime="2022-06-02T06:20:00.042Z" itemprop="datePublished">2022-06-02</time>
 </a>   
 <div class="word_count">
     <span class="post-time">
         <span class="post-meta-item-icon">
             <i class="ri-quill-pen-line"></i>
             <span class="post-meta-item-text"> 字数统计:</span>
-            <span class="post-count">433</span>
+            <span class="post-count">1.7k</span>
         </span>
     </span>
 
@@ -89,7 +89,7 @@
         <span class="post-meta-item-icon">
             <i class="ri-book-open-line"></i>
             <span class="post-meta-item-text"> 阅读时长≈</span>
-            <span class="post-count">1 分钟</span>
+            <span class="post-count">6 分钟</span>
         </span>
     </span>
 </div>
@@ -104,28 +104,128 @@
   
     <div class="article-entry" itemprop="articleBody">
        
-  <h2 id="一、是什么"><a href="#一、是什么" class="headerlink" title="一、是什么"></a>一、是什么</h2><p><code>Plugin</code>（Plug-in）是一种计算机应用程序，它和主应用程序互相交互，以提供特定的功能</p>
-<p>是一种遵循一定规范的应用程序接口编写出来的程序，只能运行在程序规定的系统下，因为其需要调用原纯净系统提供的函数库或者数据</p>
-<p><code>webpack</code>中的<code>plugin</code>也是如此，<code>plugin</code>赋予其各种灵活的功能，例如打包优化、资源管理、环境变量注入等，它们会运行在 <code>webpack</code> 的不同阶段（钩子 &#x2F; 生命周期），贯穿了<code>webpack</code>整个编译周期</p>
-<p><img src="https://static.vue-js.com/9a04ec40-a7c2-11eb-ab90-d9ae814b240d.png" alt="img"></p>
-<p>目的在于解决<code>loader</code> 无法实现的其他事</p>
-<h3 id="配置方式"><a href="#配置方式" class="headerlink" title="#配置方式"></a><a target="_blank" rel="noopener" href="https://vue3js.cn/interview/webpack/Plugin.html#%E9%85%8D%E7%BD%AE%E6%96%B9%E5%BC%8F">#</a>配置方式</h3><p>这里讲述文件的配置方式，一般情况，通过配置文件导出对象中<code>plugins</code>属性传入<code>new</code>实例对象。如下所示：</p>
-<pre><code class="js">const HtmlWebpackPlugin = require(&#39;html-webpack-plugin&#39;); // 通过 npm 安装
-const webpack = require(&#39;webpack&#39;); // 访问内置的插件
-module.exports = &#123;
-  ...
-  plugins: [
-    new webpack.ProgressPlugin(),
-    new HtmlWebpackPlugin(&#123; template: &#39;./src/index.html&#39; &#125;),
-  ],
-&#125;;
-</code></pre>
-<h2 id="二、特性"><a href="#二、特性" class="headerlink" title="#二、特性"></a><a target="_blank" rel="noopener" href="https://vue3js.cn/interview/webpack/Plugin.html#%E4%BA%8C%E3%80%81%E7%89%B9%E6%80%A7">#</a>二、特性</h2><p>其本质是一个具有<code>apply</code>方法<code>javascript</code>对象</p>
-<p><code>apply</code> 方法会被 <code>webpack compiler</code>调用，并且在整个编译生命周期都可以访问 <code>compiler</code>对象</p>
-<h2 id="三、常见的Plugin"><a href="#三、常见的Plugin" class="headerlink" title="三、常见的Plugin"></a>三、常见的Plugin</h2><h3 id="HtmlWebpackPlugin"><a href="#HtmlWebpackPlugin" class="headerlink" title="HtmlWebpackPlugin"></a>HtmlWebpackPlugin</h3><p>在打包结束后，⾃动生成⼀个 <code>html</code> ⽂文件，并把打包生成的<code>js</code> 模块引⼊到该 <code>html</code> 中</p>
-<h3 id="clean-webpack-plugin"><a href="#clean-webpack-plugin" class="headerlink" title="clean-webpack-plugin"></a>clean-webpack-plugin</h3><p>删除（清理）构建目录</p>
-<h3 id="DefinePlugin"><a href="#DefinePlugin" class="headerlink" title="DefinePlugin"></a>DefinePlugin</h3><p>允许在编译时创建配置的全局对象，是一个<code>webpack</code>内置的插件，不需要安装</p>
-<h3 id="copy-webpack-plugin"><a href="#copy-webpack-plugin" class="headerlink" title="copy-webpack-plugin"></a>copy-webpack-plugin</h3><p>复制文件或目录到执行区域，如<code>vue</code>的打包过程中，如果我们将一些文件放到<code>public</code>的目录下，那么这个目录会被复制到<code>dist</code>文件夹中</p>
+  <h3 id="执行上下文"><a href="#执行上下文" class="headerlink" title="执行上下文"></a>执行上下文</h3><p><strong>它包含三个部分:</strong></p>
+<ul>
+<li>变量对象(<code>VO</code>)</li>
+<li>作用域链(词法作用域)</li>
+<li><code>this</code>指向</li>
+</ul>
+<p><strong>它的类型:</strong></p>
+<ul>
+<li>全局执行上下文</li>
+<li>函数执行上下文</li>
+<li><code>eval</code>执行上下文</li>
+</ul>
+<p><strong>代码执行过程:</strong></p>
+<ul>
+<li>创建 全局上下文 (<code>global EC</code>)</li>
+<li>全局执行上下文 (<code>caller</code>) 逐行 自上而下 执行。遇到函数时，函数执行上下文 (<code>callee</code>) 被<code>push</code>到执行栈顶层</li>
+<li>函数执行上下文被激活，成为 <code>active EC</code>, 开始执行函数中的代码，<code>caller</code> 被挂起</li>
+<li>函数执行完后，<code>callee</code> 被<code>pop</code>移除出执行栈，控制权交还全局上下文 (<code>caller</code>)，继续执行</li>
+</ul>
+<h3 id="作用域"><a href="#作用域" class="headerlink" title="作用域"></a>作用域</h3><ul>
+<li><p>作用域： 作用域是定义变量的区域，它有一套访问变量的规则，这套规则来管理浏览器引擎如何在当前作用域以及嵌套的作用域中根据变量（标识符）进行变量查找</p>
+</li>
+<li><blockquote>
+<p>作用域可以理解为变量的可访问性，总共分为三种类型，分别为：</p>
+</blockquote>
+<ul>
+<li>全局作用域</li>
+<li>函数作用域</li>
+<li>块级作用域，ES6 中的 <code>let</code>、<code>const</code> 就可以产生该作用域</li>
+</ul>
+</li>
+</ul>
+<h3 id="new的原理"><a href="#new的原理" class="headerlink" title="new的原理"></a>new的原理</h3><ol>
+<li>创建一个新对象</li>
+<li>对象连接到构造函数原型上，并绑定 <code>this</code>（this 指向新对象）</li>
+<li>执行构造函数代码（为这个新对象添加属性）</li>
+<li>返回新对象</li>
+</ol>
+<h3 id="面向对象"><a href="#面向对象" class="headerlink" title="面向对象"></a>面向对象</h3><ul>
+<li>基本思想是使用对象，类，继承，封装等基本概念来进行程序设计</li>
+<li>优点<ul>
+<li>易维护<ul>
+<li>采用面向对象思想设计的结构，可读性高，由于继承的存在，即使改变需求，那么维护也只是在局部模块，所以维护起来是非常方便和较低成本的</li>
+</ul>
+</li>
+<li>易扩展</li>
+<li>开发工作的重用性、继承性高，降低重复工作量。</li>
+<li>缩短了开发周期</li>
+</ul>
+</li>
+</ul>
+<h3 id="模块化"><a href="#模块化" class="headerlink" title="模块化"></a>模块化</h3><ul>
+<li>第一种是 CommonJS 方案，它通过 require 来引入模块，通过 module.exports 定义模块的输出接口。这种模块加载方案是服务器端的解决方案，它是以同步的方式来引入模块的，因为在服务端文件都存储在本地磁盘，所以读取非常快，所以以同步的方式加载没有问题。但如果是在浏览器端，由于模块的加载是使用网络请求，因此使用异步加载的方式更加合适。</li>
+<li>第二种是 AMD 方案，这种方案采用异步加载的方式来加载模块，模块的加载不影响后面语句的执行，所有依赖这个模块的语句都定义在一个回调函数里，等到加载完成后再执行回调函数。require.js 实现了 AMD 规范</li>
+<li>第三种是 CMD 方案，这种方案和 AMD 方案都是为了解决异步模块加载的问题，sea.js 实现了 CMD 规范。它和require.js的区别在于模块定义时对依赖的处理不同和对依赖模块的执行时机的处理不同。</li>
+<li>第四种方案是 ES6 提出的方案，使用 import 和 export 的形式来导入导出模块</li>
+</ul>
+<h3 id="事件机制"><a href="#事件机制" class="headerlink" title="事件机制"></a>事件机制</h3><p>事件流是一个事件沿着特定数据结构传播的过程。冒泡和捕获是事件流在<code>DOM</code>中两种不同的传播方法</p>
+<p><strong>事件流有三个阶段</strong></p>
+<ul>
+<li>事件捕获阶段</li>
+<li>处于目标阶段</li>
+<li>事件冒泡阶段</li>
+</ul>
+<p><strong>事件捕获</strong></p>
+<blockquote>
+<p>事件捕获（<code>event capturing</code>）：通俗的理解就是，当鼠标点击或者触发<code>dom</code>事件时，浏览器会从根节点开始由外到内进行事件传播，即点击了子元素，如果父元素通过事件捕获方式注册了对应的事件的话，会先触发父元素绑定的事件</p>
+</blockquote>
+<p><strong>事件冒泡</strong></p>
+<blockquote>
+<p>事件冒泡（dubbed bubbling）：与事件捕获恰恰相反，事件冒泡顺序是由内到外进行事件传播，直到根节点</p>
+</blockquote>
+<h3 id="Iterator迭代器"><a href="#Iterator迭代器" class="headerlink" title="Iterator迭代器"></a>Iterator迭代器</h3><p><code>Iterator</code>（迭代器）是一种接口，也可以说是一种规范。为各种不同的数据结构提供统一的访问机制.</p>
+<p><strong>Iterator 的作用有三个：</strong></p>
+<ul>
+<li>创建一个指针对象，指向当前数据结构的起始位置。</li>
+<li>第一次调用指针对象的next方法，可以将指针指向数据结构的第一个成员。</li>
+<li>第二次调用指针对象的next方法，指针就指向数据结构的第二个成员。</li>
+<li>不断调用指针对象的next方法，直到它指向数据结构的结束位置。</li>
+</ul>
+<h3 id="Generator"><a href="#Generator" class="headerlink" title="Generator"></a>Generator</h3><p><code>Generator</code> 是 <code>ES6</code>中新增的语法，和 <code>Promise</code> 一样，都可以用来异步编程。Generator函数可以说是Iterator接口的具体实现方式。Generator 最大的特点就是可以控制函数的执行。</p>
+<h3 id="This"><a href="#This" class="headerlink" title="This"></a>This</h3><ul>
+<li><p>在浏览器里，在全局范围内this 指向window对象；</p>
+</li>
+<li><p>在函数中，this永远指向最后调用他的那个对象；</p>
+</li>
+<li><p>构造函数中，this指向new出来的那个新的对象；</p>
+</li>
+<li><p><code>call、apply、bind</code>中的this被强绑定在指定的那个对象上；</p>
+</li>
+<li><p>箭头函数中this比较特殊,箭头函数this为父作用域的this，而箭头函数的this指向是静态的,声明的时候就确定了下来；</p>
+</li>
+</ul>
+<h3 id="async-x2F-await"><a href="#async-x2F-await" class="headerlink" title="async&#x2F;await"></a>async&#x2F;await</h3><blockquote>
+<p><code>Generator</code> 函数的语法糖。有更好的语义、更好的适用性、返回值是 <code>Promise</code>。</p>
+</blockquote>
+<ul>
+<li>await 相比直接使用 Promise 来说，优势在于处理 then 的调用链，能够更清晰准确的写出代码。。当然也存在一些缺点，因为 await 将异步代码改造成了同步代码，如果多个异步代码没有依赖性却使用了 await 会导致性能上的降低。</li>
+<li>一个函数如果加上 async ，那么该函数就会返回一个 Promise</li>
+</ul>
+<blockquote>
+<ul>
+<li><code>async =&gt; *</code></li>
+<li><code>await =&gt; yield</code></li>
+</ul>
+</blockquote>
+<h3 id="垃圾回收"><a href="#垃圾回收" class="headerlink" title="垃圾回收"></a>垃圾回收</h3><ul>
+<li>对于在JavaScript中的字符串，对象，数组是没有固定大小的，只有当对他们进行动态分配存储时，解释器就会分配内存来存储这些数据，当JavaScript的解释器消耗完系统中所有可用的内存时，就会造成系统崩溃。</li>
+<li>内存泄漏，在某些情况下，不再使用到的变量所占用内存没有及时释放，导致程序运行中，内存越占越大，极端情况下可以导致系统崩溃</li>
+<li>针对JavaScript的来及回收机制有以下两种方法（常用）：标记清除，引用计数</li>
+</ul>
+<h3 id="Proxy的作用"><a href="#Proxy的作用" class="headerlink" title="Proxy的作用"></a><strong>Proxy的作用</strong></h3><blockquote>
+<p>对于代理模式 <code>Proxy</code> 的作用主要体现在三个方面</p>
+</blockquote>
+<ul>
+<li>拦截和监视外部对象的访问</li>
+<li>降低函数或类的复杂度</li>
+<li>所需资源进行管理</li>
+</ul>
+<h3 id="Ajax"><a href="#Ajax" class="headerlink" title="Ajax"></a>Ajax</h3><blockquote>
+<p>它是一种异步通信的方法，通过直接由 js 脚本向服务器发起 http 通信，然后根据服务器返回的数据，更新网页的相应部分，而不用刷新整个页面的一种方法。</p>
+</blockquote>
  
       <!-- reward -->
       
@@ -196,7 +296,7 @@ module.exports = &#123;
     <a class="modal-close" href="javascript:;"><i class="ri-close-circle-line"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="//api.qrserver.com/v1/create-qr-code/?size=150x150&data=http://example.com/2022/05/29/Plugin/" alt="微信分享二维码">
+      <img src="//api.qrserver.com/v1/create-qr-code/?size=150x150&data=http://example.com/2022/06/02/js%E5%9F%BA%E7%A1%80/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -207,19 +307,19 @@ module.exports = &#123;
    
   <nav class="article-nav">
     
-      <a href="/2022/05/30/webpack%E7%83%AD%E6%9B%B4%E6%96%B0/" class="article-nav-link">
+      <a href="/2022/06/02/vue-day5/" class="article-nav-link">
         <strong class="article-nav-caption">上一篇</strong>
         <div class="article-nav-title">
           
-            说说webpack的热更新是如何做到的？原理是什么？
+            Vue常见问题
           
         </div>
       </a>
     
     
-      <a href="/2022/05/29/%E8%AF%B4%E8%AF%B4webpack%E4%B8%AD%E5%B8%B8%E8%A7%81%E7%9A%84Loader/" class="article-nav-link">
+      <a href="/2022/06/02/js-day4/" class="article-nav-link">
         <strong class="article-nav-caption">下一篇</strong>
-        <div class="article-nav-title">说说webpack中常见的Loader？解决了什么问题？</div>
+        <div class="article-nav-title">有关js基础的分享（四）</div>
       </a>
     
   </nav>
