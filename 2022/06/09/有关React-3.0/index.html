@@ -11,7 +11,7 @@
         name="viewport"
         content="width=device-width, initial-scale=1, maximum-scale=1"
       />
-      <title>归档 |  Yu&#39;s Blog</title>
+      <title>有关React-2.0 |  Yu&#39;s Blog</title>
   <meta name="generator" content="hexo-theme-ayer">
       
       <link rel="shortcut icon" href="/images/90.jpg" />
@@ -52,246 +52,181 @@
       
     <main class="content on">
       <section class="outer">
-  
-  
-  <article class="articles">
+  <article
+  id="post-有关React-3.0"
+  class="article article-type-post"
+  itemscope
+  itemprop="blogPost"
+  data-scroll-reveal
+>
+  <div class="article-inner">
     
-    
-    <h1 class="page-type-title">归档</h1>
-    
-    
-  
-  
-  
-  
-  
-  
-  <div class="archives-wrap">
-    <div class="archive-year-wrap">
-      <a href="/archives/2022" class="archive-year">2022</a>
+    <header class="article-header">
+       
+<h1 class="article-title sea-center" style="border-left:0" itemprop="name">
+  有关React-2.0
+</h1>
+ 
+
+      
+    </header>
+     
+    <div class="article-meta">
+      <a href="/2022/06/09/%E6%9C%89%E5%85%B3React-3.0/" class="article-date">
+  <time datetime="2022-06-09T02:03:19.698Z" itemprop="datePublished">2022-06-09</time>
+</a>   
+<div class="word_count">
+    <span class="post-time">
+        <span class="post-meta-item-icon">
+            <i class="ri-quill-pen-line"></i>
+            <span class="post-meta-item-text"> 字数统计:</span>
+            <span class="post-count">285</span>
+        </span>
+    </span>
+
+    <span class="post-time">
+        &nbsp; | &nbsp;
+        <span class="post-meta-item-icon">
+            <i class="ri-book-open-line"></i>
+            <span class="post-meta-item-text"> 阅读时长≈</span>
+            <span class="post-count">1 分钟</span>
+        </span>
+    </span>
+</div>
+ 
     </div>
-    <div class="archives">
       
-      <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      <a href="/2022/06/09/Redux%E4%B8%AD%E9%97%B4%E4%BB%B6/" class="archive-article-date">
-  <time datetime="2022-06-09T02:21:12.433Z" itemprop="datePublished">06/09</time>
-</a>
-       
-<h2 itemprop="name">
-  <a class="archive-article-title" href="/2022/06/09/Redux%E4%B8%AD%E9%97%B4%E4%BB%B6/"
-    >有关Redux</a> 
-</h2>
- 
+    <div class="tocbot"></div>
 
-    </header>
-    
-    
-  </div>
-</article>
-      
-  
-  
-      <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      <a href="/2022/06/09/Redux/" class="archive-article-date">
-  <time datetime="2022-06-09T02:08:25.895Z" itemprop="datePublished">06/09</time>
-</a>
-       
-<h2 itemprop="name">
-  <a class="archive-article-title" href="/2022/06/09/Redux/"
-    >有关Redux</a> 
-</h2>
- 
 
-    </header>
-    
-    
-  </div>
-</article>
-      
-  
-  
-      <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      <a href="/2022/06/09/%E6%9C%89%E5%85%B3React-3.0/" class="archive-article-date">
-  <time datetime="2022-06-09T02:03:19.698Z" itemprop="datePublished">06/09</time>
-</a>
-       
-<h2 itemprop="name">
-  <a class="archive-article-title" href="/2022/06/09/%E6%9C%89%E5%85%B3React-3.0/"
-    >有关React-2.0</a> 
-</h2>
- 
 
-    </header>
-    
-    
-  </div>
-</article>
-      
-  
-  
-      <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      <a href="/2022/06/09/%E6%9C%89%E5%85%B3React-2.0/" class="archive-article-date">
-  <time datetime="2022-06-09T01:45:48.300Z" itemprop="datePublished">06/09</time>
-</a>
-       
-<h2 itemprop="name">
-  <a class="archive-article-title" href="/2022/06/09/%E6%9C%89%E5%85%B3React-2.0/"
-    >有关React-2.0</a> 
-</h2>
- 
 
-    </header>
-    
-    
-  </div>
-</article>
-      
   
-  
-      <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      <a href="/2022/06/02/vue-day5/" class="archive-article-date">
-  <time datetime="2022-06-02T06:20:00.046Z" itemprop="datePublished">06/02</time>
-</a>
+    <div class="article-entry" itemprop="articleBody">
        
-<h2 itemprop="name">
-  <a class="archive-article-title" href="/2022/06/02/vue-day5/"
-    >Vue常见问题</a> 
-</h2>
+  <h2 id="1、-setState-是同步的还是异步的"><a href="#1、-setState-是同步的还是异步的" class="headerlink" title="1、 setState 是同步的还是异步的"></a>1、 setState 是同步的还是异步的</h2><p>有时表现出同步，有时表现出异步</p>
+<ol>
+<li>setState 只有在 React 自身的合成事件和钩子函数中是异步的，在原生事件和 setTimeout 中都是同步的</li>
+<li>setState 的异步并不是说内部由异步代码实现，其实本身执行的过程和代码都是同步的，只是合成事件和钩子函数中没法立马拿到更新后的值，形成了所谓的异步。当然可以通过 setState 的第二个参数中的 callback 拿到更新后的结果</li>
+<li>setState 的批量更新优化也是建立在异步（合成事件、钩子函数）之上的，在原生事件和 setTimeout 中不会批量更新，在异步中如果对同一个值进行多次 setState，setState 的批量更新策略会对其进行覆盖，去最后一次的执行，如果是同时 setState 多个不同的值，在更新时会对其进行合并批量更新</li>
+</ol>
+<ul>
+<li>合成事件中是异步</li>
+<li>钩子函数中的是异步</li>
+<li>原生事件中是同步</li>
+<li>setTimeout中是同步</li>
+</ul>
  
-
-    </header>
-    
-    
-  </div>
-</article>
+      <!-- reward -->
       
-  
-  
-      <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      <a href="/2022/06/02/js%E5%9F%BA%E7%A1%80/" class="archive-article-date">
-  <time datetime="2022-06-02T06:20:00.042Z" itemprop="datePublished">06/02</time>
-</a>
-       
-<h2 itemprop="name">
-  <a class="archive-article-title" href="/2022/06/02/js%E5%9F%BA%E7%A1%80/"
-    >有关js基础的分享（五）</a> 
-</h2>
- 
-
-    </header>
-    
-    
-  </div>
-</article>
-      
-  
-  
-      <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      <a href="/2022/06/02/js-day4/" class="archive-article-date">
-  <time datetime="2022-06-02T06:20:00.037Z" itemprop="datePublished">06/02</time>
-</a>
-       
-<h2 itemprop="name">
-  <a class="archive-article-title" href="/2022/06/02/js-day4/"
-    >有关js基础的分享（四）</a> 
-</h2>
- 
-
-    </header>
-    
-    
-  </div>
-</article>
-      
-  
-  
-      <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      <a href="/2022/06/02/js-day3/" class="archive-article-date">
-  <time datetime="2022-06-02T06:20:00.031Z" itemprop="datePublished">06/02</time>
-</a>
-       
-<h2 itemprop="name">
-  <a class="archive-article-title" href="/2022/06/02/js-day3/"
-    >有关js基础的分享（三）</a> 
-</h2>
- 
-
-    </header>
-    
-    
-  </div>
-</article>
-      
-  
-  
-      <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      <a href="/2022/06/02/js-day2/" class="archive-article-date">
-  <time datetime="2022-06-02T06:20:00.026Z" itemprop="datePublished">06/02</time>
-</a>
-       
-<h2 itemprop="name">
-  <a class="archive-article-title" href="/2022/06/02/js-day2/"
-    >有关js基础的分享（二）</a> 
-</h2>
- 
-
-    </header>
-    
-    
-  </div>
-</article>
-      
-  
-  
-      <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      <a href="/2022/06/02/js-day1/" class="archive-article-date">
-  <time datetime="2022-06-02T06:20:00.015Z" itemprop="datePublished">06/02</time>
-</a>
-       
-<h2 itemprop="name">
-  <a class="archive-article-title" href="/2022/06/02/js-day1/"
-    >有关js基础的分享（一）</a> 
-</h2>
- 
-
-    </header>
-    
-    
-  </div>
-</article>
-      
+      <div id="reword-out">
+        <div id="reward-btn">
+          打赏
+        </div>
+      </div>
       
     </div>
-  </div>
-  
-  
-
-  
-  <nav class="page-nav">
     
-    <span class="page-number current">1</span><a class="page-number" href="/archives/page/2/">2</a><a class="page-number" href="/archives/page/3/">3</a><a class="extend next" rel="next" href="/archives/page/2/">下一页</a>
+
+    <!-- copyright -->
+    
+    <div class="declare">
+      <ul class="post-copyright">
+        <li>
+          <i class="ri-copyright-line"></i>
+          <strong>版权声明： </strong>
+          
+          本博客所有文章除特别声明外，著作权归作者所有。转载请注明出处！
+          
+        </li>
+      </ul>
+    </div>
+    
+    <footer class="article-footer">
+       
+<div class="share-btn">
+      <span class="share-sns share-outer">
+        <i class="ri-share-forward-line"></i>
+        分享
+      </span>
+      <div class="share-wrap">
+        <i class="arrow"></i>
+        <div class="share-icons">
+          
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="ri-weibo-fill"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="ri-wechat-fill"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="ri-qq-fill"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="ri-douban-line"></i>
+          </a>
+          <!-- <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a> -->
+          
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="ri-facebook-circle-fill"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="ri-twitter-fill"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="ri-google-fill"></i>
+          </a>
+        </div>
+      </div>
+</div>
+
+<div class="wx-share-modal">
+    <a class="modal-close" href="javascript:;"><i class="ri-close-circle-line"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//api.qrserver.com/v1/create-qr-code/?size=150x150&data=http://example.com/2022/06/09/%E6%9C%89%E5%85%B3React-3.0/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div id="share-mask"></div>  
+    </footer>
+  </div>
+
+   
+  <nav class="article-nav">
+    
+      <a href="/2022/06/09/Redux/" class="article-nav-link">
+        <strong class="article-nav-caption">上一篇</strong>
+        <div class="article-nav-title">
+          
+            有关Redux
+          
+        </div>
+      </a>
+    
+    
+      <a href="/2022/06/09/%E6%9C%89%E5%85%B3React-2.0/" class="article-nav-link">
+        <strong class="article-nav-caption">下一篇</strong>
+        <div class="article-nav-title">有关React-2.0</div>
+      </a>
+    
   </nav>
+
   
+   
+    
+    <script src="https://cdn.staticfile.org/twikoo/1.4.18/twikoo.all.min.js"></script>
+    <div id="twikoo" class="twikoo"></div>
+    <script>
+        twikoo.init({
+            envId: ""
+        })
+    </script>
+ 
+</article>
+
 </section>
       <footer class="footer">
   <div class="outer">
@@ -428,6 +363,22 @@
 <script src="/js/lazyload.min.js"></script>
 
 <!-- Tocbot -->
+ 
+<script src="/js/tocbot.min.js"></script>
+
+<script>
+  tocbot.init({
+    tocSelector: ".tocbot",
+    contentSelector: ".article-entry",
+    headingSelector: "h1, h2, h3, h4, h5, h6",
+    hasInnerContainers: true,
+    scrollSmooth: true,
+    scrollContainer: "main",
+    positionFixedSelector: ".tocbot",
+    positionFixedClass: "is-position-fixed",
+    fixedSidebarOffset: "auto",
+  });
+</script>
 
 <script src="https://cdn.staticfile.org/jquery-modal/0.9.2/jquery.modal.min.js"></script>
 <link
