@@ -11,7 +11,7 @@
         name="viewport"
         content="width=device-width, initial-scale=1, maximum-scale=1"
       />
-      <title>归档 |  Yu&#39;s Blog</title>
+      <title>有关Redux |  Yu&#39;s Blog</title>
   <meta name="generator" content="hexo-theme-ayer">
       
       <link rel="shortcut icon" href="/images/90.jpg" />
@@ -52,268 +52,272 @@
       
     <main class="content on">
       <section class="outer">
-  
-  
-  <article class="articles">
+  <article
+  id="post-Redux"
+  class="article article-type-post"
+  itemscope
+  itemprop="blogPost"
+  data-scroll-reveal
+>
+  <div class="article-inner">
     
-    
-    <h1 class="page-type-title">归档</h1>
-    
-    
-  
-  
-  
-  
-  
-  
-  <div class="archives-wrap">
-    <div class="archive-year-wrap">
-      <a href="/archives/2021" class="archive-year">2021</a>
+    <header class="article-header">
+       
+<h1 class="article-title sea-center" style="border-left:0" itemprop="name">
+  有关Redux
+</h1>
+ 
+
+      
+    </header>
+     
+    <div class="article-meta">
+      <a href="/2020/01/01/Redux/" class="article-date">
+  <time datetime="2019-12-31T16:00:00.000Z" itemprop="datePublished">2020-01-01</time>
+</a>   
+<div class="word_count">
+    <span class="post-time">
+        <span class="post-meta-item-icon">
+            <i class="ri-quill-pen-line"></i>
+            <span class="post-meta-item-text"> 字数统计:</span>
+            <span class="post-count">917</span>
+        </span>
+    </span>
+
+    <span class="post-time">
+        &nbsp; | &nbsp;
+        <span class="post-meta-item-icon">
+            <i class="ri-book-open-line"></i>
+            <span class="post-meta-item-text"> 阅读时长≈</span>
+            <span class="post-count">3 分钟</span>
+        </span>
+    </span>
+</div>
+ 
     </div>
-    <div class="archives">
       
-      <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      <a href="/2021/10/26/vue-day5/" class="archive-article-date">
-  <time datetime="2021-10-26T05:00:15.000Z" itemprop="datePublished">10/26</time>
-</a>
-       
-<h2 itemprop="name">
-  <a class="archive-article-title" href="/2021/10/26/vue-day5/"
-    >Vue常见问题</a> 
-</h2>
- 
+    <div class="tocbot"></div>
 
-    </header>
-    
-    
-  </div>
-</article>
-      
-  
-  
-      <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      <a href="/2021/10/23/Vue3%E6%80%A7%E8%83%BD%E6%8F%90%E5%8D%87/" class="archive-article-date">
-  <time datetime="2021-10-23T05:00:15.000Z" itemprop="datePublished">10/23</time>
-</a>
-       
-<h2 itemprop="name">
-  <a class="archive-article-title" href="/2021/10/23/Vue3%E6%80%A7%E8%83%BD%E6%8F%90%E5%8D%87/"
-    >Vue3性能提升</a> 
-</h2>
- 
 
-    </header>
-    
-    
-  </div>
-</article>
-      
-  
-  
-      <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      <a href="/2021/10/20/Vue3/" class="archive-article-date">
-  <time datetime="2021-10-20T04:20:14.000Z" itemprop="datePublished">10/20</time>
-</a>
-       
-<h2 itemprop="name">
-  <a class="archive-article-title" href="/2021/10/20/Vue3/"
-    >Vue3</a> 
-</h2>
- 
 
-    </header>
-    
-    
-  </div>
-</article>
-      
-  
-  
-      <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      <a href="/2021/10/18/Treeshaking/" class="archive-article-date">
-  <time datetime="2021-10-18T04:31:14.000Z" itemprop="datePublished">10/18</time>
-</a>
-       
-<h2 itemprop="name">
-  <a class="archive-article-title" href="/2021/10/18/Treeshaking/"
-    >说说Vue 3.0中Treeshaking特性？举例说明一下？</a> 
-</h2>
- 
 
-    </header>
-    
-    
-  </div>
-</article>
-      
   
-  
-      <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      <a href="/2021/10/15/Plugin/" class="archive-article-date">
-  <time datetime="2021-10-15T13:50:55.000Z" itemprop="datePublished">10/15</time>
-</a>
+    <div class="article-entry" itemprop="articleBody">
        
-<h2 itemprop="name">
-  <a class="archive-article-title" href="/2021/10/15/Plugin/"
-    >说说webpack中常见的Plugin？解决了什么问题？</a> 
-</h2>
+  <h2 id="1、是什么"><a href="#1、是什么" class="headerlink" title="1、是什么"></a>1、是什么</h2><p>将所有的状态进行集中管理，当需要更新状态的时候，仅需要对这个管理集中处理，而不用去关心状态是如何分发到每一个组件内部的</p>
+<p><code>redux</code>就是一个实现上述集中管理的容器，遵循三大基本原则：</p>
+<ul>
+<li>单一数据源</li>
+<li>state 是只读的</li>
+<li>使用纯函数来执行修改</li>
+</ul>
+<p>注意的是，<code>redux</code>并不是只应用在<code>react</code>中，还与其他界面库一起使用，如<code>Vue</code></p>
+<h2 id="2、工作原理"><a href="#2、工作原理" class="headerlink" title="2、工作原理"></a>2、工作原理</h2><p><code>Redux</code>是将整个应用状态存储到一个地方上称为<code>store</code>,里面保存着一个状态树<code>store tree</code>,组件可以派发(<code>dispatch</code>)行为(<code>action</code>)给<code>store</code>,而不是直接通知其他组件，组件内部通过订阅<code>store</code>中的状态<code>state</code>来刷新自己的视图</p>
+<h2 id="3、如何使用"><a href="#3、如何使用" class="headerlink" title="3、如何使用"></a>3、如何使用</h2><ul>
+<li>createStore可以帮助创建 store</li>
+<li>store.dispatch 帮助派发 action , action 会传递给 store</li>
+<li>store.getState 这个方法可以帮助获取 store 里边所有的数据内容</li>
+<li>store.subscrible 方法订阅 store 的改变，只要 store 发生改变， store.subscrible 这个函数接收的这个回调函数就会被执行</li>
+</ul>
+<h2 id="4、你在React项目中是如何使用Redux的-项目结构是如何划分的？"><a href="#4、你在React项目中是如何使用Redux的-项目结构是如何划分的？" class="headerlink" title="4、你在React项目中是如何使用Redux的? 项目结构是如何划分的？"></a>4、你在React项目中是如何使用Redux的? 项目结构是如何划分的？</h2><p><code>redux</code>是用于数据状态管理，而<code>react</code>是一个视图层面的库</p>
+<p>如果将两者连接在一起，可以使用官方推荐<code>react-redux</code>库，其具有高效且灵活的特性</p>
+<p><code>react-redux</code>将组件分成：</p>
+<ul>
+<li>容器组件：存在逻辑处理</li>
+<li>UI 组件：只负责现显示和交互，内部不处理逻辑，状态由外部控制</li>
+</ul>
+<p>通过<code>redux</code>将整个应用状态存储到<code>store</code>中，组件可以派发<code>dispatch</code>行为<code>action</code>给<code>store</code></p>
+<p>其他组件通过订阅<code>store</code>中的状态<code>state</code>来更新自身的视图</p>
+<h2 id="如何做"><a href="#如何做" class="headerlink" title="如何做"></a>如何做</h2><p>使用<code>react-redux</code>分成了两大核心：</p>
+<ul>
+<li>Provider</li>
+<li>connection</li>
+</ul>
+<h3 id="Provider"><a href="#Provider" class="headerlink" title="Provider"></a>Provider</h3><p>在<code>redux</code>中存在一个<code>store</code>用于存储<code>state</code>，如果将这个<code>store</code>存放在顶层元素中，其他组件都被包裹在顶层元素之上</p>
+<p>那么所有的组件都能够受到<code>redux</code>的控制，都能够获取到<code>redux</code>中的数据</p>
+<p>使用方式如下：</p>
+<pre><code class="js">&lt;Provider store = &#123;store&#125;&gt;
+    &lt;App /&gt;
+&lt;Provider&gt;
+</code></pre>
+<h3 id="connection"><a href="#connection" class="headerlink" title="connection"></a>connection</h3><pre><code>connect`方法将`store`上的`getState`和 `dispatch`包装成组件的`props
+</code></pre>
+<p>导入<code>conect</code>如下：</p>
+<pre><code class="js">import &#123; connect &#125; from &quot;react-redux&quot;;
+</code></pre>
+<p>用法如下：</p>
+<pre><code class="js">connect(mapStateToProps, mapDispatchToProps)(MyComponent)
+</code></pre>
+<p>可以传递两个参数：</p>
+<ul>
+<li>mapStateToProps</li>
+<li>mapDispatchToProps</li>
+</ul>
+<h3 id="mapStateToProps"><a href="#mapStateToProps" class="headerlink" title="mapStateToProps"></a>mapStateToProps</h3><p>把<code>redux</code>中的数据映射到<code>react</code>中的<code>props</code>中去</p>
+<p>如下：</p>
+<pre><code class="jsx">const mapStateToProps = (state) =&gt; &#123;
+    return &#123;
+        // prop : state.xxx  | 意思是将state中的某个数据映射到props中
+        foo: state.bar
+    &#125;
+&#125;
+</code></pre>
+<p>组件内部就能够通过<code>props</code>获取到<code>store</code>中的数据</p>
+<pre><code class="text">class Foo extends Component &#123;
+    constructor(props)&#123;
+        super(props);
+    &#125;
+    render()&#123;
+        return(
+         // 这样子渲染的其实就是state.bar的数据了
+            &lt;div&gt;this.props.foo&lt;/div&gt;
+        )
+    &#125;
+&#125;
+Foo = connect()(Foo)
+export default Foo
+</code></pre>
+<h3 id="mapDispatchToProps"><a href="#mapDispatchToProps" class="headerlink" title="mapDispatchToProps"></a>mapDispatchToProps</h3><p>将<code>redux</code>中的<code>dispatch</code>映射到组件内部的<code>props</code>中</p>
+<pre><code class="jsx">const mapDispatchToProps = (dispatch) =&gt; &#123; // 默认传递参数就是dispatch
+  return &#123;
+    onClick: () =&gt; &#123;
+      dispatch(&#123;
+        type: &#39;increatment&#39;
+      &#125;);
+    &#125;
+  &#125;;
+&#125;
+</code></pre>
+<pre><code class="js">class Foo extends Component &#123;
+    constructor(props)&#123;
+        super(props);
+    &#125;
+    render()&#123;
+        return(
+         
+             &lt;button onClick = &#123;this.props.onClick&#125;&gt;点击increase&lt;/button&gt;
+        )
+    &#125;
+&#125;
+Foo = connect()(Foo);
+export default Foo;
+</code></pre>
+<h2 id="5、redux的缺点"><a href="#5、redux的缺点" class="headerlink" title="5、redux的缺点"></a>5、redux的缺点</h2><ul>
+<li>一个组件所需要的数据，必须由父组件传过来，而不能像<code>flux</code>中直接从<code>store</code>取。</li>
+<li>当一个组件相关数据更新时，即使父组件不需要用到这个组件，父组件还是会重新<code>render</code>，可能会有效率影响，或者需要写复杂的<code>shouldComponentUpdate</code>进行判断。</li>
+</ul>
+<h2 id="6、如何理解react-redux"><a href="#6、如何理解react-redux" class="headerlink" title="6、如何理解react-redux"></a>6、如何理解react-redux</h2><p>通过 redux 和 react context 配合使用，并借助高阶函数，实现了 react-redux</p>
  
-
-    </header>
-    
-    
-  </div>
-</article>
+      <!-- reward -->
       
-  
-  
-      <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      <a href="/2021/10/15/defineProperty%E5%92%8Cproxy2/" class="archive-article-date">
-  <time datetime="2021-10-15T13:50:55.000Z" itemprop="datePublished">10/15</time>
-</a>
-       
-<h2 itemprop="name">
-  <a class="archive-article-title" href="/2021/10/15/defineProperty%E5%92%8Cproxy2/"
-    >defineProperty和proxy?</a> 
-</h2>
- 
-
-    </header>
-    
-    
-  </div>
-</article>
-      
-  
-  
-  
-  </div>
-  </div>
-  
-  
-  <div class="archives-wrap">
-    <div class="archive-year-wrap">
-      <a href="/archives/2020" class="archive-year">2020</a>
-    </div>
-    <div class="archives">
-      
-      <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      <a href="/2020/01/05/Redux%E4%B8%AD%E9%97%B4%E4%BB%B6/" class="archive-article-date">
-  <time datetime="2020-01-04T16:00:00.000Z" itemprop="datePublished">01/05</time>
-</a>
-       
-<h2 itemprop="name">
-  <a class="archive-article-title" href="/2020/01/05/Redux%E4%B8%AD%E9%97%B4%E4%BB%B6/"
-    >Redux中间件</a> 
-</h2>
- 
-
-    </header>
-    
-    
-  </div>
-</article>
-      
-  
-  
-      <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      <a href="/2020/01/01/Redux/" class="archive-article-date">
-  <time datetime="2019-12-31T16:00:00.000Z" itemprop="datePublished">01/01</time>
-</a>
-       
-<h2 itemprop="name">
-  <a class="archive-article-title" href="/2020/01/01/Redux/"
-    >有关Redux</a> 
-</h2>
- 
-
-    </header>
-    
-    
-  </div>
-</article>
-      
-  
-  
-  
-  </div>
-  </div>
-  
-  
-  <div class="archives-wrap">
-    <div class="archive-year-wrap">
-      <a href="/archives/2019" class="archive-year">2019</a>
-    </div>
-    <div class="archives">
-      
-      <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      <a href="/2019/12/24/%E6%9C%89%E5%85%B3React-3.0/" class="archive-article-date">
-  <time datetime="2019-12-23T16:00:00.000Z" itemprop="datePublished">12/24</time>
-</a>
-       
-<h2 itemprop="name">
-  <a class="archive-article-title" href="/2019/12/24/%E6%9C%89%E5%85%B3React-3.0/"
-    >有关React-2.0</a> 
-</h2>
- 
-
-    </header>
-    
-    
-  </div>
-</article>
-      
-  
-  
-      <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      <a href="/2019/12/19/%E6%9C%89%E5%85%B3React-2.0/" class="archive-article-date">
-  <time datetime="2019-12-18T16:00:00.000Z" itemprop="datePublished">12/19</time>
-</a>
-       
-<h2 itemprop="name">
-  <a class="archive-article-title" href="/2019/12/19/%E6%9C%89%E5%85%B3React-2.0/"
-    >有关React-2.0</a> 
-</h2>
- 
-
-    </header>
-    
-    
-  </div>
-</article>
-      
+      <div id="reword-out">
+        <div id="reward-btn">
+          打赏
+        </div>
+      </div>
       
     </div>
-  </div>
-  
-  
-
-  
-  <nav class="page-nav">
     
-    <span class="page-number current">1</span><a class="page-number" href="/archives/page/2/">2</a><a class="page-number" href="/archives/page/3/">3</a><a class="extend next" rel="next" href="/archives/page/2/">下一页</a>
+
+    <!-- copyright -->
+    
+    <div class="declare">
+      <ul class="post-copyright">
+        <li>
+          <i class="ri-copyright-line"></i>
+          <strong>版权声明： </strong>
+          
+          本博客所有文章除特别声明外，著作权归作者所有。转载请注明出处！
+          
+        </li>
+      </ul>
+    </div>
+    
+    <footer class="article-footer">
+       
+<div class="share-btn">
+      <span class="share-sns share-outer">
+        <i class="ri-share-forward-line"></i>
+        分享
+      </span>
+      <div class="share-wrap">
+        <i class="arrow"></i>
+        <div class="share-icons">
+          
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="ri-weibo-fill"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="ri-wechat-fill"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="ri-qq-fill"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="ri-douban-line"></i>
+          </a>
+          <!-- <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a> -->
+          
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="ri-facebook-circle-fill"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="ri-twitter-fill"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="ri-google-fill"></i>
+          </a>
+        </div>
+      </div>
+</div>
+
+<div class="wx-share-modal">
+    <a class="modal-close" href="javascript:;"><i class="ri-close-circle-line"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//api.qrserver.com/v1/create-qr-code/?size=150x150&data=http://example.com/2020/01/01/Redux/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div id="share-mask"></div>  
+    </footer>
+  </div>
+
+   
+  <nav class="article-nav">
+    
+      <a href="/2020/01/05/Redux%E4%B8%AD%E9%97%B4%E4%BB%B6/" class="article-nav-link">
+        <strong class="article-nav-caption">上一篇</strong>
+        <div class="article-nav-title">
+          
+            Redux中间件
+          
+        </div>
+      </a>
+    
+    
+      <a href="/2019/12/24/%E6%9C%89%E5%85%B3React-3.0/" class="article-nav-link">
+        <strong class="article-nav-caption">下一篇</strong>
+        <div class="article-nav-title">有关React-2.0</div>
+      </a>
+    
   </nav>
+
   
+   
+    
+    <script src="https://cdn.staticfile.org/twikoo/1.4.18/twikoo.all.min.js"></script>
+    <div id="twikoo" class="twikoo"></div>
+    <script>
+        twikoo.init({
+            envId: ""
+        })
+    </script>
+ 
+</article>
+
 </section>
       <footer class="footer">
   <div class="outer">
@@ -450,6 +454,22 @@
 <script src="/js/lazyload.min.js"></script>
 
 <!-- Tocbot -->
+ 
+<script src="/js/tocbot.min.js"></script>
+
+<script>
+  tocbot.init({
+    tocSelector: ".tocbot",
+    contentSelector: ".article-entry",
+    headingSelector: "h1, h2, h3, h4, h5, h6",
+    hasInnerContainers: true,
+    scrollSmooth: true,
+    scrollContainer: "main",
+    positionFixedSelector: ".tocbot",
+    positionFixedClass: "is-position-fixed",
+    fixedSidebarOffset: "auto",
+  });
+</script>
 
 <script src="https://cdn.staticfile.org/jquery-modal/0.9.2/jquery.modal.min.js"></script>
 <link

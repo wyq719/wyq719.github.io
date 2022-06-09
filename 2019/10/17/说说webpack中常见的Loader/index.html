@@ -11,7 +11,7 @@
         name="viewport"
         content="width=device-width, initial-scale=1, maximum-scale=1"
       />
-      <title>归档 |  Yu&#39;s Blog</title>
+      <title>说说webpack中常见的Loader？解决了什么问题？ |  Yu&#39;s Blog</title>
   <meta name="generator" content="hexo-theme-ayer">
       
       <link rel="shortcut icon" href="/images/90.jpg" />
@@ -52,268 +52,187 @@
       
     <main class="content on">
       <section class="outer">
-  
-  
-  <article class="articles">
+  <article
+  id="post-说说webpack中常见的Loader"
+  class="article article-type-post"
+  itemscope
+  itemprop="blogPost"
+  data-scroll-reveal
+>
+  <div class="article-inner">
     
-    
-    <h1 class="page-type-title">归档</h1>
-    
-    
-  
-  
-  
-  
-  
-  
-  <div class="archives-wrap">
-    <div class="archive-year-wrap">
-      <a href="/archives/2021" class="archive-year">2021</a>
+    <header class="article-header">
+       
+<h1 class="article-title sea-center" style="border-left:0" itemprop="name">
+  说说webpack中常见的Loader？解决了什么问题？
+</h1>
+ 
+
+      
+    </header>
+     
+    <div class="article-meta">
+      <a href="/2019/10/17/%E8%AF%B4%E8%AF%B4webpack%E4%B8%AD%E5%B8%B8%E8%A7%81%E7%9A%84Loader/" class="article-date">
+  <time datetime="2019-10-17T06:20:56.000Z" itemprop="datePublished">2019-10-17</time>
+</a>   
+<div class="word_count">
+    <span class="post-time">
+        <span class="post-meta-item-icon">
+            <i class="ri-quill-pen-line"></i>
+            <span class="post-meta-item-text"> 字数统计:</span>
+            <span class="post-count">304</span>
+        </span>
+    </span>
+
+    <span class="post-time">
+        &nbsp; | &nbsp;
+        <span class="post-meta-item-icon">
+            <i class="ri-book-open-line"></i>
+            <span class="post-meta-item-text"> 阅读时长≈</span>
+            <span class="post-count">1 分钟</span>
+        </span>
+    </span>
+</div>
+ 
     </div>
-    <div class="archives">
       
-      <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      <a href="/2021/10/26/vue-day5/" class="archive-article-date">
-  <time datetime="2021-10-26T05:00:15.000Z" itemprop="datePublished">10/26</time>
-</a>
-       
-<h2 itemprop="name">
-  <a class="archive-article-title" href="/2021/10/26/vue-day5/"
-    >Vue常见问题</a> 
-</h2>
- 
+    <div class="tocbot"></div>
 
-    </header>
-    
-    
-  </div>
-</article>
-      
-  
-  
-      <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      <a href="/2021/10/23/Vue3%E6%80%A7%E8%83%BD%E6%8F%90%E5%8D%87/" class="archive-article-date">
-  <time datetime="2021-10-23T05:00:15.000Z" itemprop="datePublished">10/23</time>
-</a>
-       
-<h2 itemprop="name">
-  <a class="archive-article-title" href="/2021/10/23/Vue3%E6%80%A7%E8%83%BD%E6%8F%90%E5%8D%87/"
-    >Vue3性能提升</a> 
-</h2>
- 
 
-    </header>
-    
-    
-  </div>
-</article>
-      
-  
-  
-      <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      <a href="/2021/10/20/Vue3/" class="archive-article-date">
-  <time datetime="2021-10-20T04:20:14.000Z" itemprop="datePublished">10/20</time>
-</a>
-       
-<h2 itemprop="name">
-  <a class="archive-article-title" href="/2021/10/20/Vue3/"
-    >Vue3</a> 
-</h2>
- 
 
-    </header>
-    
-    
-  </div>
-</article>
-      
-  
-  
-      <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      <a href="/2021/10/18/Treeshaking/" class="archive-article-date">
-  <time datetime="2021-10-18T04:31:14.000Z" itemprop="datePublished">10/18</time>
-</a>
-       
-<h2 itemprop="name">
-  <a class="archive-article-title" href="/2021/10/18/Treeshaking/"
-    >说说Vue 3.0中Treeshaking特性？举例说明一下？</a> 
-</h2>
- 
 
-    </header>
-    
-    
-  </div>
-</article>
-      
   
-  
-      <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      <a href="/2021/10/15/Plugin/" class="archive-article-date">
-  <time datetime="2021-10-15T13:50:55.000Z" itemprop="datePublished">10/15</time>
-</a>
+    <div class="article-entry" itemprop="articleBody">
        
-<h2 itemprop="name">
-  <a class="archive-article-title" href="/2021/10/15/Plugin/"
-    >说说webpack中常见的Plugin？解决了什么问题？</a> 
-</h2>
+  <h2 id="一、是什么"><a href="#一、是什么" class="headerlink" title="一、是什么"></a>一、是什么</h2><p><code>loader</code> 用于对模块的”源代码”进行转换，在 <code>import</code> 或”加载”模块时预处理文件</p>
+<p><code>webpack</code>做的事情，仅仅是分析出各种模块的依赖关系，然后形成资源列表，最终打包生成到指定的文件中。</p>
+<h2 id="二、特性"><a href="#二、特性" class="headerlink" title="二、特性"></a>二、特性</h2><p>除此之外，<code>loader</code>的特性还有如下：</p>
+<ul>
+<li>loader 可以是同步的，也可以是异步的</li>
+<li>loader 运行在 Node.js 中，并且能够执行任何操作</li>
+<li>除了常见的通过 <code>package.json</code> 的 <code>main</code> 来将一个 npm 模块导出为 loader，还可以在 module.rules 中使用 <code>loader</code> 字段直接引用一个模块</li>
+<li>插件(plugin)可以为 loader 带来更多特性</li>
+<li>loader 能够产生额外的任意文件</li>
+</ul>
+<p>可以通过 loader 的预处理函数，为 JavaScript 生态系统提供更多能力。用户现在可以更加灵活地引入细粒度逻辑，例如：压缩、打包、语言翻译和更多其他特性</p>
+<h2 id="三、常见的loader"><a href="#三、常见的loader" class="headerlink" title="#三、常见的loader"></a><a target="_blank" rel="noopener" href="https://vue3js.cn/interview/webpack/Loader.html#%E4%B8%89%E3%80%81%E5%B8%B8%E8%A7%81%E7%9A%84loader">#</a>三、常见的loader</h2><ul>
+<li>style-loader: 将css添加到DOM的内联样式标签style里</li>
+<li>css-loader :允许将css文件通过require的方式引入，并返回css代码</li>
+<li>less-loader: 处理less</li>
+<li>sass-loader: 处理sass</li>
+<li>babel-loader :用babel来转换ES6文件到ES</li>
+</ul>
  
-
-    </header>
-    
-    
-  </div>
-</article>
+      <!-- reward -->
       
-  
-  
-      <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      <a href="/2021/10/15/defineProperty%E5%92%8Cproxy2/" class="archive-article-date">
-  <time datetime="2021-10-15T13:50:55.000Z" itemprop="datePublished">10/15</time>
-</a>
-       
-<h2 itemprop="name">
-  <a class="archive-article-title" href="/2021/10/15/defineProperty%E5%92%8Cproxy2/"
-    >defineProperty和proxy?</a> 
-</h2>
- 
-
-    </header>
-    
-    
-  </div>
-</article>
-      
-  
-  
-  
-  </div>
-  </div>
-  
-  
-  <div class="archives-wrap">
-    <div class="archive-year-wrap">
-      <a href="/archives/2020" class="archive-year">2020</a>
-    </div>
-    <div class="archives">
-      
-      <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      <a href="/2020/01/05/Redux%E4%B8%AD%E9%97%B4%E4%BB%B6/" class="archive-article-date">
-  <time datetime="2020-01-04T16:00:00.000Z" itemprop="datePublished">01/05</time>
-</a>
-       
-<h2 itemprop="name">
-  <a class="archive-article-title" href="/2020/01/05/Redux%E4%B8%AD%E9%97%B4%E4%BB%B6/"
-    >Redux中间件</a> 
-</h2>
- 
-
-    </header>
-    
-    
-  </div>
-</article>
-      
-  
-  
-      <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      <a href="/2020/01/01/Redux/" class="archive-article-date">
-  <time datetime="2019-12-31T16:00:00.000Z" itemprop="datePublished">01/01</time>
-</a>
-       
-<h2 itemprop="name">
-  <a class="archive-article-title" href="/2020/01/01/Redux/"
-    >有关Redux</a> 
-</h2>
- 
-
-    </header>
-    
-    
-  </div>
-</article>
-      
-  
-  
-  
-  </div>
-  </div>
-  
-  
-  <div class="archives-wrap">
-    <div class="archive-year-wrap">
-      <a href="/archives/2019" class="archive-year">2019</a>
-    </div>
-    <div class="archives">
-      
-      <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      <a href="/2019/12/24/%E6%9C%89%E5%85%B3React-3.0/" class="archive-article-date">
-  <time datetime="2019-12-23T16:00:00.000Z" itemprop="datePublished">12/24</time>
-</a>
-       
-<h2 itemprop="name">
-  <a class="archive-article-title" href="/2019/12/24/%E6%9C%89%E5%85%B3React-3.0/"
-    >有关React-2.0</a> 
-</h2>
- 
-
-    </header>
-    
-    
-  </div>
-</article>
-      
-  
-  
-      <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      <a href="/2019/12/19/%E6%9C%89%E5%85%B3React-2.0/" class="archive-article-date">
-  <time datetime="2019-12-18T16:00:00.000Z" itemprop="datePublished">12/19</time>
-</a>
-       
-<h2 itemprop="name">
-  <a class="archive-article-title" href="/2019/12/19/%E6%9C%89%E5%85%B3React-2.0/"
-    >有关React-2.0</a> 
-</h2>
- 
-
-    </header>
-    
-    
-  </div>
-</article>
-      
+      <div id="reword-out">
+        <div id="reward-btn">
+          打赏
+        </div>
+      </div>
       
     </div>
-  </div>
-  
-  
-
-  
-  <nav class="page-nav">
     
-    <span class="page-number current">1</span><a class="page-number" href="/archives/page/2/">2</a><a class="page-number" href="/archives/page/3/">3</a><a class="extend next" rel="next" href="/archives/page/2/">下一页</a>
+
+    <!-- copyright -->
+    
+    <div class="declare">
+      <ul class="post-copyright">
+        <li>
+          <i class="ri-copyright-line"></i>
+          <strong>版权声明： </strong>
+          
+          本博客所有文章除特别声明外，著作权归作者所有。转载请注明出处！
+          
+        </li>
+      </ul>
+    </div>
+    
+    <footer class="article-footer">
+       
+<div class="share-btn">
+      <span class="share-sns share-outer">
+        <i class="ri-share-forward-line"></i>
+        分享
+      </span>
+      <div class="share-wrap">
+        <i class="arrow"></i>
+        <div class="share-icons">
+          
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="ri-weibo-fill"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="ri-wechat-fill"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="ri-qq-fill"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="ri-douban-line"></i>
+          </a>
+          <!-- <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a> -->
+          
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="ri-facebook-circle-fill"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="ri-twitter-fill"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="ri-google-fill"></i>
+          </a>
+        </div>
+      </div>
+</div>
+
+<div class="wx-share-modal">
+    <a class="modal-close" href="javascript:;"><i class="ri-close-circle-line"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//api.qrserver.com/v1/create-qr-code/?size=150x150&data=http://example.com/2019/10/17/%E8%AF%B4%E8%AF%B4webpack%E4%B8%AD%E5%B8%B8%E8%A7%81%E7%9A%84Loader/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div id="share-mask"></div>  
+    </footer>
+  </div>
+
+   
+  <nav class="article-nav">
+    
+      <a href="/2019/10/25/vue%E5%92%8Creact/" class="article-nav-link">
+        <strong class="article-nav-caption">上一篇</strong>
+        <div class="article-nav-title">
+          
+            Vue &amp; React
+          
+        </div>
+      </a>
+    
+    
+      <a href="/2019/10/15/Webpack%E6%89%A7%E8%A1%8C%E6%B5%81%E7%A8%8B/" class="article-nav-link">
+        <strong class="article-nav-caption">下一篇</strong>
+        <div class="article-nav-title">说说webpack的构建流程?</div>
+      </a>
+    
   </nav>
+
   
+   
+    
+    <script src="https://cdn.staticfile.org/twikoo/1.4.18/twikoo.all.min.js"></script>
+    <div id="twikoo" class="twikoo"></div>
+    <script>
+        twikoo.init({
+            envId: ""
+        })
+    </script>
+ 
+</article>
+
 </section>
       <footer class="footer">
   <div class="outer">
@@ -450,6 +369,22 @@
 <script src="/js/lazyload.min.js"></script>
 
 <!-- Tocbot -->
+ 
+<script src="/js/tocbot.min.js"></script>
+
+<script>
+  tocbot.init({
+    tocSelector: ".tocbot",
+    contentSelector: ".article-entry",
+    headingSelector: "h1, h2, h3, h4, h5, h6",
+    hasInnerContainers: true,
+    scrollSmooth: true,
+    scrollContainer: "main",
+    positionFixedSelector: ".tocbot",
+    positionFixedClass: "is-position-fixed",
+    fixedSidebarOffset: "auto",
+  });
+</script>
 
 <script src="https://cdn.staticfile.org/jquery-modal/0.9.2/jquery.modal.min.js"></script>
 <link
