@@ -11,7 +11,7 @@
         name="viewport"
         content="width=device-width, initial-scale=1, maximum-scale=1"
       />
-      <title>Python 排序算法 |  Yu&#39;s Blog</title>
+      <title>Python继承和多态 |  Yu&#39;s Blog</title>
   <meta name="generator" content="hexo-theme-ayer">
       
       <link rel="shortcut icon" href="/images/90.jpg" />
@@ -53,7 +53,7 @@
     <main class="content on">
       <section class="outer">
   <article
-  id="post-4. sort"
+  id="post-4. 继承和多态"
   class="article article-type-post"
   itemscope
   itemprop="blogPost"
@@ -64,7 +64,7 @@
     <header class="article-header">
        
 <h1 class="article-title sea-center" style="border-left:0" itemprop="name">
-  Python 排序算法
+  Python继承和多态
 </h1>
  
 
@@ -72,15 +72,15 @@
     </header>
      
     <div class="article-meta">
-      <a href="/2020/04/10/4.%20sort/" class="article-date">
-  <time datetime="2020-04-09T16:00:00.000Z" itemprop="datePublished">2020-04-10</time>
+      <a href="/2020/04/11/4.%20%E7%BB%A7%E6%89%BF%E5%92%8C%E5%A4%9A%E6%80%81/" class="article-date">
+  <time datetime="2020-04-10T16:00:00.000Z" itemprop="datePublished">2020-04-11</time>
 </a>   
 <div class="word_count">
     <span class="post-time">
         <span class="post-meta-item-icon">
             <i class="ri-quill-pen-line"></i>
             <span class="post-meta-item-text"> 字数统计:</span>
-            <span class="post-count">673</span>
+            <span class="post-count">1.7k</span>
         </span>
     </span>
 
@@ -89,7 +89,7 @@
         <span class="post-meta-item-icon">
             <i class="ri-book-open-line"></i>
             <span class="post-meta-item-text"> 阅读时长≈</span>
-            <span class="post-count">2 分钟</span>
+            <span class="post-count">6 分钟</span>
         </span>
     </span>
 </div>
@@ -104,41 +104,147 @@
   
     <div class="article-entry" itemprop="articleBody">
        
-  <h3 id="排序算法"><a href="#排序算法" class="headerlink" title="排序算法"></a>排序算法</h3><p>排序也是在程序中经常用到的算法。无论使用冒泡排序还是快速排序，排序的核心是比较两个元素的大小。如果是数字，我们可以直接比较，但如果是字符串或者两个dict呢？直接比较数学上的大小是没有意义的，因此，比较的过程必须通过函数抽象出来。</p>
-<p>Python内置的<code>sorted()</code>函数就可以对list进行排序：</p>
-<pre><code class="python">&gt;&gt;&gt; sorted([36, 5, -12, 9, -21])
-[-21, -12, 5, 9, 36]
+  <h4 id="继承和多态"><a href="#继承和多态" class="headerlink" title="继承和多态"></a>继承和多态</h4><hr>
+<p>在OOP程序设计中，当我们定义一个class的时候，可以从某个现有的class继承，新的class称为子类（Subclass），而被继承的class称为基类、父类或超类（Base class、Super class）。</p>
+<p>比如，我们已经编写了一个名为<code>Animal</code>的class，有一个<code>run()</code>方法可以直接打印：</p>
+<pre><code class="python">class Animal(object):
+    def run(self):
+        print(&#39;Animal is running...&#39;)
 </code></pre>
-<p>此外，<code>sorted()</code>函数也是一个高阶函数，它还可以接收一个<code>key</code>函数来实现自定义的排序，例如按绝对值大小排序：</p>
-<pre><code class="python">&gt;&gt;&gt; sorted([36, 5, -12, 9, -21], key=abs)
-[5, 9, -12, -21, 36]
-</code></pre>
-<p>key指定的函数将作用于list的每一个元素上，并根据key函数返回的结果进行排序。对比原始的list和经过<code>key=abs</code>处理过的list：</p>
-<pre><code class="python">list = [36, 5, -12, 9, -21]
+<p>当我们需要编写<code>Dog</code>和<code>Cat</code>类时，就可以直接从<code>Animal</code>类继承：</p>
+<pre><code class="python">class Dog(Animal):
+    pass
 
-keys = [36, 5,  12, 9,  21]
+class Cat(Animal):
+    pass
 </code></pre>
-<p>然后<code>sorted()</code>函数按照keys进行排序，并按照对应关系返回list相应的元素：</p>
-<pre><code class="ascii">keys排序结果 =&gt; [5, 9,  12,  21, 36]
-                |  |    |    |   |
-最终结果     =&gt; [5, 9, -12, -21, 36]
+<p>对于<code>Dog</code>来说，<code>Animal</code>就是它的父类，对于<code>Animal</code>来说，<code>Dog</code>就是它的子类。<code>Cat</code>和<code>Dog</code>类似。</p>
+<p>继承有什么好处？最大的好处是子类获得了父类的全部功能。由于<code>Animial</code>实现了<code>run()</code>方法，因此，<code>Dog</code>和<code>Cat</code>作为它的子类，什么事也没干，就自动拥有了<code>run()</code>方法：</p>
+<pre><code class="python">dog = Dog()
+dog.run()
+
+cat = Cat()
+cat.run()
 </code></pre>
-<p>我们再看一个字符串排序的例子：</p>
-<pre><code class="python">&gt;&gt;&gt; sorted([&#39;bob&#39;, &#39;about&#39;, &#39;Zoo&#39;, &#39;Credit&#39;])
-[&#39;Credit&#39;, &#39;Zoo&#39;, &#39;about&#39;, &#39;bob&#39;]
+<p>运行结果如下：</p>
+<pre><code class="python">Animal is running...
+Animal is running...
 </code></pre>
-<p>默认情况下，对字符串排序，是按照ASCII的大小比较的，由于<code>&#39;Z&#39; &lt; &#39;a&#39;</code>，结果，大写字母<code>Z</code>会排在小写字母<code>a</code>的前面。</p>
-<p>现在，我们提出排序应该忽略大小写，按照字母序排序。要实现这个算法，不必对现有代码大加改动，只要我们能用一个key函数把字符串映射为忽略大小写排序即可。忽略大小写来比较两个字符串，实际上就是先把字符串都变成大写（或者都变成小写），再比较。</p>
-<p>这样，我们给<code>sorted</code>传入key函数，即可实现忽略大小写的排序：</p>
-<pre><code class="python">&gt;&gt;&gt; sorted([&#39;bob&#39;, &#39;about&#39;, &#39;Zoo&#39;, &#39;Credit&#39;], key=str.lower)
-[&#39;about&#39;, &#39;bob&#39;, &#39;Credit&#39;, &#39;Zoo&#39;]
+<p>当然，也可以对子类增加一些方法，比如Dog类：</p>
+<pre><code class="python">class Dog(Animal):
+
+    def run(self):
+        print(&#39;Dog is running...&#39;)
+
+    def eat(self):
+        print(&#39;Eating meat...&#39;)
 </code></pre>
-<p>要进行反向排序，不必改动key函数，可以传入第三个参数<code>reverse=True</code>：</p>
-<pre><code class="python">&gt;&gt;&gt; sorted([&#39;bob&#39;, &#39;about&#39;, &#39;Zoo&#39;, &#39;Credit&#39;], key=str.lower, reverse=True)
-[&#39;Zoo&#39;, &#39;Credit&#39;, &#39;bob&#39;, &#39;about&#39;]
+<p>继承的第二个好处需要我们对代码做一点改进。你看到了，无论是<code>Dog</code>还是<code>Cat</code>，它们<code>run()</code>的时候，显示的都是<code>Animal is running...</code>，符合逻辑的做法是分别显示<code>Dog is running...</code>和<code>Cat is running...</code>，因此，对<code>Dog</code>和<code>Cat</code>类改进如下：</p>
+<pre><code class="python">class Dog(Animal):
+
+    def run(self):
+        print(&#39;Dog is running...&#39;)
+
+class Cat(Animal):
+
+    def run(self):
+        print(&#39;Cat is running...&#39;)
 </code></pre>
-<p>从上述例子可以看出，高阶函数的抽象能力是非常强大的，而且，核心代码可以保持得非常简洁。</p>
-<h3 id="小结"><a href="#小结" class="headerlink" title="小结"></a>小结</h3><p><code>sorted()</code>也是一个高阶函数。用<code>sorted()</code>排序的关键在于实现一个映射函数。</p>
+<p>再次运行，结果如下：</p>
+<pre><code class="python">Dog is running...
+Cat is running...
+</code></pre>
+<p>当子类和父类都存在相同的<code>run()</code>方法时，我们说，子类的<code>run()</code>覆盖了父类的<code>run()</code>，在代码运行的时候，总是会调用子类的<code>run()</code>。这样，我们就获得了继承的另一个好处：<strong>多态</strong>。</p>
+<p>要理解什么是多态，我们首先要对数据类型再作一点说明。<strong>当我们定义一个class的时候，我们实际上就定义了一种数据类型</strong>。我们定义的数据类型和Python自带的数据类型，比如str、list、dict没什么两样：</p>
+<pre><code class="python">a = list() # a是list类型
+b = Animal() # b是Animal类型
+c = Dog() # c是Dog类型
+</code></pre>
+<p>判断一个变量是否是某个类型可以用<code>isinstance()</code>判断：</p>
+<pre><code class="python">&gt;&gt;&gt; isinstance(a, list)
+True
+&gt;&gt;&gt; isinstance(b, Animal)
+True
+&gt;&gt;&gt; isinstance(c, Dog)
+True
+</code></pre>
+<p>看来<code>a</code>、<code>b</code>、<code>c</code>确实对应着<code>list</code>、<code>Animal</code>、<code>Dog</code>这3种类型。</p>
+<p>但是等等，试试：</p>
+<pre><code class="python">&gt;&gt;&gt; isinstance(c, Animal)
+True
+</code></pre>
+<p>看来<code>c</code>不仅仅是<code>Dog</code>，<code>c</code>还是<code>Animal</code>！</p>
+<p>不过仔细想想，这是有道理的，因为<code>Dog</code>是从<code>Animal</code>继承下来的，当我们创建了一个<code>Dog</code>的实例<code>c</code>时，我们认为<code>c</code>的数据类型是<code>Dog</code>没错，但<code>c</code>同时也是<code>Animal</code>也没错，<code>Dog</code>本来就是<code>Animal</code>的一种！</p>
+<p>所以，在继承关系中，如果一个实例的数据类型是某个子类，那它的数据类型也可以被看做是父类。但是，反过来就不行：</p>
+<pre><code class="python">&gt;&gt;&gt; b = Animal()
+&gt;&gt;&gt; isinstance(b, Dog)
+False
+</code></pre>
+<p><code>Dog</code>可以看成<code>Animal</code>，但<code>Animal</code>不可以看成<code>Dog</code>。</p>
+<p>要理解多态的好处，我们还需要再编写一个函数，这个函数接受一个<code>Animal</code>类型的变量：</p>
+<pre><code class="python">def run_twice(animal):
+    animal.run()
+    animal.run()
+</code></pre>
+<p>当我们传入<code>Animal</code>的实例时，<code>run_twice()</code>就打印出：</p>
+<pre><code class="python">&gt;&gt;&gt; run_twice(Animal())
+Animal is running...
+Animal is running...
+</code></pre>
+<p>当我们传入<code>Dog</code>的实例时，<code>run_twice()</code>就打印出：</p>
+<pre><code class="python">&gt;&gt;&gt; run_twice(Dog())
+Dog is running...
+Dog is running...
+</code></pre>
+<p>当我们传入<code>Cat</code>的实例时，<code>run_twice()</code>就打印出：</p>
+<pre><code class="python">&gt;&gt;&gt; run_twice(Cat())
+Cat is running...
+Cat is running...
+</code></pre>
+<p>看上去没啥意思，但是仔细想想，现在，如果我们再定义一个<code>Tortoise</code>类型，也从<code>Animal</code>派生：</p>
+<pre><code class="python">class Tortoise(Animal):
+    def run(self):
+        print(&#39;Tortoise is running slowly...&#39;)
+</code></pre>
+<p>当我们调用<code>run_twice()</code>时，传入<code>Tortoise</code>的实例：</p>
+<pre><code class="python">&gt;&gt;&gt; run_twice(Tortoise())
+Tortoise is running slowly...
+Tortoise is running slowly...
+</code></pre>
+<p>你会发现，新增一个<code>Animal</code>的子类，不必对<code>run_twice()</code>做任何修改，实际上，任何依赖<code>Animal</code>作为参数的函数或者方法都可以不加修改地正常运行，原因就在于多态。</p>
+<p>多态的好处就是，当我们需要传入<code>Dog</code>、<code>Cat</code>、<code>Tortoise</code>……时，我们只需要接收<code>Animal</code>类型就可以了，因为<code>Dog</code>、<code>Cat</code>、<code>Tortoise</code>……都是<code>Animal</code>类型，然后，按照<code>Animal</code>类型进行操作即可。由于<code>Animal</code>类型有<code>run()</code>方法，因此，传入的任意类型，只要是<code>Animal</code>类或者子类，就会自动调用实际类型的<code>run()</code>方法，这就是多态的意思：</p>
+<p>对于一个变量，我们只需要知道它是<code>Animal</code>类型，无需确切地知道它的子类型，就可以放心地调用<code>run()</code>方法，而具体调用的<code>run()</code>方法是作用在<code>Animal</code>、<code>Dog</code>、<code>Cat</code>还是<code>Tortoise</code>对象上，由运行时该对象的确切类型决定，这就是多态真正的威力：调用方只管调用，不管细节，而当我们新增一种<code>Animal</code>的子类时，只要确保<code>run()</code>方法编写正确，不用管原来的代码是如何调用的。这就是著名的<strong>“开闭”原则：</strong></p>
+<p>对扩展开放：允许新增<code>Animal</code>子类；</p>
+<p>对修改封闭：不需要修改依赖<code>Animal</code>类型的<code>run_twice()</code>等函数。</p>
+<p>继承还可以一级一级地继承下来，就好比从爷爷到爸爸、再到儿子这样的关系。而任何类，最终都可以追溯到根类object，这些继承关系看上去就像一颗倒着的树。比如如下的继承树：</p>
+<pre><code class="ascii">                ┌───────────────┐
+                │    object     │
+                └───────────────┘
+                        │
+           ┌────────────┴────────────┐
+           │                         │
+           ▼                         ▼
+    ┌─────────────┐           ┌─────────────┐
+    │   Animal    │           │    Plant    │
+    └─────────────┘           └─────────────┘
+           │                         │
+     ┌─────┴──────┐            ┌─────┴──────┐
+     │            │            │            │
+     ▼            ▼            ▼            ▼
+┌─────────┐  ┌─────────┐  ┌─────────┐  ┌─────────┐
+│   Dog   │  │   Cat   │  │  Tree   │  │ Flower  │
+└─────────┘  └─────────┘  └─────────┘  └─────────┘
+</code></pre>
+<h3 id="静态语言-vs-动态语言"><a href="#静态语言-vs-动态语言" class="headerlink" title="静态语言 vs 动态语言"></a>静态语言 vs 动态语言</h3><p>对于静态语言（例如Java）来说，如果需要传入<code>Animal</code>类型，则传入的对象必须是<code>Animal</code>类型或者它的子类，否则，将无法调用<code>run()</code>方法。</p>
+<p>对于Python这样的动态语言来说，则不一定需要传入<code>Animal</code>类型。我们只需要保证传入的对象有一个<code>run()</code>方法就可以了：</p>
+<pre><code class="python">class Timer(object):
+    def run(self):
+        print(&#39;Start...&#39;)
+</code></pre>
+<p>这就是动态语言的“<strong>鸭子类型</strong>”，它并不要求严格的继承体系，一个对象只要“看起来像鸭子，走起路来像鸭子”，那它就可以被看做是鸭子。</p>
+<p>Python的“file-like object“就是一种鸭子类型。对真正的文件对象，它有一个<code>read()</code>方法，返回其内容。但是，许多对象，只要有<code>read()</code>方法，都被视为“file-like object“。许多函数接收的参数就是“file-like object“，你不一定要传入真正的文件对象，完全可以传入任何实现了<code>read()</code>方法的对象。</p>
+<h3 id="小结"><a href="#小结" class="headerlink" title="小结"></a>小结</h3><p>继承可以把父类的所有功能都直接拿过来，这样就不必重零做起，子类只需要新增自己特有的方法，也可以把父类不适合的方法覆盖<strong>重写</strong>。</p>
+<p>动态语言的鸭子类型特点决定了<strong>继承不像静态语言那样是必须的</strong>。</p>
  
       <!-- reward -->
       
@@ -209,7 +315,7 @@ keys = [36, 5,  12, 9,  21]
     <a class="modal-close" href="javascript:;"><i class="ri-close-circle-line"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="//api.qrserver.com/v1/create-qr-code/?size=150x150&data=http://example.com/2020/04/10/4.%20sort/" alt="微信分享二维码">
+      <img src="//api.qrserver.com/v1/create-qr-code/?size=150x150&data=http://example.com/2020/04/11/4.%20%E7%BB%A7%E6%89%BF%E5%92%8C%E5%A4%9A%E6%80%81/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -220,19 +326,19 @@ keys = [36, 5,  12, 9,  21]
    
   <nav class="article-nav">
     
-      <a href="/2020/04/11/4.%20%E7%BB%A7%E6%89%BF%E5%92%8C%E5%A4%9A%E6%80%81/" class="article-nav-link">
+      <a href="/2020/04/13/5.%20%E8%BF%94%E5%9B%9E%E5%87%BD%E6%95%B0/" class="article-nav-link">
         <strong class="article-nav-caption">上一篇</strong>
         <div class="article-nav-title">
           
-            Python继承和多态
+            Python 返回函数
           
         </div>
       </a>
     
     
-      <a href="/2020/04/08/3.%20%E8%AE%BF%E9%97%AE%E9%99%90%E5%88%B6/" class="article-nav-link">
+      <a href="/2020/04/10/4.%20sort/" class="article-nav-link">
         <strong class="article-nav-caption">下一篇</strong>
-        <div class="article-nav-title">Python访问限制</div>
+        <div class="article-nav-title">Python 排序算法</div>
       </a>
     
   </nav>

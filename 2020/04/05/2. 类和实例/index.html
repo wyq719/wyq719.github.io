@@ -11,7 +11,7 @@
         name="viewport"
         content="width=device-width, initial-scale=1, maximum-scale=1"
       />
-      <title>Python 排序算法 |  Yu&#39;s Blog</title>
+      <title>Python类和实例 |  Yu&#39;s Blog</title>
   <meta name="generator" content="hexo-theme-ayer">
       
       <link rel="shortcut icon" href="/images/90.jpg" />
@@ -53,7 +53,7 @@
     <main class="content on">
       <section class="outer">
   <article
-  id="post-4. sort"
+  id="post-2. 类和实例"
   class="article article-type-post"
   itemscope
   itemprop="blogPost"
@@ -64,7 +64,7 @@
     <header class="article-header">
        
 <h1 class="article-title sea-center" style="border-left:0" itemprop="name">
-  Python 排序算法
+  Python类和实例
 </h1>
  
 
@@ -72,15 +72,15 @@
     </header>
      
     <div class="article-meta">
-      <a href="/2020/04/10/4.%20sort/" class="article-date">
-  <time datetime="2020-04-09T16:00:00.000Z" itemprop="datePublished">2020-04-10</time>
+      <a href="/2020/04/05/2.%20%E7%B1%BB%E5%92%8C%E5%AE%9E%E4%BE%8B/" class="article-date">
+  <time datetime="2020-04-04T16:00:00.000Z" itemprop="datePublished">2020-04-05</time>
 </a>   
 <div class="word_count">
     <span class="post-time">
         <span class="post-meta-item-icon">
             <i class="ri-quill-pen-line"></i>
             <span class="post-meta-item-text"> 字数统计:</span>
-            <span class="post-count">673</span>
+            <span class="post-count">1.4k</span>
         </span>
     </span>
 
@@ -89,7 +89,7 @@
         <span class="post-meta-item-icon">
             <i class="ri-book-open-line"></i>
             <span class="post-meta-item-text"> 阅读时长≈</span>
-            <span class="post-count">2 分钟</span>
+            <span class="post-count">5 分钟</span>
         </span>
     </span>
 </div>
@@ -104,41 +104,110 @@
   
     <div class="article-entry" itemprop="articleBody">
        
-  <h3 id="排序算法"><a href="#排序算法" class="headerlink" title="排序算法"></a>排序算法</h3><p>排序也是在程序中经常用到的算法。无论使用冒泡排序还是快速排序，排序的核心是比较两个元素的大小。如果是数字，我们可以直接比较，但如果是字符串或者两个dict呢？直接比较数学上的大小是没有意义的，因此，比较的过程必须通过函数抽象出来。</p>
-<p>Python内置的<code>sorted()</code>函数就可以对list进行排序：</p>
-<pre><code class="python">&gt;&gt;&gt; sorted([36, 5, -12, 9, -21])
-[-21, -12, 5, 9, 36]
+  <h4 id="类和实例"><a href="#类和实例" class="headerlink" title="类和实例"></a>类和实例</h4><hr>
+<p>面向对象最重要的概念就是类（Class）和实例（Instance），必须牢记类是抽象的模板，比如Student类，而实例是根据类创建出来的一个个具体的“对象”，每个对象都拥有相同的方法，但各自的数据可能不同。</p>
+<p>仍以Student类为例，在Python中，定义类是通过<code>class</code>关键字：</p>
+<pre><code class="python">class Student():
+    pass
 </code></pre>
-<p>此外，<code>sorted()</code>函数也是一个高阶函数，它还可以接收一个<code>key</code>函数来实现自定义的排序，例如按绝对值大小排序：</p>
-<pre><code class="python">&gt;&gt;&gt; sorted([36, 5, -12, 9, -21], key=abs)
-[5, 9, -12, -21, 36]
+<p><code>class</code>后面紧接着是类名，即<code>Student</code>，类名通常是大写开头的单词，紧接着是<code>()</code>，表示该类是从哪个类继承下来的，继承的概念我们后面再讲.</p>
+<p>定义好了<code>Student</code>类，就可以根据<code>Student</code>类创建出<code>Student</code>的实例，创建实例是通过类名+()实现的：</p>
+<pre><code class="python">&gt;&gt;&gt; bart = Student()
+&gt;&gt;&gt; bart
+&lt;__main__.Student object at 0x10a67a590&gt;
+&gt;&gt;&gt; Student
+&lt;class &#39;__main__.Student&#39;&gt;
 </code></pre>
-<p>key指定的函数将作用于list的每一个元素上，并根据key函数返回的结果进行排序。对比原始的list和经过<code>key=abs</code>处理过的list：</p>
-<pre><code class="python">list = [36, 5, -12, 9, -21]
+<p>可以看到，变量<code>bart</code>指向的就是一个<code>Student</code>的实例，后面的<code>0x10a67a590</code>是内存地址，每个object的地址都不一样，而<code>Student</code>本身则是一个类。</p>
+<p>可以自由地给一个实例变量绑定属性，比如，给实例<code>bart</code>绑定一个<code>name</code>属性：</p>
+<pre><code class="python">&gt;&gt;&gt; bart.name = &#39;Bart Simpson&#39;
+&gt;&gt;&gt; bart.name
+&#39;Bart Simpson&#39;
+</code></pre>
+<p>由于类可以起到模板的作用，因此，可以在创建实例的时候，把一些我们认为<strong>必须绑定</strong>的属性强制填写进去。通过定义一个特殊的<code>__init__</code>方法，在创建实例的时候，就把<code>name</code>，<code>score</code>等属性绑上去：</p>
+<pre><code class="python">class Student(object):
 
-keys = [36, 5,  12, 9,  21]
+    def __init__(self, name, score):
+        self.name = name
+        self.score = score
 </code></pre>
-<p>然后<code>sorted()</code>函数按照keys进行排序，并按照对应关系返回list相应的元素：</p>
-<pre><code class="ascii">keys排序结果 =&gt; [5, 9,  12,  21, 36]
-                |  |    |    |   |
-最终结果     =&gt; [5, 9, -12, -21, 36]
+<p> 注意：特殊方法“__init__”前后分别有两个下划线！！！</p>
+<p>注意到<code>__init__</code>方法的第一个参数永远是<code>self</code>，表示创建的实例本身，因此，在<code>__init__</code>方法内部，就可以把各种属性绑定到<code>self</code>，因为<code>self</code>就指向创建的实例本身。</p>
+<p>有了<code>__init__</code>方法，在创建实例的时候，就不能传入空的参数了，必须传入与<code>__init__</code>方法匹配的参数，但<code>self</code>不需要传，Python解释器自己会把实例变量传进去：</p>
+<pre><code class="python">&gt;&gt;&gt; bart = Student(&#39;Bart Simpson&#39;, 59)
+&gt;&gt;&gt; bart.name
+&#39;Bart Simpson&#39;
+&gt;&gt;&gt; bart.score
+59
 </code></pre>
-<p>我们再看一个字符串排序的例子：</p>
-<pre><code class="python">&gt;&gt;&gt; sorted([&#39;bob&#39;, &#39;about&#39;, &#39;Zoo&#39;, &#39;Credit&#39;])
-[&#39;Credit&#39;, &#39;Zoo&#39;, &#39;about&#39;, &#39;bob&#39;]
+<p>和普通的函数相比，在类中定义的函数只有一点不同，就是第一个参数永远是实例变量<code>self</code>，并且，调用时，不用传递该参数。除此之外，类的方法和普通函数没有什么区别，所以，你仍然可以用默认参数、可变参数、关键字参数和命名关键字参数。</p>
+<h3 id="数据封装"><a href="#数据封装" class="headerlink" title="数据封装"></a>数据封装</h3><p><strong>面向对象编程的一个重要特点就是数据封装</strong>。在上面的<code>Student</code>类中，每个实例就拥有各自的<code>name</code>和<code>score</code>这些数据。我们可以通过函数来访问这些数据，比如打印一个学生的成绩：</p>
+<pre><code class="python">&gt;&gt;&gt; def print_score(std):
+...     print(&#39;%s: %s&#39; % (std.name, std.score))
+...
+&gt;&gt;&gt; print_score(bart)
+Bart Simpson: 59
 </code></pre>
-<p>默认情况下，对字符串排序，是按照ASCII的大小比较的，由于<code>&#39;Z&#39; &lt; &#39;a&#39;</code>，结果，大写字母<code>Z</code>会排在小写字母<code>a</code>的前面。</p>
-<p>现在，我们提出排序应该忽略大小写，按照字母序排序。要实现这个算法，不必对现有代码大加改动，只要我们能用一个key函数把字符串映射为忽略大小写排序即可。忽略大小写来比较两个字符串，实际上就是先把字符串都变成大写（或者都变成小写），再比较。</p>
-<p>这样，我们给<code>sorted</code>传入key函数，即可实现忽略大小写的排序：</p>
-<pre><code class="python">&gt;&gt;&gt; sorted([&#39;bob&#39;, &#39;about&#39;, &#39;Zoo&#39;, &#39;Credit&#39;], key=str.lower)
-[&#39;about&#39;, &#39;bob&#39;, &#39;Credit&#39;, &#39;Zoo&#39;]
+<p>但是，既然<code>Student</code>实例本身就拥有这些数据，要访问这些数据，就没有必要从外面的函数去访问，可以直接在<code>Student</code>类的内部定义访问数据的函数，这样，就把“数据”给封装起来了。这些封装数据的函数是和<code>Student</code>类本身是关联起来的，我们称之为类的方法：</p>
+<pre><code class="python">class Student(object):
+
+    def __init__(self, name, score):
+        self.name = name
+        self.score = score
+
+    def print_score(self):
+        print(&#39;%s: %s&#39; % (self.name, self.score))
 </code></pre>
-<p>要进行反向排序，不必改动key函数，可以传入第三个参数<code>reverse=True</code>：</p>
-<pre><code class="python">&gt;&gt;&gt; sorted([&#39;bob&#39;, &#39;about&#39;, &#39;Zoo&#39;, &#39;Credit&#39;], key=str.lower, reverse=True)
-[&#39;Zoo&#39;, &#39;Credit&#39;, &#39;bob&#39;, &#39;about&#39;]
+<p>要定义一个方法，除了第一个参数是<code>self</code>外，其他和普通函数一样。要调用一个方法，只需要在实例变量上直接调用，除了<code>self</code>不用传递，其他参数正常传入：</p>
+<pre><code class="python">&gt;&gt;&gt; bart.print_score()
+Bart Simpson: 59
 </code></pre>
-<p>从上述例子可以看出，高阶函数的抽象能力是非常强大的，而且，核心代码可以保持得非常简洁。</p>
-<h3 id="小结"><a href="#小结" class="headerlink" title="小结"></a>小结</h3><p><code>sorted()</code>也是一个高阶函数。用<code>sorted()</code>排序的关键在于实现一个映射函数。</p>
+<p>这样一来，我们从外部看<code>Student</code>类，就只需要知道，创建实例需要给出<code>name</code>和<code>score</code>，而如何打印，都是在<code>Student</code>类的内部定义的，这些数据和逻辑被“封装”起来了，调用很容易，但却不用知道内部实现的细节。</p>
+<p>封装的另一个好处是可以给<code>Student</code>类增加新的方法，比如<code>get_grade</code>：</p>
+<pre><code class="python">class Student(object):
+    ...
+
+    def get_grade(self):
+        if self.score &gt;= 90:
+            return &#39;A&#39;
+        elif self.score &gt;= 60:
+            return &#39;B&#39;
+        else:
+            return &#39;C&#39;
+</code></pre>
+<p>同样的，<code>get_grade</code>方法可以直接在实例变量上调用，不需要知道内部实现细节：</p>
+<pre><code class="python">class Student(object):
+    def __init__(self, name, score):
+        self.name = name
+        self.score = score
+
+    def get_grade(self):
+        if self.score &gt;= 90:
+            return &#39;A&#39;
+        elif self.score &gt;= 60:
+            return &#39;B&#39;
+        else:
+            return &#39;C&#39;
+
+lisa = Student(&#39;Lisa&#39;, 99)
+bart = Student(&#39;Bart&#39;, 59)
+print(lisa.name, lisa.get_grade())
+print(bart.name, bart.get_grade())
+</code></pre>
+<p><strong>小结</strong><br><strong>类</strong>是创建实例的模板，而<strong>实例</strong>则是一个一个具体的对象，<strong>各个实例拥有的数据都互相独立，互不影响</strong>；</p>
+<p><strong>方法</strong>就是与实例绑定的函数，和普通函数不同，方法可以直接访问实例的数据；</p>
+<p>通过在实例上调用方法，我们就直接操作了对象内部的数据，但无需知道方法内部的实现细节。</p>
+<p>和静态语言不同，Python允许对实例变量绑定任何数据，也就是说，对于两个实例变量，虽然它们都是同一个类的不同实例，但拥有的变量名称都可能不同：</p>
+<pre><code class="python">&gt;&gt;&gt; bart = Student(&#39;Bart Simpson&#39;, 59)
+&gt;&gt;&gt; lisa = Student(&#39;Lisa Simpson&#39;, 87)
+&gt;&gt;&gt; bart.age = 8
+&gt;&gt;&gt; bart.age
+8
+&gt;&gt;&gt; lisa.age
+Traceback (most recent call last):
+  File &quot;&lt;stdin&gt;&quot;, line 1, in &lt;module&gt;
+AttributeError: &#39;Student&#39; object has no attribute &#39;age&#39;
+</code></pre>
  
       <!-- reward -->
       
@@ -209,7 +278,7 @@ keys = [36, 5,  12, 9,  21]
     <a class="modal-close" href="javascript:;"><i class="ri-close-circle-line"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="//api.qrserver.com/v1/create-qr-code/?size=150x150&data=http://example.com/2020/04/10/4.%20sort/" alt="微信分享二维码">
+      <img src="//api.qrserver.com/v1/create-qr-code/?size=150x150&data=http://example.com/2020/04/05/2.%20%E7%B1%BB%E5%92%8C%E5%AE%9E%E4%BE%8B/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -220,19 +289,19 @@ keys = [36, 5,  12, 9,  21]
    
   <nav class="article-nav">
     
-      <a href="/2020/04/11/4.%20%E7%BB%A7%E6%89%BF%E5%92%8C%E5%A4%9A%E6%80%81/" class="article-nav-link">
+      <a href="/2020/04/05/3.%20filter/" class="article-nav-link">
         <strong class="article-nav-caption">上一篇</strong>
         <div class="article-nav-title">
           
-            Python继承和多态
+            Python filter
           
         </div>
       </a>
     
     
-      <a href="/2020/04/08/3.%20%E8%AE%BF%E9%97%AE%E9%99%90%E5%88%B6/" class="article-nav-link">
+      <a href="/2020/04/01/1.%20%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%E7%AE%80%E4%BB%8B/" class="article-nav-link">
         <strong class="article-nav-caption">下一篇</strong>
-        <div class="article-nav-title">Python访问限制</div>
+        <div class="article-nav-title">Python 面向对象编程</div>
       </a>
     
   </nav>
