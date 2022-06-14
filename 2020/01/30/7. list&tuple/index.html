@@ -1,0 +1,720 @@
+<!DOCTYPE html>
+
+
+<html lang="zh-CN">
+  
+
+    <head>
+      <meta charset="utf-8" />
+        
+      <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1, maximum-scale=1"
+      />
+      <title>List &amp; Tuple |  Yu&#39;s Blog</title>
+  <meta name="generator" content="hexo-theme-ayer">
+      
+      <link rel="shortcut icon" href="/images/90.jpg" />
+       
+<link rel="stylesheet" href="/dist/main.css">
+
+      
+<link rel="stylesheet" href="/css/fonts/remixicon.css">
+
+      
+<link rel="stylesheet" href="/css/custom.css">
+ 
+      <script src="https://cdn.staticfile.org/pace/1.2.4/pace.min.js"></script>
+       
+ 
+
+      <link
+        rel="stylesheet"
+        href="https://cdn.jsdelivr.net/npm/@sweetalert2/theme-bulma@5.0.1/bulma.min.css"
+      />
+      <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.0.19/dist/sweetalert2.min.js"></script>
+
+      <!-- mermaid -->
+      
+      <style>
+        .swal2-styled.swal2-confirm {
+          font-size: 1.6rem;
+        }
+      </style>
+    </head>
+  </html>
+</html>
+
+
+<body>
+  <div id="app">
+    
+      
+    <main class="content on">
+      <section class="outer">
+  <article
+  id="post-7. list&amp;tuple"
+  class="article article-type-post"
+  itemscope
+  itemprop="blogPost"
+  data-scroll-reveal
+>
+  <div class="article-inner">
+    
+    <header class="article-header">
+       
+<h1 class="article-title sea-center" style="border-left:0" itemprop="name">
+  List &amp; Tuple
+</h1>
+ 
+
+      
+    </header>
+     
+    <div class="article-meta">
+      <a href="/2020/01/30/7.%20list&tuple/" class="article-date">
+  <time datetime="2020-01-29T16:00:00.000Z" itemprop="datePublished">2020-01-30</time>
+</a>   
+<div class="word_count">
+    <span class="post-time">
+        <span class="post-meta-item-icon">
+            <i class="ri-quill-pen-line"></i>
+            <span class="post-meta-item-text"> 字数统计:</span>
+            <span class="post-count">1.5k</span>
+        </span>
+    </span>
+
+    <span class="post-time">
+        &nbsp; | &nbsp;
+        <span class="post-meta-item-icon">
+            <i class="ri-book-open-line"></i>
+            <span class="post-meta-item-text"> 阅读时长≈</span>
+            <span class="post-count">6 分钟</span>
+        </span>
+    </span>
+</div>
+ 
+    </div>
+      
+    <div class="tocbot"></div>
+
+
+
+
+  
+    <div class="article-entry" itemprop="articleBody">
+       
+  <h1 id="List-amp-Tuple"><a href="#List-amp-Tuple" class="headerlink" title="List &amp; Tuple"></a>List &amp; Tuple</h1><h2 id="List"><a href="#List" class="headerlink" title="List"></a>List</h2><p>Python内置的一种数据类型是列表：list。list是一种有序的集合，可以随时添加和删除其中的元素。</p>
+<p>比如，列出班里所有同学的名字，就可以用一个list表示：</p>
+<pre><code class="python">&gt;&gt;&gt; classmates = [&#39;Michael&#39;, &#39;Bob&#39;, &#39;Tracy&#39;]
+&gt;&gt;&gt; classmates
+[&#39;Michael&#39;, &#39;Bob&#39;, &#39;Tracy&#39;]
+</code></pre>
+<p>变量<code>classmates</code>就是一个list。用<code>len()</code>函数可以获得list元素的个数：</p>
+<pre><code class="python">&gt;&gt;&gt; len(classmates)
+3
+</code></pre>
+<p>用索引来访问list中每一个位置的元素，记得索引是从<code>0</code>开始的：</p>
+<pre><code class="python">&gt;&gt;&gt; classmates[0]
+&#39;Michael&#39;
+&gt;&gt;&gt; classmates[1]
+&#39;Bob&#39;
+&gt;&gt;&gt; classmates[2]
+&#39;Tracy&#39;
+&gt;&gt;&gt; classmates[3]
+Traceback (most recent call last):
+  File &quot;&lt;stdin&gt;&quot;, line 1, in &lt;module&gt;
+IndexError: list index out of range
+</code></pre>
+<p>当索引超出了范围时，Python会报一个<code>IndexError</code>错误，所以，要确保索引不要越界，记得最后一个元素的索引是<code>len(classmates) - 1</code>。</p>
+<p>如果要取最后一个元素，除了计算索引位置外，还可以用<code>-1</code>做索引，直接获取最后一个元素：</p>
+<pre><code class="python">&gt;&gt;&gt; classmates[-1]
+&#39;Tracy&#39;
+</code></pre>
+<p>以此类推，可以获取倒数第2个、倒数第3个：</p>
+<pre><code class="python">&gt;&gt;&gt; classmates[-2]
+&#39;Bob&#39;
+&gt;&gt;&gt; classmates[-3]
+&#39;Michael&#39;
+&gt;&gt;&gt; classmates[-4]
+Traceback (most recent call last):
+  File &quot;&lt;stdin&gt;&quot;, line 1, in &lt;module&gt;
+IndexError: list index out of range
+</code></pre>
+<p>当然，倒数第4个就越界了。</p>
+<p>list是一个可变的有序表，所以，可以往list中追加元素到末尾：</p>
+<pre><code class="python">&gt;&gt;&gt; classmates.append(&#39;Adam&#39;)
+&gt;&gt;&gt; classmates
+[&#39;Michael&#39;, &#39;Bob&#39;, &#39;Tracy&#39;, &#39;Adam&#39;]
+</code></pre>
+<p>也可以把元素插入到指定的位置，比如索引号为<code>1</code>的位置：</p>
+<pre><code class="python">&gt;&gt;&gt; classmates.insert(1, &#39;Jack&#39;)
+&gt;&gt;&gt; classmates
+[&#39;Michael&#39;, &#39;Jack&#39;, &#39;Bob&#39;, &#39;Tracy&#39;, &#39;Adam&#39;]
+</code></pre>
+<p>要删除list末尾的元素，用<code>pop()</code>方法：</p>
+<pre><code class="python">&gt;&gt;&gt; classmates.pop()
+&#39;Adam&#39;
+&gt;&gt;&gt; classmates
+[&#39;Michael&#39;, &#39;Jack&#39;, &#39;Bob&#39;, &#39;Tracy&#39;]
+</code></pre>
+<p>要删除指定位置的元素，用<code>pop(i)</code>方法，其中<code>i</code>是索引位置：</p>
+<pre><code class="python">&gt;&gt;&gt; classmates.pop(1)
+&#39;Jack&#39;
+&gt;&gt;&gt; classmates
+[&#39;Michael&#39;, &#39;Bob&#39;, &#39;Tracy&#39;]
+</code></pre>
+<p>要把某个元素替换成别的元素，可以直接赋值给对应的索引位置：</p>
+<pre><code class="python">&gt;&gt;&gt; classmates[1] = &#39;Sarah&#39;
+&gt;&gt;&gt; classmates
+[&#39;Michael&#39;, &#39;Sarah&#39;, &#39;Tracy&#39;]
+</code></pre>
+<p>list里面的元素的数据类型也可以不同，比如：</p>
+<pre><code class="python">&gt;&gt;&gt; L = [&#39;Apple&#39;, 123, True]
+</code></pre>
+<p>list元素也可以是另一个list，比如：</p>
+<pre><code class="python">&gt;&gt;&gt; s = [&#39;python&#39;, &#39;java&#39;, [&#39;asp&#39;, &#39;php&#39;], &#39;scheme&#39;]
+&gt;&gt;&gt; len(s)
+4
+</code></pre>
+<p>要注意<code>s</code>只有4个元素，其中<code>s[2]</code>又是一个list，如果拆开写就更容易理解了：</p>
+<pre><code class="python">&gt;&gt;&gt; p = [&#39;asp&#39;, &#39;php&#39;]
+&gt;&gt;&gt; s = [&#39;python&#39;, &#39;java&#39;, p, &#39;scheme&#39;]
+</code></pre>
+<p>要拿到<code>&#39;php&#39;</code>可以写<code>p[1]</code>或者<code>s[2][1]</code>，因此<code>s</code>可以看成是一个二维数组，类似的还有三维、四维……数组，不过很少用到。</p>
+<p>如果一个list中一个元素也没有，就是一个空的list，它的长度为0：</p>
+<pre><code class="python">&gt;&gt;&gt; L = []
+&gt;&gt;&gt; len(L)
+0
+</code></pre>
+<h2 id="Tuple"><a href="#Tuple" class="headerlink" title="Tuple"></a>Tuple</h2><p>另一种有序列表叫元组：tuple。tuple和list非常类似，但是tuple一旦初始化就不能修改，比如同样是列出同学的名字：</p>
+<pre><code class="python">&gt;&gt;&gt; classmates = (&#39;Michael&#39;, &#39;Bob&#39;, &#39;Tracy&#39;)
+</code></pre>
+<p>现在，classmates这个tuple不能变了，它也没有append()，insert()这样的方法。其他获取元素的方法和list是一样的，你可以正常地使用<code>classmates[0]</code>，<code>classmates[-1]</code>，但不能赋值成另外的元素。</p>
+<p>不可变的tuple有什么意义？因为tuple不可变，所以代码更安全。如果可能，能用tuple代替list就尽量用tuple。</p>
+<p>tuple的陷阱：当你定义一个tuple时，在定义的时候，tuple的元素就必须被确定下来，比如：</p>
+<pre><code class="python">&gt;&gt;&gt; t = (1, 2)
+&gt;&gt;&gt; t
+(1, 2)
+</code></pre>
+<p>如果要定义一个空的tuple，可以写成<code>()</code>：</p>
+<pre><code class="python">&gt;&gt;&gt; t = ()
+&gt;&gt;&gt; t
+()
+</code></pre>
+<p>但是，要定义一个只有1个元素的tuple，如果你这么定义：</p>
+<pre><code class="python">&gt;&gt;&gt; t = (1)
+&gt;&gt;&gt; t
+1
+</code></pre>
+<p>定义的不是tuple，是<code>1</code>这个数！这是因为括号<code>()</code>既可以表示tuple，又可以表示数学公式中的小括号，这就产生了歧义，因此，Python规定，这种情况下，按小括号进行计算，计算结果自然是<code>1</code>。</p>
+<p>所以，只有1个元素的tuple定义时必须加一个逗号<code>,</code>，来消除歧义：</p>
+<pre><code class="python">&gt;&gt;&gt; t = (1,)
+&gt;&gt;&gt; t
+(1,)
+</code></pre>
+<p>Python在显示只有1个元素的tuple时，也会加一个逗号<code>,</code>，以免你误解成数学计算意义上的括号。</p>
+<p>最后来看一个“可变的”tuple：</p>
+<pre><code class="python">&gt;&gt;&gt; t = (&#39;a&#39;, &#39;b&#39;, [&#39;A&#39;, &#39;B&#39;])
+&gt;&gt;&gt; t[2][0] = &#39;X&#39;
+&gt;&gt;&gt; t[2][1] = &#39;Y&#39;
+&gt;&gt;&gt; t
+(&#39;a&#39;, &#39;b&#39;, [&#39;X&#39;, &#39;Y&#39;])
+</code></pre>
+<p>这个tuple定义的时候有3个元素，分别是<code>&#39;a&#39;</code>，<code>&#39;b&#39;</code>和一个list。不是说tuple一旦定义后就不可变了吗？怎么后来又变了？</p>
+<p>别急，我们先看看定义的时候tuple包含的3个元素：</p>
+<p><img src="/image/1.7.1.png" alt="tuple-0"></p>
+<p>当我们把list的元素<code>&#39;A&#39;</code>和<code>&#39;B&#39;</code>修改为<code>&#39;X&#39;</code>和<code>&#39;Y&#39;</code>后，tuple变为：</p>
+<p><img src="/image/1.7.2.png" alt="tuple-1"></p>
+<p>表面上看，tuple的元素确实变了，但其实变的不是tuple的元素，而是list的元素。tuple一开始指向的list并没有改成别的list，所以，tuple所谓的“不变”是说，tuple的每个元素，指向永远不变。即指向<code>&#39;a&#39;</code>，就不能改成指向<code>&#39;b&#39;</code>，指向一个list，就不能改成指向其他对象，但指向的这个list本身是可变的！</p>
+<p>理解了“指向不变”后，要创建一个内容也不变的tuple怎么做？那就必须保证tuple的每一个元素本身也不能变。</p>
+<h3 id="小结"><a href="#小结" class="headerlink" title="小结"></a>小结</h3><p>list和tuple是Python内置的有序集合，一个可变，一个不可变。根据需要来选择使用它们。</p>
+ 
+      <!-- reward -->
+      
+      <div id="reword-out">
+        <div id="reward-btn">
+          打赏
+        </div>
+      </div>
+      
+    </div>
+    
+
+    <!-- copyright -->
+    
+    <div class="declare">
+      <ul class="post-copyright">
+        <li>
+          <i class="ri-copyright-line"></i>
+          <strong>版权声明： </strong>
+          
+          本博客所有文章除特别声明外，著作权归作者所有。转载请注明出处！
+          
+        </li>
+      </ul>
+    </div>
+    
+    <footer class="article-footer">
+       
+<div class="share-btn">
+      <span class="share-sns share-outer">
+        <i class="ri-share-forward-line"></i>
+        分享
+      </span>
+      <div class="share-wrap">
+        <i class="arrow"></i>
+        <div class="share-icons">
+          
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="ri-weibo-fill"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="ri-wechat-fill"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="ri-qq-fill"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="ri-douban-line"></i>
+          </a>
+          <!-- <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a> -->
+          
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="ri-facebook-circle-fill"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="ri-twitter-fill"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="ri-google-fill"></i>
+          </a>
+        </div>
+      </div>
+</div>
+
+<div class="wx-share-modal">
+    <a class="modal-close" href="javascript:;"><i class="ri-close-circle-line"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//api.qrserver.com/v1/create-qr-code/?size=150x150&data=http://example.com/2020/01/30/7.%20list&tuple/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div id="share-mask"></div>  
+    </footer>
+  </div>
+
+   
+  <nav class="article-nav">
+    
+      <a href="/2020/01/30/6.%20%E5%AD%97%E7%AC%A6%E9%9B%86%E4%B8%8E%E5%AD%97%E7%AC%A6%E4%B8%B2/" class="article-nav-link">
+        <strong class="article-nav-caption">上一篇</strong>
+        <div class="article-nav-title">
+          
+            字符集与字符串
+          
+        </div>
+      </a>
+    
+    
+      <a href="/2020/01/25/5.%20%E5%8F%98%E9%87%8F/" class="article-nav-link">
+        <strong class="article-nav-caption">下一篇</strong>
+        <div class="article-nav-title">变量</div>
+      </a>
+    
+  </nav>
+
+  
+   
+    
+    <script src="https://cdn.staticfile.org/twikoo/1.4.18/twikoo.all.min.js"></script>
+    <div id="twikoo" class="twikoo"></div>
+    <script>
+        twikoo.init({
+            envId: ""
+        })
+    </script>
+ 
+</article>
+
+</section>
+      <footer class="footer">
+  <div class="outer">
+    <ul>
+      <li>
+        Copyrights &copy;
+        2015-2022
+        <i class="ri-heart-fill heart_icon"></i> Yu
+      </li>
+    </ul>
+    <ul>
+      <li>
+        
+      </li>
+    </ul>
+    <ul>
+      <li>
+        
+        
+        <span>
+  <span><i class="ri-user-3-fill"></i>访问人数:<span id="busuanzi_value_site_uv"></span></span>
+  <span class="division">|</span>
+  <span><i class="ri-eye-fill"></i>浏览次数:<span id="busuanzi_value_page_pv"></span></span>
+</span>
+        
+      </li>
+    </ul>
+    <ul>
+      
+    </ul>
+    <ul>
+      
+    </ul>
+    <ul>
+      <li>
+        <!-- cnzz统计 -->
+        
+        <script type="text/javascript" src='https://s9.cnzz.com/z_stat.php?id=1278069914&amp;web_id=1278069914'></script>
+        
+      </li>
+    </ul>
+  </div>
+</footer>    
+    </main>
+    <div class="float_btns">
+      <div class="totop" id="totop">
+  <i class="ri-arrow-up-line"></i>
+</div>
+
+<div class="todark" id="todark">
+  <i class="ri-moon-line"></i>
+</div>
+
+    </div>
+    <aside class="sidebar on">
+      <button class="navbar-toggle"></button>
+<nav class="navbar">
+  
+  <div class="logo">
+    <a href="/"><img src="/images/90.jpg" alt="Yu&#39;s Blog"></a>
+  </div>
+  
+  <ul class="nav nav-main">
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/">主页</a>
+    </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/archives">归档</a>
+    </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/categories">摄影</a>
+    </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/friends">友链</a>
+    </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/2019/about">关于我</a>
+    </li>
+    
+  </ul>
+</nav>
+<nav class="navbar navbar-bottom">
+  <ul class="nav">
+    <li class="nav-item">
+      
+      <a class="nav-item-link nav-item-search"  title="搜索">
+        <i class="ri-search-line"></i>
+      </a>
+      
+      
+      <a class="nav-item-link" target="_blank" href="/atom.xml" title="RSS Feed">
+        <i class="ri-rss-line"></i>
+      </a>
+      
+    </li>
+  </ul>
+</nav>
+<div class="search-form-wrap">
+  <div class="local-search local-search-plugin">
+  <input type="search" id="local-search-input" class="local-search-input" placeholder="Search...">
+  <div id="local-search-result" class="local-search-result"></div>
+</div>
+</div>
+    </aside>
+    <div id="mask"></div>
+
+<!-- #reward -->
+<div id="reward">
+  <span class="close"><i class="ri-close-line"></i></span>
+  <p class="reward-p"><i class="ri-cup-line"></i>请我喝杯咖啡吧~</p>
+  <div class="reward-box">
+    
+    <div class="reward-item">
+      <img class="reward-img" src="/images/alipay.jpg">
+      <span class="reward-type">支付宝</span>
+    </div>
+    
+    
+    <div class="reward-item">
+      <img class="reward-img" src="/images/wc.jpg">
+      <span class="reward-type">微信</span>
+    </div>
+    
+  </div>
+</div>
+    
+<script src="/js/jquery-3.6.0.min.js"></script>
+ 
+<script src="/js/lazyload.min.js"></script>
+
+<!-- Tocbot -->
+ 
+<script src="/js/tocbot.min.js"></script>
+
+<script>
+  tocbot.init({
+    tocSelector: ".tocbot",
+    contentSelector: ".article-entry",
+    headingSelector: "h1, h2, h3, h4, h5, h6",
+    hasInnerContainers: true,
+    scrollSmooth: true,
+    scrollContainer: "main",
+    positionFixedSelector: ".tocbot",
+    positionFixedClass: "is-position-fixed",
+    fixedSidebarOffset: "auto",
+  });
+</script>
+
+<script src="https://cdn.staticfile.org/jquery-modal/0.9.2/jquery.modal.min.js"></script>
+<link
+  rel="stylesheet"
+  href="https://cdn.staticfile.org/jquery-modal/0.9.2/jquery.modal.min.css"
+/>
+<script src="https://cdn.staticfile.org/justifiedGallery/3.8.1/js/jquery.justifiedGallery.min.js"></script>
+
+<script src="/dist/main.js"></script>
+
+<!-- ImageViewer -->
+ <!-- Root element of PhotoSwipe. Must have class pswp. -->
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+    <!-- Background of PhotoSwipe. 
+         It's a separate element as animating opacity is faster than rgba(). -->
+    <div class="pswp__bg"></div>
+
+    <!-- Slides wrapper with overflow:hidden. -->
+    <div class="pswp__scroll-wrap">
+
+        <!-- Container that holds slides. 
+            PhotoSwipe keeps only 3 of them in the DOM to save memory.
+            Don't modify these 3 pswp__item elements, data is added later on. -->
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+
+        <!-- Default (PhotoSwipeUI_Default) interface on top of sliding area. Can be changed. -->
+        <div class="pswp__ui pswp__ui--hidden">
+
+            <div class="pswp__top-bar">
+
+                <!--  Controls are self-explanatory. Order can be changed. -->
+
+                <div class="pswp__counter"></div>
+
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+
+                <button class="pswp__button pswp__button--share" style="display:none" title="Share"></button>
+
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+
+                <!-- Preloader demo http://codepen.io/dimsemenov/pen/yyBWoR -->
+                <!-- element will get class pswp__preloader--active when preloader is running -->
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                        <div class="pswp__preloader__cut">
+                            <div class="pswp__preloader__donut"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div>
+            </div>
+
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+<link rel="stylesheet" href="https://cdn.staticfile.org/photoswipe/4.1.3/photoswipe.min.css">
+<link rel="stylesheet" href="https://cdn.staticfile.org/photoswipe/4.1.3/default-skin/default-skin.min.css">
+<script src="https://cdn.staticfile.org/photoswipe/4.1.3/photoswipe.min.js"></script>
+<script src="https://cdn.staticfile.org/photoswipe/4.1.3/photoswipe-ui-default.min.js"></script>
+
+<script>
+    function viewer_init() {
+        let pswpElement = document.querySelectorAll('.pswp')[0];
+        let $imgArr = document.querySelectorAll(('.article-entry img:not(.reward-img)'))
+
+        $imgArr.forEach(($em, i) => {
+            $em.onclick = () => {
+                // slider展开状态
+                // todo: 这样不好，后面改成状态
+                if (document.querySelector('.left-col.show')) return
+                let items = []
+                $imgArr.forEach(($em2, i2) => {
+                    let img = $em2.getAttribute('data-idx', i2)
+                    let src = $em2.getAttribute('data-target') || $em2.getAttribute('src')
+                    let title = $em2.getAttribute('alt')
+                    // 获得原图尺寸
+                    const image = new Image()
+                    image.src = src
+                    items.push({
+                        src: src,
+                        w: image.width || $em2.width,
+                        h: image.height || $em2.height,
+                        title: title
+                    })
+                })
+                var gallery = new PhotoSwipe(pswpElement, PhotoSwipeUI_Default, items, {
+                    index: parseInt(i)
+                });
+                gallery.init()
+            }
+        })
+    }
+    viewer_init()
+</script> 
+<!-- MathJax -->
+
+<!-- Katex -->
+
+<!-- busuanzi  -->
+ 
+<script src="/js/busuanzi-2.3.pure.min.js"></script>
+ 
+<!-- ClickLove -->
+ 
+<script src="/js/clickLove.js"></script>
+ 
+<!-- ClickBoom1 -->
+
+<!-- ClickBoom2 -->
+
+<!-- CodeCopy -->
+ 
+<link rel="stylesheet" href="/css/clipboard.css">
+ <script src="https://cdn.staticfile.org/clipboard.js/2.0.10/clipboard.min.js"></script>
+<script>
+  function wait(callback, seconds) {
+    var timelag = null;
+    timelag = window.setTimeout(callback, seconds);
+  }
+  !function (e, t, a) {
+    var initCopyCode = function(){
+      var copyHtml = '';
+      copyHtml += '<button class="btn-copy" data-clipboard-snippet="">';
+      copyHtml += '<i class="ri-file-copy-2-line"></i><span>COPY</span>';
+      copyHtml += '</button>';
+      $(".highlight .code pre").before(copyHtml);
+      $(".article pre code").before(copyHtml);
+      var clipboard = new ClipboardJS('.btn-copy', {
+        target: function(trigger) {
+          return trigger.nextElementSibling;
+        }
+      });
+      clipboard.on('success', function(e) {
+        let $btn = $(e.trigger);
+        $btn.addClass('copied');
+        let $icon = $($btn.find('i'));
+        $icon.removeClass('ri-file-copy-2-line');
+        $icon.addClass('ri-checkbox-circle-line');
+        let $span = $($btn.find('span'));
+        $span[0].innerText = 'COPIED';
+        
+        wait(function () { // 等待两秒钟后恢复
+          $icon.removeClass('ri-checkbox-circle-line');
+          $icon.addClass('ri-file-copy-2-line');
+          $span[0].innerText = 'COPY';
+        }, 2000);
+      });
+      clipboard.on('error', function(e) {
+        e.clearSelection();
+        let $btn = $(e.trigger);
+        $btn.addClass('copy-failed');
+        let $icon = $($btn.find('i'));
+        $icon.removeClass('ri-file-copy-2-line');
+        $icon.addClass('ri-time-line');
+        let $span = $($btn.find('span'));
+        $span[0].innerText = 'COPY FAILED';
+        
+        wait(function () { // 等待两秒钟后恢复
+          $icon.removeClass('ri-time-line');
+          $icon.addClass('ri-file-copy-2-line');
+          $span[0].innerText = 'COPY';
+        }, 2000);
+      });
+    }
+    initCopyCode();
+  }(window, document);
+</script>
+ 
+<!-- CanvasBackground -->
+ 
+<script src="/js/dz.js"></script>
+ 
+<script>
+  if (window.mermaid) {
+    mermaid.initialize({ theme: "forest" });
+  }
+</script>
+
+
+    
+    <div id="music">
+    
+    
+    
+    <iframe frameborder="no" border="1" marginwidth="0" marginheight="0" width="200" height="52"
+        src="//music.163.com/outchain/player?type=2&id=1946864116&auto=1&height=32"></iframe>
+</div>
+
+<style>
+    #music {
+        position: fixed;
+        right: 15px;
+        bottom: 0;
+        z-index: 998;
+    }
+</style>
+    
+    
+
+  </div>
+</body>
+
+</html>
