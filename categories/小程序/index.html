@@ -11,7 +11,7 @@
   <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-  <title>有关小程序开发 | Yu&#39;s Blog</title>
+  <title>分类: 小程序 | Yu&#39;s Blog</title>
 
   <link rel="icon" type="image/png" href="/medias/logo.png">
   <link rel="stylesheet" href="https://at.alicdn.com/t/font_1911880_c1nvbyezg17.css">
@@ -562,550 +562,105 @@
 </header>
         <!-- 内容区域 -->
         
- <!-- prismjs 代码高亮 -->
- 
 
+<div class="bg-dark-floor" style="position: fixed;left: 0;top: 0;width: 100%;height: 100%;z-index: -2;"></div>
+<div class="bg-light-floor-categoryDetail" style="position: fixed;left: 0;top: 0;width: 100%;height: 100%;z-index: -3;"></div>
 
-<div class="bg-dark-floor" style="position: fixed;left: 0;top: 0;width: 100%;height: 100%;z-index: -1;"></div>
-
-
-  <!-- 文章详情页顶部图片和标题 -->
-
-
-
-
-<div class="post-detail-header" id="thumbnail_canvas" style="background-repeat: no-repeat; background-size: cover; 
-  background-position: center center;position: relative;background-image:url('/medias/14.jpg')">
-  <div class="post-detail-header-mask"></div>
-  <canvas id="header_canvas"style="position:absolute;bottom:0;pointer-events:none;"></canvas>
-  
-  <div class="post-detail-header_info-box">
-    <div class="title-box">
-      <span class="title">
-        有关小程序开发
-      </span>
-    </div>
-    
-    
-      
-        <span class="post-detail-header_date">
-          <i class="fas fa-calendar"></i> 发表于：2021-10-30 |
-        </span>
-      
-
-      
-        <span class="post-detail-header_categories">
-          <i class="iconfont iconbookmark1"></i> 分类：
-          
-            <a href="/categories/%E5%B0%8F%E7%A8%8B%E5%BA%8F/" class="post-detail-header_category">
-              小程序
-            </a>
-          
-        </span>
-      
-
-      
-    
+<div class="category-header"  style="background-image:url('https://pic3.zhimg.com/80/v2-98dcd81cb0d1fee52a807c13cedb8338_1440w.jpg?source=1940ef5c')">
+  <div class="category-header-title">
+    category
   </div>
-  
-  
-    <script src="/js/bubble/bubble.js"></script>
-  
-</div>
-
-
-
-
-
-<div class="post-detail-content row justify-position" 
-  style="padding-top: 0px;">
-  <div class="main-content">
-    <article class="post post-detail">
-      <div class="post-content">
-        <h2 id="H5和小程序的差别？"><a href="#H5和小程序的差别？" class="headerlink" title="H5和小程序的差别？"></a>H5和小程序的差别？</h2><p><strong>1、不一样的运行环境</strong></p>
-<p>H5仅能借助浏览器实现启动，但小程序虽然包含H5技术，但在运行环境方面与H5不同，它基于解析器得以运行，结合自定义的开发语言标准，其性能更是有了长足的进步。简单讲小伙伴们可以利用浏览器打开H5网页，运用微信平台打开小程序。</p>
-<p><strong>2、不一样的成本</strong></p>
-<p>在开发方面，很多企业借助各类开发软件针对H5开发，定制化出众。但这种开发需要结合多方面技术实现，因此相对比较复杂，开发的成本也是比较高的。然而小程序则不一样，开发完全借助官方下载的开发工具即可实现，小程序开发价格相对低廉很多。</p>
-<p><strong>3、不一样的系统级权限</strong></p>
-<p>从程序本身来看，这个小程序能得到更多的系统权限，而对于H5则不同，权限很低。很简单举几个例子，比如网络当前的状态，甚至是一些数据的缓存应用等，都能够得以与小程序进行连接。</p>
-<p><strong>4、不一样的运行状态</strong></p>
-<p>现在的人们总是强调人性化，用户高体验度，那么这一点就被小程序抢先拥有了。要知道，相较于H5，这个小程序拥有更为流畅的使用速度。</p>
-<p>很多使用过小程序和H5的客户，都很印象深刻，前者的打开速度要快上很多，利用一些软件就也可以测试出两者的差距。</p>
-<p>我们举例来说，如果我们打开H5，就相当于打开一个网页，页面需要加载，因此打开速度相对较慢。</p>
-<p>而对于小程序则不同，该应用程序完全借助微信运行，根本不需要像浏览器加载的操作，就可以直接打开。此外，H5页面之间的切换也需要时间，但小程序不用担心这些困难。</p>
-<h2 id="小程序打开速度加载很慢怎么办？"><a href="#小程序打开速度加载很慢怎么办？" class="headerlink" title="小程序打开速度加载很慢怎么办？"></a>小程序打开速度加载很慢怎么办？</h2><p><strong>01. 问题现象</strong></p>
-<p>小程序初次打开首屏加载很慢，已经超出用户等待时长。</p>
-<p><strong>02. 理想加载</strong></p>
-<p>理想状态加载不超过5s，数据渲染不出现卡顿现象。</p>
-<p>二. 加载机制</p>
-<p>首屏的加载速度除了和网络有关系，和小程序自身启动机制也有关系，首先要了解小程序的启动机制，小程序的启动分为冷启动和热启动。</p>
-<p><strong>01. 冷启动</strong></p>
-<p>简介：如果用户首次打开，或小程序销毁后被用户再次打开，此时小程序需要重新加载启动，即冷启动。</p>
-<p>触发场景：新用户第一个进入小程序</p>
-<p>用户已经进入过小程序，但是小程序被销毁，销毁的原因有，小程序被删除，小程序在后台等待时间过长，自动销毁了。</p>
-<p><strong>02. 热启动</strong></p>
-<p>简介：如果用户已经打开过某小程序，然后在一定时间内再次打开该小程序，此时小程序并未被销毁，只是从后台状态进入前台状态，这个过程就是热启动。</p>
-<p>触发场景：用户打开了小程序，在小程序没有被销毁时再次打开小程序，此时小程序还能保存用户上一次的操作状态。</p>
-<p>首屏加载慢大部分原因是冷启动时加载的数据过多，需要依赖过多的服务端的接口数据等。</p>
-<p>三. 检查</p>
-<p>对于程序员来说，遇到问题应该解决问题。首先要要几个基础检查：</p>
-<p>\01. 检查图片</p>
-<p>检查图片包括：</p>
-<p><strong>1. 图片是否过大</strong></p>
-<p>检查图片属性，如果图片加载过大，就利用工具压缩图片。此时要考虑如果图片像素要求很高，压缩要注意不能失真，其次压缩要注意等比例，留意是否不小心剪裁了图片大小等。</p>
-<p><strong>2. 图片懒加载</strong></p>
-<p>如果首页要加载的有很多列表或者图片展示，此时要注意图片加载时长，如果超过一定时间，懒加载是个不错的办法。</p>
-<p><strong>3. 图片是否可以用cdn托管</strong></p>
-<p>对于icon小图标可以放在小程序项目image文件夹里，但是如果图片占用资源，放在cdn托管既可以缩小代码包的大小还可以提升加载效率。</p>
-<p>\02. 检查首屏接口耗时</p>
-<p>一个接口一个接口的排查，在network中查看加载的时间，逐个排查原因，所有请求最好在1s内返回结果。</p>
-<p>\03. 检查有无错误日志</p>
-<p>在JS中如果在同步任务中，一个错误的发生会造成后面整段代码都不执行。</p>
-<p>此时应该排查下是否有异常错误，避免出现首屏一直处于加载的状态。必要的时候try catch处理。</p>
-<p><strong>04. 检查界面是否使用定时器</strong></p>
-<p>定时器一般设置为全局变量，或者定时器和倒计时相关功能绑定，用定时器一定要记得及时回收。</p>
-<p>\05. 检查基础版本库</p>
-<p>如果首页使用里自定义组建，不同颁布要注意基础库要一致。可能不同基础库有些功能的支持条件不一致，要做兼容处理。</p>
-<p>四. 优化策略</p>
-<p><strong>01. 分包加载</strong></p>
-<p>开发者通过在 app.json subpackages 字段声明项目分包结构</p>
-<p>{ “pages”:[ “pages&#x2F;index”, “pages&#x2F;logs” ], “subpackages”: [ { “root”: “packageA”, “pages”: [ “pages&#x2F;cat”, “pages&#x2F;dog” ] }, { “root”: “packageB”, “name”: “pack2”, “pages”: [ “pages&#x2F;apple”, “pages&#x2F;banana” ] } ]}</p>
-<p>分包之后优先加载主tab，二级界面可以理解为按需加载。</p>
-<p>分包要注意，主包不能使用二级界面的样式或者js等，因为主包在加载时分包是不加载的。</p>
-<p><strong>02. 利用缓存</strong></p>
-<p>当小程序被销毁需要重新渲染界面时，此时冷启动会再次请求接口加载数据，可以利用小程序提供了缓存方法wx.setStorage、wx.getStorage将数据存储在本地。</p>
-<p><strong>03. 不使用空白屏</strong></p>
-<p>所谓空白屏就是当请求接口的数据没有被返回时，整个界面被hidden的，此时给用户的感觉就是白屏。</p>
-<p>推荐做法：当数据没有被渲染时展示页面的基本骨架，利用toast提示加载进度，给用户反馈出加载的进度，会延长用户的等待时间。把优先级高的内容做优先展示，缩短白屏时间；</p>
-<p><strong>04. 首页架构调整</strong></p>
-<p>调整页面展示顺序等，尽量让首屏简洁化。数据展示的尽量精简化。</p>
-<p><strong>05. 渲染优化</strong></p>
-<p>避免首页多次setData，未绑定的变量或者和界面无关的变量都不要在setData中体现，这样的情况大多出现在一个变量可能在初版的时候使用，下一个版本更改需求，有些变量不需要渲染界面里，但是程序员并有及时删除。</p>
-<p><strong>06. 代码优化</strong></p>
-<p>第一：在样式上，检查wxss的使用率，这个很重要又经常被忽视，经常发生在不同版本迭代中，需求和样式是经常被改动的，下一个版本更改没有及时删除掉不用的样式，可能有些程序员心里是想着有可能下次被用到，但是记得项目是有git托管的，可以借助git查找之前的代码记录，所以不是此版本的css大胆的删除吧。</p>
-<p>第二：在js上，一个js可能到上千行了，这个原因可能和业务逻辑有关，也可能是你写了太多的函数，没有用函数的封装处理。调用接口，没有用Promise封装或者其他封装办法。</p>
-<h2 id="uniapp优缺点"><a href="#uniapp优缺点" class="headerlink" title="uniapp优缺点"></a>uniapp优缺点</h2><blockquote>
-<p>优点:<br>    a. 一套代码可以生成多端<br>    b. 学习成本低,语法是vue的,组件是小程序的<br>    c. 拓展能力强<br>    d. 使用HBuilderX开发,支持vue语法<br>    e. 突破了系统对H5条用原生能力的限制<br>缺点:<br>    a. 问世时间短,很多地方不完善<br>    b. 社区不大<br>    c. 官方对问题的反馈不及时<br>    d. 在Android平台上比微信小程序和iOS差<br>    e. 文件命名受限</p>
-</blockquote>
-<h2 id="vue-微信小程序-uni-app属性的绑定"><a href="#vue-微信小程序-uni-app属性的绑定" class="headerlink" title="vue , 微信小程序 , uni-app属性的绑定"></a>vue , 微信小程序 , uni-app属性的绑定</h2><p>vue和uni-app动态绑定一个变量的值为元素的某个属性的时候，会在属性前面加上冒号 小程序绑定某个变量的值为元素属性时，会用两个大括号 括起来，如果不加括号，为被认为是字符串。</p>
-<p>jQuery、vue、小程序、uni-app中的本地数据存储和接收<br>    jQuery：<br>    存：$.cookie(‘key’,’value’)<br>    取：$.cookie(‘key’)</p>
-<pre><code>vue：
-存储：localstorage.setItem（‘key’，‘value’）
-接收：localstorage.getItem（‘key’）
-
-微信小程序：
-存储：通过wx.setStorage/wx.setStorageSync写数据到缓存
-接收：通过wx.getStorage/wx.getStorageSync读取本地缓存，
-
-uni-app：
-存储：uni.setStorage(&#123;key:“属性名”，data:“值”&#125;) //异步 
-    uni.setStorageSync(KEY,DATA) //同步
-接收：uni.getStorage(&#123;key:“属性名”,success(res)&#123;res.data&#125;&#125;) //异步
-    uni.getStorageSync(KEY) //同步
-移除：uni.removeStorage(OBJECT) //从本地缓存中异步移除指定 key。
-    uni.removeStorageSync(KEY) //从本地缓存中同步移除指定 key。
-清除：uni.clearStorage() //清理本地数据缓存。
-    uni.clearStorageSync() //同步清理本地数据缓存。
-</code></pre>
-<h2 id="vue-小程序-uni-app的生命周期"><a href="#vue-小程序-uni-app的生命周期" class="headerlink" title="vue,小程序,uni-app的生命周期"></a>vue,小程序,uni-app的生命周期</h2><blockquote>
-<p>​	vue：<br>​	beforeCreate（创建前）<br>​	created（创建后）<br>​	beforeMount(载入前，挂载）<br>​	mounted（载入后）<br>​	beforeUpdate（更新前）<br>​	updated（更新后）<br>​	beforeDestroy（销毁前）<br>​	destroyed（销毁后）<br>​	小程序&#x2F;uni-app：<br>​	1. onLoad：首次进入页面加载时触发，可以在 onLoad 的参数中获取打开当前页面路径中的参数。<br>​	2. onShow：加载完成后、后台切到前台或重新进入页面时触发<br>​	3. onReady：页面首次渲染完成时触发<br>​	4. onHide：从前台切到后台或进入其他页面触发<br>​	5. onUnload：页面卸载时触发<br>​	6. onPullDownRefresh：监听用户下拉动作<br>​	7. onReachBottom：页面上拉触底事件的处理函数<br>​	8. onShareAppMessage：用户点击右上角转发</p>
-</blockquote>
-
-      </div>
-      <div class="post-tags-categories">
-        
-      </div>
-      
-        <div class="copyright">
-  <ul class="post-copyright">
-    <li class="post-copyright-author">
-    <strong>作者:  </strong>Yu</a>
-    </li>
-    <li class="post-copyright-link">
-    <strong>文章链接:  </strong>
-    <a href="/2021/10/30/有关小程序开发/" target="_blank" title="有关小程序开发">http://example.com/2021/10/30/有关小程序开发/</a>
-    </li>
-    <li class="post-copyright-license">
-      <strong>版权声明:   </strong>
-      本网站所有文章除特别声明外,均采用 <a rel="license" href="https://creativecommons.org/licenses/by-nc-nd/4.0/" target="_blank" title="Attribution-NonCommercial-NoDerivatives 4.0 International (CC BY-NC-ND 4.0)">CC BY-NC-ND 4.0</a>
-      许可协议。转载请注明出处!
-    </li>
-  </ul>
-<div>
-      
-    </article>
-    <!-- 上一篇文章和下一篇文章 -->
+  <div class="category-header-desc">
     
-      <!-- 文章详情页的上一页和下一页 -->
-<div class="post-nav">
-
-
-
-
-
-  
-  <div class="post-nav-next post-nav-item">
-    <div class="post-nav-img" style="background-size: cover; 
-      background-position: center center;">
-      <img class="lazyload lazyload placeholder" src="/medias/15.jpg" class="lazyload placeholder" data-srcset="/medias/15.jpg" srcset="https://img2.baidu.com/it/u=2037979560,2772131037&fm=26&fmt=auto&gp=0.jpg" src="" alt="">
-    </div>
-    <a href="/2021/10/26/vue-day5/" class="post-nav-link">
-      <div class="title">
-        下一篇: <i class="fas fa-angle-right"></i>
-        <div class="title-text">Vue常见问题</div>
-      </div>
-      <!-- <div class="content">
-        vue响应式原理vue2：Vue 采用数据劫持结合发布—订阅模式的方法，通过 Object.defineProperty
-      </div> -->
-    </a>
-  </div>
-
-</div>
-
-    
-    
-
-    <!-- 打赏 -->
-    
-      <div id="appDonate" class="post-donate">
-  <div id="donate_board" class="donate_bar center" ref="donate">
-    <a id="btn_donate" class="btn_donate" href="javascript:;" title="打赏" @click="showDialogDrawer()"></a>
-  </div>
-  <transition name="fade">
-    <div 
-      class="donate-box-mask"
-      v-cloak 
-      v-show="visible"
-      @click="cancelDialogDrawer()"
-    >
-    </div>
-  </transition>
-  <transition name="bounce">
-    <div class="donate-box" v-cloak v-show="visible">
-      <div class="donate-box_close">
-        <i class="fas fa-times" aria-hidden="true" @click="cancelDialogDrawer" pointer></i>
-      </div>
-      <div class="donate-box_title">
-        <h4>
-          你的赏识是我前进的动力
-        </h4>
-      </div>
-      <div class="donate-box_tab">
-        <div class="Alipay" pointer :class="{'active': tabActive === 'Alipay'}" @click="changeTabActive('Alipay')">
-          支付宝
-        </div>
-        <div class="WeChatpay" pointer :class="{'active': tabActive === 'WeChatpay'}" @click="changeTabActive('WeChatpay')">
-          微信
-        </div>
-      </div>
-      <div class="donate-box_img">
-        <div class="AlipayImg" v-show="tabActive === 'Alipay'">
-          <img src="/medias/1.jpg" class="lazyload placeholder" data-srcset="/medias/1.jpg" srcset="https://img2.baidu.com/it/u=2037979560,2772131037&fm=26&fmt=auto&gp=0.jpg" alt="支付宝打赏" />
-        </div> 
-        <div class="WeChatpayImg" v-show="tabActive === 'WeChatpay'">
-          <img src="/medias/2.jpg" class="lazyload placeholder" data-srcset="/medias/2.jpg" srcset="https://img2.baidu.com/it/u=2037979560,2772131037&fm=26&fmt=auto&gp=0.jpg" alt="微信打赏" />
-        </div>
-      </div>
-    </div>
-  </transition>
-</div>
-
-<script>
-  var body = document.body || document.documentElement || window;
-  var vm = new Vue({
-    el: '#appDonate',
-    data: {
-      visible: false,
-      tabActive: 'Alipay',
-      top: 0,
-    },
-    computed: {
-    },
-    mounted() {
-    },
-    methods: {
-      showDialogDrawer() {
-        this.visible = true;
-        // 防止页面滚动，只能让弹框滚动
-        // function getScroll() {
-        //   return {
-        //     left: window.pageXOffset || document.documentElement.scrollLeft || document.body.scrollLeft || 0,
-        //     top: window.pageYOffset || document.documentElement.scrollTop || document.body.scrollTop || 0
-        //   };
-        // }
-        this.top = $(document).scrollTop() // or getScroll().top
-        // console.log('aa', $('.main-content'));
-        body.style.cssText = 'overflow: hidden;';
-      },
-      cancelDialogDrawer() {
-        this.visible = false;
-        body.removeAttribute('style');
-        $(document).scrollTop(this.top)
-      },
-      changeTabActive(name) {
-        this.tabActive = name;
-      }
-    },
-    created() {}
-  })
-</script>
-    
-
-    <!-- 分享 -->
-    
-      <!-- https://github.com/overtrue/share.js -->
-<!-- 文章详情页的分享 -->
-<div class="social-share" data-sites="twitter,facebook,google,qq,qzone,wechat,weibo,douban,linkedin" data-wechat-qrcode-helper="<p>微信扫一扫即可分享！</p>"></div>
-
-<script src="/js/shareJs/social-share.min.js"></script>
-</script>
-
-<style>
-  .social-share {
-    margin: 20px 0;
-  }
-</style>
-
-
-    
-    
-    <!-- 评论 -->
-    <!-- 评论 -->
-
-  <div id="myComment">
-    
-      <div id="gitment-container"></div>
-
-    
-  </div>
-
-<!-- comment script in themes\hexo-theme-bamboo\layout\_partial\scripts\index.ejs -->
-
-
-  </div>
-
-  <!-- 目录 -->
-  <!-- 文章详情页右侧目录 -->
-
-  <div class="toc-aside">
-    <div class="toc-main">
-      <div class="toc-aside-title">
-        <i class="fas fa-list-ul" aria-hidden="true"></i><span>本文目录</span>
-        
-          <div class="toc-open-close">本文目录</div>
-        
-      </div>
-      <div class="toc-content">
-        <div class="toc"></div>
-      </div>
-    </div>
-  </div>
-
-  <!-- 手机端目录按钮 -->
-  <div id="toc-mobile-btn">
-    <i class="fas fa-list-ul" aria-hidden="true"></i>
-  </div>
-
-
-<script>
-  function closeToc(init) {
-    $(".toc-aside").css({'width': 0, 'padding': 0, 'transition': init ?  'noe' : 'width 0.3s' });
-    $(".toc-content").css({'width': 0});
-    $(".toc-aside-title span, .toc-aside-title i").css({'display': 'none'});
-    $(".main-content").css({'width': '75%', 'margin-left': 'auto', 'margin-right': 'auto',});
-  };
-  function openToc() {
-    $(".main-content").css({'width': '65%', 'margin-right': '10px', 'margin-left': 'calc(35% - 350px)'});
-    $(".toc-aside").css({'width': '300px', 'padding': '0 10px', 'transition': 'width 0.3s'});
-    $(".toc-content").css({'width': '300px'});
-    $(".toc-aside-title span, .toc-aside-title i").css({'display': 'inline-block'});
-  }
-  function openBtnClickFn () {
-    let openOrCloseBtn = $('.toc-aside .toc-aside-title .toc-open-close');
-    let open = eval('' || 'true');
-    openOrCloseBtn.click(function() {
-      if (open) {
-        closeToc();
-        open = false;
-      } else {
-        openToc();
-        open = true;
-      }
+      <span class="title" id="category-header-desc"></span>
+      <script>
+  function typedFn() {
+    const el = '#category-header-desc';
+    const type = 'categoryDetail';
+    let desc = '愿你如风，被人温柔以待'
+    var typed = new Typed(el, {
+      strings: [desc],
+      startDelay: 100,
+      typeSpeed: 100,
+      loop: true,
+      backSpeed: 50,
+      showCursor: true
     });
-  };
-  openBtnClickFn();
-  initCloseTocWidth(true);
-
-  function initCloseTocWidth(init) {
-    if (window.innerWidth >= 992) {
-      let isClose = false;
-      isClose && closeToc(init)
-    }
   }
-
-  document.addEventListener('pjax:complete', function () {
-    $(".toc-aside").css({'transition': 'no'});
-  })
-  document.addEventListener('pjax:complete', function () {
-    openBtnClickFn();
-  })
-  
+  typedFn();
 </script>
-
-  <!-- 图片放大 Wrap images with fancybox support -->
-  <script src="/js/wrapImage.js"></script>
+      
+  </div>
+  <div class="mask-box"></div>
 </div>
 
-<!-- 文章详情页背景图 -->
-<div id="appBgSwiper" style="position: fixed;left: 0;top: 0;width: 100%;height: 100%;z-index: -2;"
-	:style="{'background-color': bgColor ? bgColor : 'transparent'}">
-	<transition-group tag="ul" :name="names">
-		<li v-for='(image,index) in img' :key='index' v-show="index === mark" class="bg-swiper-box">
-			<img :src="image" class="bg-swiper-img no-lazy">
-		</li>
-	</transition-group>
-</div>
-<script>
-	var vm = new Vue({
-		el: '#appBgSwiper',
-		data: {
-			names: '' || 'fade' || 'fade', // translate-fade fade
-			mark: 0,
-			img: [],
-			bgColor: '',
-			time: null
-		},
-		methods: {   //添加方法
-			change(i, m) {
-				if (i > m) {
-					// this.names = 'fade';
-				} else if (i < m) {
-					// this.names = 'fade';
-				} else {
-					return;
-				}
-				this.mark = i;
-			},
-			prev() {
-				// this.names = 'fade';
-				this.mark--;
-				if (this.mark === -1) {
-					this.mark = 3;
-					return
-				}
-			},
-			next() {
-				// this.names = 'fade';
-				this.mark++;
-				if (this.mark === this.img.length) {
-					this.mark = 0;
-					return
-				}
-			},
-			autoPlay() {
-				// this.names = 'fade';
-				this.mark++;
-				if (this.mark === this.img.length) {
-					this.mark = 0;
-					return
-				}
-			},
-			play() {
-				let bgImgDelay = '' || '180000'
-				let delay = parseInt(bgImgDelay) || 180000;
-				this.time = setInterval(this.autoPlay, delay);
-			},
-			enter() {
-				clearInterval(this.time);
-			},
-			leave() {
-				this.play();
-			}
-		},
-		created() {
-			this.play()
-		},
-		beforeDestroy() {
-			clearInterval(this.time);
-		},
-		mounted() {
-			let prop = '' || '';
-			let isImg = prop.includes('.bmp') || prop.includes('.jpg') || prop.includes('.png') || prop.includes('.tif') || prop.includes('.gif') || prop.includes('.pcx') || prop.includes('.tga') || prop.includes('.exif') || prop.includes('.fpx') || prop.includes('.psd') || prop.includes('.cdr') || prop.includes('.pcd') || prop.includes('.dxf') || prop.includes('.ufo') || prop.includes('.eps') || prop.includes('.ai') || prop.includes('.raw') || prop.includes('.WMF') || prop.includes('.webp') || prop.includes('.jpeg') || prop.includes('http://') || prop.includes('https://')
-			if (isImg) {
-				let img = prop.split(',');
-				let configRoot = '/'
-				let arrImg = [];
-				img.forEach(el => {
-					var Expression = /http(s)?:\/\/([\w-]+\.)+[\w-]+(\/[\w- .\/?%&=]*)?/;
-					var objExp = new RegExp(Expression);
 
-					if (objExp.test(el)) {
-						// http or https
-						arrImg.push(el);
-					} else {
-						// 非http or https开头
-						// 本地文件
-						let firstStr = el.charAt(0);
-						if (firstStr == '/') {
-							el = el.substr(1); // 删除第一个字符 '/',因为 configRoot最后一个字符为 /
-						}
-						el = configRoot + el;
-						arrImg.push(el);
-					}
-				})
-				this.img = arrImg;
-			} else {
-				this.bgColor = prop;
-			}
-		}
-	})
-</script>
+<div class="category">
+  <div class="category-name">
+    <div class="name" style="background-color: #F8C471;">小程序 分类</div>
+  </div>
+  <!-- 每一篇文章卡片 -->
+  <!-- hash算法 -->
 
-<style>
-	.bg-swiper-box {
-		position: absolute;
-		display: block;
-		width: 100%;
-		height: 100%;
-	}
-
-	.bg-swiper-img {
-		object-fit: cover;
-		width: 100%;
-		height: 100%;
-	}
-</style>
-
-
-
-
-  <script>
-  function loadMermaid() {
-    if (document.getElementsByClassName('mermaid').length) {
-      if (window.mermaidJsLoad) mermaid.init()
-      else {
-        loadScript('https://unpkg.com/mermaid/dist/mermaid.min.js').then(() => {
-          window.mermaidJsLoad = true
-          mermaid.initialize({
-            theme: 'default',
-          })
-          if ('true') {
-            mermaid.init();
-          }
-        })
-      }
-    }
-  };
-  document.addEventListener("DOMContentLoaded", function () {
-    loadMermaid();
-  })
-
-  document.addEventListener('pjax:complete', function () {
-    loadMermaid();
-  })
+<section class="posts">
   
-</script>
+    
+    <article class="post reveal" style="flex-direction: row-reverse;   ">
+      <div class="post-main">
+        <div class="post-info">
+          <div class="post-time">
+            <i class="fas fa-clock" aria-hidden="true"></i>
+            <span class="post-time">2021-10-30</span>
+          </div>
+          <div class="post-title">
+            <a class="post-title-link" href="/2021/10/30/%E6%9C%89%E5%85%B3%E5%B0%8F%E7%A8%8B%E5%BA%8F%E5%BC%80%E5%8F%91/">有关小程序开发</a>
+          </div>
+          <div class="post-meta">
+            <div class="post-tags">
+              <!-- 文章详情页的标签 -->
 
+            </div>
+            <div class="post-categories">
+              <!-- 文章详情页的分类 -->
+
+<div class="article-category">
+  <i class="iconfont iconbookmark1"></i>
+  <a class="article-category-link" href="/categories/%E5%B0%8F%E7%A8%8B%E5%BA%8F/">小程序</a>
+</div>
+
+
+            </div>
+          </div>
+          <div class="post-img-mobile">
+            <a href="/2021/10/30/%E6%9C%89%E5%85%B3%E5%B0%8F%E7%A8%8B%E5%BA%8F%E5%BC%80%E5%8F%91/" style="background-size: cover; 
+              background-position: center center;">
+              <img class="lazyload lazyload placeholder" src="/medias/14.jpg" class="lazyload placeholder" data-srcset="/medias/14.jpg" srcset="https://img2.baidu.com/it/u=2037979560,2772131037&fm=26&fmt=auto&gp=0.jpg" alt="">
+            </a>
+          </div>
+          <div class="post-content">
+            H5和小程序的差别？1、不一样的运行环境
+H5仅能借助浏览器实现启动，但小程序虽然包含H5技术，但在运行环境方面与H5不同，它基于解析器得以运行，结合自定义的开发语言标准，其性能更是有了长足的进步。简单讲小伙伴们可以利用浏览器打开H5网页，
+          </div>
+        </div>
+        <div class="post-more">
+          <a href="/2021/10/30/%E6%9C%89%E5%85%B3%E5%B0%8F%E7%A8%8B%E5%BA%8F%E5%BC%80%E5%8F%91/">
+            <i class="iconfont iconmore" pointer style="float: right;  " title="阅读更多"></i>
+          </a>
+        </div>
+      </div>
+      <div class="post-img">
+        <a href="/2021/10/30/%E6%9C%89%E5%85%B3%E5%B0%8F%E7%A8%8B%E5%BA%8F%E5%BC%80%E5%8F%91/" style="background-size: cover; 
+          background-position: center center;">
+          <img class="lazyload lazyload placeholder" src="/medias/14.jpg" class="lazyload placeholder" data-srcset="/medias/14.jpg" srcset="https://img2.baidu.com/it/u=2037979560,2772131037&fm=26&fmt=auto&gp=0.jpg" alt="">
+        </a>
+      </div>
+    </article>
+  
+</section>
+</div>
+<div class="w-70">
+  
+</div>
 
       </main>
     </div>
