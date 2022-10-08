@@ -706,7 +706,14 @@ export default Foo
 Foo = connect()(Foo);
 export default Foo;
 </code></pre>
-<h2 id="5、connect原理"><a href="#5、connect原理" class="headerlink" title="5、connect原理"></a>5、<strong>connect原理</strong></h2><h2 id="5、如何理解react-redux"><a href="#5、如何理解react-redux" class="headerlink" title="5、如何理解react-redux"></a>5、如何理解react-redux</h2><p>通过 redux 和 react context 配合使用，并借助高阶函数，实现了 react-redux</p>
+<h2 id="5、connect原理"><a href="#5、connect原理" class="headerlink" title="5、connect原理"></a>5、<strong>connect原理</strong></h2><ul>
+<li>首先<code>connect</code>之所以会成功，是因为<code>Provider</code>组件：</li>
+<li>在原应用组件上包裹一层，使原来整个应用成为<code>Provider</code>的子组件 接收<code>Redux</code>的<code>store</code>作为<code>props</code>，通过<code>context</code>对象传递给子孙组件上的<code>connect</code></li>
+</ul>
+<blockquote>
+<p><code>connect</code>做了些什么。它真正连接 <code>Redux</code> 和 <code>React</code>，它包在我们的容器组件的外一层，它接收上面 <code>Provider</code> 提供的 <code>store</code> 里面的<code>state</code> 和 <code>dispatch</code>，传给一个构造函数，返回一个对象，以属性形式传给我们的容器组件</p>
+</blockquote>
+<h2 id="5、如何理解react-redux"><a href="#5、如何理解react-redux" class="headerlink" title="5、如何理解react-redux"></a>5、如何理解react-redux</h2><p>通过 redux 和 react context 配合使用，并借助高阶函数，实现了 react-redux</p>
 <h2 id="6、redux的缺点"><a href="#6、redux的缺点" class="headerlink" title="6、redux的缺点"></a>6、redux的缺点</h2><ul>
 <li>一个组件所需要的数据，必须由父组件传过来，而不能像<code>flux</code>中直接从<code>store</code>取。</li>
 <li>当一个组件相关数据更新时，即使父组件不需要用到这个组件，父组件还是会重新<code>render</code>，可能会有效率影响，或者需要写复杂的<code>shouldComponentUpdate</code>进行判断。</li>

@@ -11,7 +11,7 @@
   <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-  <title>react-reudx | Yu&#39;s Blog</title>
+  <title>react-reudx创建例子 | Yu&#39;s Blog</title>
 
   <link rel="icon" type="image/png" href="/medias/logo.png">
   <link rel="stylesheet" href="https://at.alicdn.com/t/font_1911880_c1nvbyezg17.css">
@@ -553,14 +553,14 @@
 
 
 <div class="post-detail-header" id="thumbnail_canvas" style="background-repeat: no-repeat; background-size: cover; 
-  background-position: center center;position: relative;background-image:url('/medias/1.jpg')">
+  background-position: center center;position: relative;background-image:url('/medias/7.jpg')">
   <div class="post-detail-header-mask"></div>
   <canvas id="header_canvas"style="position:absolute;bottom:0;pointer-events:none;"></canvas>
   
   <div class="post-detail-header_info-box">
     <div class="title-box">
       <span class="title">
-        react-reudx
+        react-reudx创建例子
       </span>
     </div>
     
@@ -600,15 +600,15 @@
   <div class="main-content">
     <article class="post post-detail">
       <div class="post-content">
-        <h3 id="创建项目"><a href="#创建项目" class="headerlink" title="创建项目"></a>创建项目</h3><hr>
+        <h2 id="一、创建项目"><a href="#一、创建项目" class="headerlink" title="一、创建项目"></a>一、创建项目</h2><h3 id="创建项目"><a href="#创建项目" class="headerlink" title="创建项目"></a>创建项目</h3><hr>
 <pre><code>$ create-react-app typescript-react-app --scripts-version=react-scripts-ts
 </code></pre>
-<h3 id="安装redux、react-redux插件"><a href="#安装redux、react-redux插件" class="headerlink" title="安装redux、react-redux插件"></a>安装redux、react-redux插件</h3><pre><code>npm install -S redux react-redux @types/react-redux
+<h2 id="安装redux、react-redux插件"><a href="#安装redux、react-redux插件" class="headerlink" title="安装redux、react-redux插件"></a>安装redux、react-redux插件</h2><pre><code>npm install -S redux react-redux @types/react-redux
 </code></pre>
-<h3 id="运行项目"><a href="#运行项目" class="headerlink" title="运行项目"></a>运行项目</h3><pre><code>npm run start
+<h2 id="运行项目"><a href="#运行项目" class="headerlink" title="运行项目"></a>运行项目</h2><pre><code>npm run start
 </code></pre>
 <hr>
-<h3 id="定义组件"><a href="#定义组件" class="headerlink" title="定义组件"></a>定义组件</h3><p>component&#x2F;Hello.tsx</p>
+<h2 id="二、定义组件"><a href="#二、定义组件" class="headerlink" title="二、定义组件"></a>二、定义组件</h2><p>component&#x2F;Hello.tsx</p>
 <pre><code class="typescript">import * as React from &#39;react&#39;
 export interface IProps&#123;
   value:number
@@ -633,10 +633,12 @@ export default class Hello extends React.PureComponent&lt;IProps&gt;&#123;
 &#125;
 &#125;
 </code></pre>
-<h3 id="定义状态State"><a href="#定义状态State" class="headerlink" title="定义状态State"></a>定义状态State</h3><p>type&#x2F;index.tsx</p>
+<h2 id="三、定义状态State"><a href="#三、定义状态State" class="headerlink" title="三、定义状态State"></a>三、定义状态State</h2><p>type&#x2F;index.tsx</p>
 <pre><code class="typescript">export type StoreState = number;
 </code></pre>
-<h3 id="添加actions"><a href="#添加actions" class="headerlink" title="添加actions"></a>添加actions</h3><p>创建 constants 目录，在 index.tsx 文件中添加需要响应的消息类型</p>
+<h2 id="四、添加actions"><a href="#四、添加actions" class="headerlink" title="四、添加actions"></a>四、添加actions</h2><blockquote>
+<p>创建 constants 目录，在 index.tsx 文件中添加需要响应的消息类型</p>
+</blockquote>
 <p>constants&#x2F;index.tsx</p>
 <pre><code class="init">// 定义增加 state 类型常量
 export const INCREMENT = &quot;INCREMENT&quot;;
@@ -646,7 +648,9 @@ export type INCREMENT = typeof INCREMENT;
 export const DECREMENT = &quot;DECREMENT&quot;;
 export type DECREMENT = typeof DECREMENT;
 </code></pre>
+<blockquote>
 <p>创建 actions 以及创建这些 actions 的函数</p>
+</blockquote>
 <p>store&#x2F;actions&#x2F;index</p>
 <pre><code class="typescript">import &#123; INCREMENT, DECREMENT &#125; from &#39;../../constants/index&#39;;
 export interface IINCREMENTAction&#123;
@@ -670,7 +674,9 @@ export const decrement=():IDECREMENTAction=&gt;(&#123;
 
 </code></pre>
 <p>描述了哪些 <code>action</code> 是可以增加或减少的。 最后，我们定义了两个函数用来创建实际的 <code>actions</code>。</p>
-<h3 id="添加-reducer"><a href="#添加-reducer" class="headerlink" title="添加 reducer"></a>添加 reducer</h3><p>&#x2F;reducers&#x2F;index.tsx文件里。 它的功能是保证增加操作会让 <code>times</code> 加1，减少操作则要将 <code>times</code> 减1。</p>
+<h2 id="五、添加-reducer"><a href="#五、添加-reducer" class="headerlink" title="五、添加 reducer"></a>五、添加 reducer</h2><blockquote>
+<p>&#x2F;reducers&#x2F;index.tsx文件里。 它的功能是保证增加操作会让 <code>times</code> 加1，减少操作则要将 <code>times</code> 减1。</p>
+</blockquote>
 <p>reducers&#x2F;index.tsx</p>
 <pre><code class="javascript">import &#123; DECREMENT,INCREMENT &#125; from &quot;../constants&quot;
 import &#123; ModifyAction &#125; from &#39;./actions/index&#39;;
@@ -688,11 +694,13 @@ export default (state=0,action:ModifyAction):number=&gt;&#123;
 // reducer的功能是保证增加操作会让 times 加1，减少操作则要将 times 减1。
 </code></pre>
 <p>创建容器组件</p>
+<blockquote>
 <p>两个关键点是初始的 <code>Hello</code> 组件和 <code>react-redux</code> 的 <code>connect</code> 函数。 <code>connect</code> 可以将我们的 <code>Counter</code> 组件转换成一个容器，通过以下两个函数：</p>
 <ul>
 <li>mapStateToProps将当前store里的数据以我们的组件需要的形式传递到组件。</li>
 <li>mapDispatchToProps利用dispatch函数，创建回调props将actions送到store。</li>
 </ul>
+</blockquote>
 <p>container&#x2F;CounterCon.tsx</p>
 <pre><code class="typescript">import &#123; connect &#125; from &#39;react-redux&#39;;
 import&#123;Dispatch&#125;from &#39;redux&#39;;
@@ -713,7 +721,9 @@ const mapDispatchToProps=(dispatch:Dispatch)=&gt;(&#123;
 //使用connect高阶组件对Counter进行包裹
 export default connect(mapStateToProps,mapDispatchToProps)(Hello)
 </code></pre>
-<h3 id="创建store"><a href="#创建store" class="headerlink" title="创建store"></a>创建store</h3><p>创建一个带初始状态的store，并用我们所有的reducers来设置它。 并且使用 react-redux 的 Provider 将 props 和 容器连接起来</p>
+<h2 id="六、创建store"><a href="#六、创建store" class="headerlink" title="六、创建store"></a>六、创建store</h2><blockquote>
+<p>创建一个带初始状态的store，并用我们所有的reducers来设置它。 并且使用 react-redux 的 Provider 将 props 和 容器连接起来</p>
+</blockquote>
 <p>index.tsx</p>
 <pre><code class="typescript">import React from &#39;react&#39;;
 import ReactDOM from &#39;react-dom/client&#39;;
@@ -779,7 +789,7 @@ export default App;
     </li>
     <li class="post-copyright-link">
     <strong>文章链接:  </strong>
-    <a href="/2022/10/08/Redux2/" target="_blank" title="react-reudx">http://example.com/2022/10/08/Redux2/</a>
+    <a href="/2022/10/08/Redux2/" target="_blank" title="react-reudx创建例子">http://example.com/2022/10/08/Redux2/</a>
     </li>
     <li class="post-copyright-license">
       <strong>版权声明:   </strong>
