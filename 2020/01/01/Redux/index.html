@@ -603,12 +603,20 @@
         <h2 id="1、是什么"><a href="#1、是什么" class="headerlink" title="1、是什么"></a>1、是什么</h2><p>将所有的状态进行集中管理，当需要更新状态的时候，仅需要对这个管理集中处理，而不用去关心状态是如何分发到每一个组件内部的</p>
 <p><code>redux</code>就是一个实现上述集中管理的容器，遵循三大基本原则：</p>
 <ul>
-<li>单一数据源</li>
-<li>state 是只读的</li>
-<li>使用纯函数来执行修改</li>
+<li>单一数据源(只存在于唯一的store中)</li>
+<li>state 是只读的(想要修改只能通过action触发)</li>
+<li>使用纯函数来执行修改（为了描述<code>action</code>如何改变<code>state</code>的，你需要编写<code>reducers</code>）</li>
 </ul>
 <p>注意的是，<code>redux</code>并不是只应用在<code>react</code>中，还与其他界面库一起使用，如<code>Vue</code></p>
 <h2 id="2、工作原理"><a href="#2、工作原理" class="headerlink" title="2、工作原理"></a>2、工作原理</h2><p><code>Redux</code>是将整个应用状态存储到一个地方上称为<code>store</code>,里面保存着一个状态树<code>store tree</code>,组件可以派发(<code>dispatch</code>)行为(<code>action</code>)给<code>store</code>,而不是直接通知其他组件，组件内部通过订阅<code>store</code>中的状态<code>state</code>来刷新自己的视图</p>
+<p><img src="https://s.poetries.work/gitee/2020/07/68.png" class="lazyload placeholder" data-srcset="https://s.poetries.work/gitee/2020/07/68.png" srcset="https://img2.baidu.com/it/u=2037979560,2772131037&fm=26&fmt=auto&gp=0.jpg"></p>
+<h3 id="redux工作流程"><a href="#redux工作流程" class="headerlink" title="redux工作流程"></a>redux工作流程</h3><ol>
+<li>Store仓库层，数据中心</li>
+<li>Reducers，数据初始与修改</li>
+<li>Component视图层，用以显示数据，动作触发</li>
+<li>ActionCreators，动作派发执行</li>
+</ol>
+<p><code>React Components</code> 需要获取一些数据, 然后它就告知 <code>Store</code> 需要获取数据，这就是就是 <code>Action Creactor</code> , <code>Store</code> 接收到之后去 <code>Reducer</code> 查一下， <code>Reducer</code> 会告诉 <code>Store</code> 应该给这个组件什么数据</p>
 <h2 id="3、如何使用"><a href="#3、如何使用" class="headerlink" title="3、如何使用"></a>3、如何使用</h2><ul>
 <li>createStore可以帮助创建 store</li>
 <li>store.dispatch 帮助派发 action , action 会传递给 store</li>
@@ -698,11 +706,11 @@ export default Foo
 Foo = connect()(Foo);
 export default Foo;
 </code></pre>
-<h2 id="5、redux的缺点"><a href="#5、redux的缺点" class="headerlink" title="5、redux的缺点"></a>5、redux的缺点</h2><ul>
+<h2 id="5、connect原理"><a href="#5、connect原理" class="headerlink" title="5、connect原理"></a>5、<strong>connect原理</strong></h2><h2 id="5、如何理解react-redux"><a href="#5、如何理解react-redux" class="headerlink" title="5、如何理解react-redux"></a>5、如何理解react-redux</h2><p>通过 redux 和 react context 配合使用，并借助高阶函数，实现了 react-redux</p>
+<h2 id="6、redux的缺点"><a href="#6、redux的缺点" class="headerlink" title="6、redux的缺点"></a>6、redux的缺点</h2><ul>
 <li>一个组件所需要的数据，必须由父组件传过来，而不能像<code>flux</code>中直接从<code>store</code>取。</li>
 <li>当一个组件相关数据更新时，即使父组件不需要用到这个组件，父组件还是会重新<code>render</code>，可能会有效率影响，或者需要写复杂的<code>shouldComponentUpdate</code>进行判断。</li>
 </ul>
-<h2 id="6、如何理解react-redux"><a href="#6、如何理解react-redux" class="headerlink" title="6、如何理解react-redux"></a>6、如何理解react-redux</h2><p>通过 redux 和 react context 配合使用，并借助高阶函数，实现了 react-redux</p>
 
       </div>
       <div class="post-tags-categories">
