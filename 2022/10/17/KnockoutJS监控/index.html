@@ -602,11 +602,15 @@
       <div class="post-content">
         <h2 id="监控普通变量"><a href="#监控普通变量" class="headerlink" title="监控普通变量"></a>监控普通变量</h2><p>监控（Observables）</p>
 <p>通过将ViewModel中的属性，声明成observable；就能实现双向数据绑定</p>
-<p>ko.observable(variable)</p>
+<p><code>ko.observable(variable)</code></p>
 <p>布尔|数字|字符串</p>
 <p>操作</p>
-<p>读：ko.observable()</p>
-<p>写：ko.observable(值)</p>
+<ul>
+<li><p>读：<code>ko.observable()</code></p>
+</li>
+<li><p>写：<code>ko.observable(值)</code></p>
+</li>
+</ul>
 <p>举例</p>
 <pre><code class="html">&lt;!DOCTYPE html&gt;
 &lt;html lang=&quot;en&quot;&gt;
@@ -632,10 +636,14 @@
 &lt;/html&gt;
 </code></pre>
 <h2 id="显示订阅"><a href="#显示订阅" class="headerlink" title="显示订阅"></a>显示订阅</h2><p>subscribe</p>
-<p>一般不需要手动订阅</p>
-<p>当数据发生变化时，需要添加自定逻辑</p>
+<ul>
+<li><p>一般不需要手动订阅</p>
+</li>
+<li><p>当数据发生变化时，需要添加自定逻辑</p>
+</li>
+</ul>
 <p>订阅</p>
-<p>let sub &#x3D; vm.varable.subscrible(function(newValue）{自定义逻辑})</p>
+<p><code>let sub = vm.varable.subscrible(function(newValue）&#123;自定义逻辑&#125;)</code></p>
 <pre><code class="html">&lt;!DOCTYPE html&gt;
 &lt;html lang=&quot;en&quot;&gt;
   &lt;head&gt;
@@ -668,7 +676,7 @@
   &lt;/body&gt;
 &lt;/html&gt;
 </code></pre>
-<h2 id="取消订阅"><a href="#取消订阅" class="headerlink" title="取消订阅"></a>取消订阅</h2><p>sub.dispose()</p>
+<h2 id="取消订阅"><a href="#取消订阅" class="headerlink" title="取消订阅"></a>取消订阅</h2><p><code>sub.dispose()</code></p>
 <pre><code class="html">&lt;!DOCTYPE html&gt;
 &lt;html lang=&quot;en&quot;&gt;
   &lt;head&gt;
@@ -702,9 +710,13 @@
 &lt;/html&gt;
 </code></pre>
 <h2 id="监控数组"><a href="#监控数组" class="headerlink" title="监控数组"></a>监控数组</h2><p>ko.observableArray(数组)</p>
-<p>将对象放在数组中，不会使对象可监控</p>
+<ul>
+<li>将对象放在数组中，不会使对象可监控</li>
+</ul>
 <p>操作</p>
-<p>KO封装了数组的常见操作（push，pop，reverse，sort…）</p>
+<ul>
+<li>KO封装了数组的常见操作（push，pop，reverse，sort…）</li>
+</ul>
 <p>在监控对象时候是监控对象本身而不监控对象当中的属性</p>
 <pre><code class="html">&lt;!DOCTYPE html&gt;
 &lt;html lang=&quot;en&quot;&gt;
@@ -726,16 +738,7 @@
           age:18
         &#125;)
       &#125;
-      // vm.msg(123)
-      // vm.age.subscribe(function(newValue)&#123;
-      //   if (newValue&gt;100)&#123;
-      //     vm.msg(&quot;年龄不符&quot;)
-      //   &#125;else&#123;
-      //     vm.msg(&quot;&quot;)
-      //   &#125;
-      // &#125;)
-      // ageSub.dispose()
-      // 激活ko
+      
       ko.applyBindings(vm)
     &lt;/script&gt;
   &lt;/body&gt;
@@ -806,6 +809,77 @@
 </blockquote>
 </li>
 </ul>
+<p><strong>ko.computed</strong></p>
+<pre><code class="html">&lt;!DOCTYPE html&gt;
+&lt;html lang=&quot;en&quot;&gt;
+  &lt;head&gt;
+    &lt;title&gt;&lt;/title&gt;
+    &lt;meta charset=&quot;UTF-8&quot;&gt;
+    &lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1&quot;&gt;
+    &lt;link href=&quot;css/style.css&quot; rel=&quot;stylesheet&quot;&gt;
+    &lt;script type=&#39;text/javascript&#39; src=&#39;ko.js&#39;&gt;&lt;/script&gt;
+  &lt;/head&gt;
+  &lt;body&gt;
+    &lt;input data-bind=&quot;text:myArray.length&quot;&gt;
+    &lt;span data-bind=&quot;text:myArray.length&quot;&gt;&lt;/span&gt;
+
+    &lt;script&gt;
+      function AppViewModel() &#123;
+          let self = this
+          self.firstName = ko.observable(&#39;Bob&#39;)
+          self.lastName=ko.observable(&#39;Smith&#39;)
+          
+          self.fullName=ko.computed(
+              function()&#123;
+                return self.firstName() +&quot; &quot;+self.lastName()
+            &#125;
+          )
+      &#125;
+     
+      ko.applyBindings(new AppViewModel())
+    &lt;/script&gt;
+  &lt;/body&gt;
+&lt;/html&gt;
+</code></pre>
+<p>ko.pureComputed(callback)纯计算监控</p>
+<pre><code class="html">&lt;!DOCTYPE html&gt;
+&lt;html lang=&quot;en&quot;&gt;
+  &lt;head&gt;
+    &lt;title&gt;&lt;/title&gt;
+    &lt;meta charset=&quot;UTF-8&quot;&gt;
+    &lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1&quot;&gt;
+    &lt;link href=&quot;css/style.css&quot; rel=&quot;stylesheet&quot;&gt;
+    &lt;script type=&#39;text/javascript&#39; src=&#39;ko.js&#39;&gt;&lt;/script&gt;
+  &lt;/head&gt;
+  &lt;body&gt;
+    &lt;div&gt;First name: &lt;span data-bind=&quot;text: firstName&quot;&gt;&lt;/span&gt;&lt;/div&gt;
+    &lt;div&gt;Last name: &lt;span data-bind=&quot;text: lastName&quot;&gt;&lt;/span&gt;&lt;/div&gt;
+    &lt;div&gt;Hello,&lt;input data-bind=&quot;textInput: fullName&quot;/&gt;&lt;/div&gt;
+
+    &lt;script&gt;
+     function MyViewModel() &#123;
+      this.firstName=ko.observable(&#39;Planet&#39;)
+      this.lastName = ko.observable(&#39;Earth&#39;)
+
+      this.fullName = ko.computed(&#123;
+        read: function()&#123;
+          return this.firstName()+&quot; &quot;+this.lastName()
+        &#125;,
+        write:function(value)&#123;
+          var lastSpacePos = value.lastIndexOf(&quot; &quot;)
+          if (lastSpacePos &gt; 0)&#123;
+            this.firstName(value.substring(0,lastSpacePos))
+            this.lastName(value.substring(lastSpacePos+1))
+          &#125;
+        &#125;,
+        owner:this
+      &#125;)
+     &#125;
+     ko.applyBindings(new MyViewModel())
+    &lt;/script&gt;
+  &lt;/body&gt;
+&lt;/html&gt;
+</code></pre>
 
       </div>
       <div class="post-tags-categories">
