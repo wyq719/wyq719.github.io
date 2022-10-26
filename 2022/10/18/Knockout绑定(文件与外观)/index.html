@@ -11,7 +11,7 @@
   <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-  <title>有关Redux | Yu&#39;s Blog</title>
+  <title>Knockout.js监控(文件与外观) | Yu&#39;s Blog</title>
 
   <link rel="icon" type="image/png" href="/medias/logo.png">
   <link rel="stylesheet" href="https://at.alicdn.com/t/font_1911880_c1nvbyezg17.css">
@@ -553,21 +553,21 @@
 
 
 <div class="post-detail-header" id="thumbnail_canvas" style="background-repeat: no-repeat; background-size: cover; 
-  background-position: center center;position: relative;background-image:url('/medias/10.jpg')">
+  background-position: center center;position: relative;background-image:url('/medias/13.jpg')">
   <div class="post-detail-header-mask"></div>
   <canvas id="header_canvas"style="position:absolute;bottom:0;pointer-events:none;"></canvas>
   
   <div class="post-detail-header_info-box">
     <div class="title-box">
       <span class="title">
-        有关Redux
+        Knockout.js监控(文件与外观)
       </span>
     </div>
     
     
       
         <span class="post-detail-header_date">
-          <i class="fas fa-calendar"></i> 发表于：2020-01-01 |
+          <i class="fas fa-calendar"></i> 发表于：2022-10-18 |
         </span>
       
 
@@ -575,8 +575,8 @@
         <span class="post-detail-header_categories">
           <i class="iconfont iconbookmark1"></i> 分类：
           
-            <a href="/categories/react/" class="post-detail-header_category">
-              react
+            <a href="/categories/Knockout-js/" class="post-detail-header_category">
+              Knockout.js
             </a>
           
         </span>
@@ -600,141 +600,262 @@
   <div class="main-content">
     <article class="post post-detail">
       <div class="post-content">
-        <h2 id="1、是什么"><a href="#1、是什么" class="headerlink" title="1、是什么"></a>1、是什么</h2><p>将所有的状态进行集中管理，当需要更新状态的时候，仅需要对这个管理集中处理，而不用去关心状态是如何分发到每一个组件内部的</p>
-<p><code>redux</code>就是一个实现上述集中管理的容器，遵循三大基本原则：</p>
-<ul>
-<li>单一数据源(只存在于唯一的store中)</li>
-<li>state 是只读的(想要修改只能通过action触发)</li>
-<li>使用纯函数来执行修改（为了描述<code>action</code>如何改变<code>state</code>的，你需要编写<code>reducers</code>）</li>
+        <h2 id="文件与外观"><a href="#文件与外观" class="headerlink" title="文件与外观"></a>文件与外观</h2><ul>
+<li>visble(控制节点的显示和隐藏)</li>
 </ul>
-<p>注意的是，<code>redux</code>并不是只应用在<code>react</code>中，还与其他界面库一起使用，如<code>Vue</code></p>
-<h2 id="2、工作原理"><a href="#2、工作原理" class="headerlink" title="2、工作原理"></a>2、工作原理</h2><p><code>Redux</code>是将整个应用状态存储到一个地方上称为<code>store</code>,里面保存着一个状态树<code>store tree</code>,组件可以派发(<code>dispatch</code>)行为(<code>action</code>)给<code>store</code>,而不是直接通知其他组件，组件内部通过订阅<code>store</code>中的状态<code>state</code>来刷新自己的视图</p>
-<p><img src="https://s.poetries.work/gitee/2020/07/68.png" class="lazyload placeholder" data-srcset="https://s.poetries.work/gitee/2020/07/68.png" srcset="https://img2.baidu.com/it/u=2037979560,2772131037&fm=26&fmt=auto&gp=0.jpg"></p>
-<h3 id="redux工作流程"><a href="#redux工作流程" class="headerlink" title="redux工作流程"></a>redux工作流程</h3><ol>
-<li>Store仓库层，数据中心</li>
-<li>Reducers，数据初始与修改</li>
-<li>Component视图层，用以显示数据，动作触发</li>
-<li>ActionCreators，动作派发执行</li>
-</ol>
-<p><code>React Components</code> 需要获取一些数据, 然后它就告知 <code>Store</code> 需要获取数据，这就是就是 <code>Action Creactor</code> , <code>Store</code> 接收到之后去 <code>Reducer</code> 查一下， <code>Reducer</code> 会告诉 <code>Store</code> 应该给这个组件什么数据</p>
-<h2 id="3、如何使用"><a href="#3、如何使用" class="headerlink" title="3、如何使用"></a>3、如何使用</h2><ul>
-<li>createStore可以帮助创建 store</li>
-<li>store.dispatch 帮助派发 action , action 会传递给 store</li>
-<li>store.getState 这个方法可以帮助获取 store 里边所有的数据内容</li>
-<li>store.subscrible 方法订阅 store 的改变，只要 store 发生改变， store.subscrible 这个函数接收的这个回调函数就会被执行</li>
-</ul>
-<h2 id="4、你在React项目中是如何使用Redux的-项目结构是如何划分的？"><a href="#4、你在React项目中是如何使用Redux的-项目结构是如何划分的？" class="headerlink" title="4、你在React项目中是如何使用Redux的? 项目结构是如何划分的？"></a>4、你在React项目中是如何使用Redux的? 项目结构是如何划分的？</h2><p><code>redux</code>是用于数据状态管理，而<code>react</code>是一个视图层面的库</p>
-<p>如果将两者连接在一起，可以使用官方推荐<code>react-redux</code>库，其具有高效且灵活的特性</p>
-<p><code>react-redux</code>将组件分成：</p>
-<ul>
-<li>容器组件：存在逻辑处理</li>
-<li>UI 组件：只负责现显示和交互，内部不处理逻辑，状态由外部控制</li>
-</ul>
-<p>通过<code>redux</code>将整个应用状态存储到<code>store</code>中，组件可以派发<code>dispatch</code>行为<code>action</code>给<code>store</code></p>
-<p>其他组件通过订阅<code>store</code>中的状态<code>state</code>来更新自身的视图</p>
-<h2 id="如何做"><a href="#如何做" class="headerlink" title="如何做"></a>如何做</h2><p>使用<code>react-redux</code>分成了两大核心：</p>
-<ul>
-<li>Provider</li>
-<li>connection</li>
-</ul>
-<h3 id="Provider"><a href="#Provider" class="headerlink" title="Provider"></a>Provider</h3><p>在<code>redux</code>中存在一个<code>store</code>用于存储<code>state</code>，如果将这个<code>store</code>存放在顶层元素中，其他组件都被包裹在顶层元素之上</p>
-<p>那么所有的组件都能够受到<code>redux</code>的控制，都能够获取到<code>redux</code>中的数据</p>
-<p>使用方式如下：</p>
-<pre><code class="js">&lt;Provider store = &#123;store&#125;&gt;
-    &lt;App /&gt;
-&lt;Provider&gt;
-</code></pre>
-<h3 id="connection"><a href="#connection" class="headerlink" title="connection"></a>connection</h3><pre><code>connect`方法将`store`上的`getState`和 `dispatch`包装成组件的`props
-</code></pre>
-<p>导入<code>conect</code>如下：</p>
-<pre><code class="js">import &#123; connect &#125; from &quot;react-redux&quot;;
-</code></pre>
-<p>用法如下：</p>
-<pre><code class="js">connect(mapStateToProps, mapDispatchToProps)(MyComponent)
-</code></pre>
-<p>可以传递两个参数：</p>
-<ul>
-<li>mapStateToProps</li>
-<li>mapDispatchToProps</li>
-</ul>
-<h3 id="mapStateToProps"><a href="#mapStateToProps" class="headerlink" title="mapStateToProps"></a>mapStateToProps</h3><p>把<code>redux</code>中的数据映射到<code>react</code>中的<code>props</code>中去</p>
-<blockquote>
-<p>mapStateToProps会订阅 Store，每当state更新的时候，就会自动执行，重新计算 UI 组件的参数，从而触发 UI 组件的重新渲染。</p>
-<p>mapStateToProps的第一个参数总是state对象，还可以使用第二个参数，代表容器组件的props对象。使用ownProps作为参数后，如果容器组件的参数发生变化，也会引发 UI 组件重新渲染。</p>
-</blockquote>
-<p>如下：</p>
-<pre><code class="jsx">const mapStateToProps = (state) =&gt; &#123;
-    return &#123;
-        // prop : state.xxx  | 意思是将state中的某个数据映射到props中
-        foo: state.bar
-    &#125;
-&#125;
-</code></pre>
-<p>组件内部就能够通过<code>props</code>获取到<code>store</code>中的数据</p>
-<pre><code class="text">class Foo extends Component &#123;
-    constructor(props)&#123;
-        super(props);
-    &#125;
-    render()&#123;
-        return(
-         // 这样子渲染的其实就是state.bar的数据了
-            &lt;div&gt;this.props.foo&lt;/div&gt;
-        )
-    &#125;
-&#125;
-Foo = connect()(Foo)
-export default Foo
-</code></pre>
-<h3 id="mapDispatchToProps"><a href="#mapDispatchToProps" class="headerlink" title="mapDispatchToProps"></a>mapDispatchToProps</h3><p>将<code>redux</code>中的<code>dispatch</code>映射到组件内部的<code>props</code>中</p>
-<blockquote>
-<p>mapDispatchToProps是connect函数的第二个参数，用来建立 UI 组件的参数到store.dispatch方法的映射。也就是说，它定义了哪些用户的操作应该当作 Action，传给 Store。它可以是一个函数，也可以是一个对象。</p>
-<p>1、作为函数</p>
-<p>如果mapDispatchToProps是一个函数，会得到dispatch和ownProps（容器组件的props对象）两个参数。作为函数，应该返回一个对象，该对象的每个键值对都是一个映射，定义了 UI 组件的参数怎样发出 Action。</p>
-</blockquote>
-<pre><code class="jsx">const mapDispatchToProps = (dispatch) =&gt; &#123; // 默认传递参数就是dispatch
-  return &#123;
-    onClick: () =&gt; &#123;
-      dispatch(&#123;
-        type: &#39;increatment&#39;
-      &#125;);
-    &#125;
-  &#125;;
-&#125;
-</code></pre>
-<pre><code class="js">class Foo extends Component &#123;
-    constructor(props)&#123;
-        super(props);
-    &#125;
-    render()&#123;
-        return(
-         
-             &lt;button onClick = &#123;this.props.onClick&#125;&gt;点击increase&lt;/button&gt;
-        )
-    &#125;
-&#125;
-Foo = connect()(Foo);
-export default Foo;
-</code></pre>
-<h2 id="5、connect原理"><a href="#5、connect原理" class="headerlink" title="5、connect原理"></a>5、<strong>connect原理</strong></h2><ul>
-<li>首先<code>connect</code>之所以会成功，是因为<code>Provider</code>组件：</li>
-<li>在原应用组件上包裹一层，使原来整个应用成为<code>Provider</code>的子组件 接收<code>Redux</code>的<code>store</code>作为<code>props</code>，通过<code>context</code>对象传递给子孙组件上的<code>connect</code></li>
-</ul>
-<blockquote>
-<p><code>connect</code>做了些什么。它真正连接 <code>Redux</code> 和 <code>React</code>，它包在我们的容器组件的外一层，它接收上面 <code>Provider</code> 提供的 <code>store</code> 里面的<code>state</code> 和 <code>dispatch</code>，传给一个构造函数，返回一个对象，以属性形式传给我们的容器组件</p>
-</blockquote>
-<h2 id="5、如何理解react-redux"><a href="#5、如何理解react-redux" class="headerlink" title="5、如何理解react-redux"></a>5、如何理解react-redux</h2><p>通过 redux 和 react context 配合使用，并借助高阶函数，实现了 react-redux</p>
-<h2 id="6、redux的缺点"><a href="#6、redux的缺点" class="headerlink" title="6、redux的缺点"></a>6、redux的缺点</h2><ul>
-<li>一个组件所需要的数据，必须由父组件传过来，而不能像<code>flux</code>中直接从<code>store</code>取。</li>
-<li>当一个组件相关数据更新时，即使父组件不需要用到这个组件，父组件还是会重新<code>render</code>，可能会有效率影响，或者需要写复杂的<code>shouldComponentUpdate</code>进行判断。</li>
-</ul>
+<pre><code class="html">&lt;!DOCTYPE html&gt;
+&lt;html lang=&quot;en&quot;&gt;
+  &lt;head&gt;
+    &lt;title&gt;&lt;/title&gt;
+    &lt;meta charset=&quot;UTF-8&quot;&gt;
+    &lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1&quot;&gt;
+    &lt;link href=&quot;css/style.css&quot; rel=&quot;stylesheet&quot;&gt;
+    &lt;script type=&#39;text/javascript&#39; src=&#39;ko.js&#39;&gt;&lt;/script&gt;
+  &lt;/head&gt;
+  &lt;body&gt;
+    &lt;div data-bind=&quot;visible:shouldShowMessage&quot;&gt;
+      shouldShowMessage 为true时显示
+    &lt;/div&gt;
+    &lt;div data-bind=&quot;visible:myArr().length &gt; 0&quot;&gt;
+      myArr 不为空时显示
+    &lt;/div&gt;
 
+    &lt;script&gt;
+      var vm = &#123;
+        shouldShowMessage:ko.observable(true),
+        myArr:ko.observable([])
+      &#125;
+      vm.shouldShowMessage(false)
+      vm.myArr.push(1)
+     
+     ko.applyBindings(vm)
+    &lt;/script&gt;
+  &lt;/body&gt;
+&lt;/html&gt;
+</code></pre>
+<ul>
+<li><p>内容</p>
+<ul>
+<li><p>text</p>
+</li>
+<li><p>html</p>
+</li>
+<li><pre><code class="html">&lt;!DOCTYPE html&gt;
+&lt;html lang=&quot;en&quot;&gt;
+  &lt;head&gt;
+    &lt;title&gt;&lt;/title&gt;
+    &lt;meta charset=&quot;UTF-8&quot;&gt;
+    &lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1&quot;&gt;
+    &lt;link href=&quot;css/style.css&quot; rel=&quot;stylesheet&quot;&gt;
+    &lt;script type=&#39;text/javascript&#39; src=&#39;ko.js&#39;&gt;&lt;/script&gt;
+  &lt;/head&gt;
+  &lt;body&gt;
+    &lt;p&gt;Message is: &lt;span data-bind=&quot;text:msg&quot;&gt;&lt;/span&gt;&lt;/p&gt;
+    &lt;p&gt;Message is: &lt;span data-bind=&quot;html:msg&quot;&gt;&lt;/span&gt;&lt;/p&gt;
+    &lt;script&gt;
+      var vm = &#123;
+        msg:ko.observable(&#39;Hello,world&#39;)
+      &#125;
+     vm.msg(&#39;&lt;i&gt;HELLO&lt;/i&gt;&#39;)
+     
+     ko.applyBindings(vm)
+    &lt;/script&gt;
+  &lt;/body&gt;
+&lt;/html&gt;
+</code></pre>
+</li>
+</ul>
+</li>
+<li><p>样式</p>
+<ul>
+<li>class</li>
+<li>css</li>
+</ul>
+<pre><code class="html">&lt;!DOCTYPE html&gt;
+&lt;html lang=&quot;en&quot;&gt;
+  &lt;head&gt;
+    &lt;title&gt;&lt;/title&gt;
+    &lt;meta charset=&quot;UTF-8&quot;&gt;
+    &lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1&quot;&gt;
+    &lt;link href=&quot;css/style.css&quot; rel=&quot;stylesheet&quot;&gt;
+    &lt;script type=&#39;text/javascript&#39; src=&#39;ko.js&#39;&gt;&lt;/script&gt;
+    &lt;style&gt;
+      .profitWarning&#123;
+        color: cadetblue;
+      &#125;
+      .profitPositive&#123;
+        color: tomato;
+      &#125;
+      .majorHighlight&#123;
+        font-weight: bold;
+      &#125;
+      .large&#123;
+        font-size: 36px;
+      &#125;
+      .medium&#123;
+        font-size: 24px;
+      &#125;
+      .small&#123;
+        font-size: 12px;
+      &#125;
+      .btn-success&#123;
+        padding:10px;
+        border:1px solid #aff233;
+        background-color: cornflowerblue;
+        color: aliceblue;
+      &#125;
+    &lt;/style&gt;
+  &lt;/head&gt;
+  &lt;body&gt;
+    &lt;div data-bind=&quot;class:profitStatus&quot;&gt;
+      class用来设置类名称，后面跟字符串
+    &lt;/div&gt;
+    &lt;div data-bind=&quot;css:&#123;
+      profitWarning:currentProfit() &lt; 0,
+      majorHighlight:isSever
+    &#125;&quot;&gt;
+      css 用来控制是否使用类名称，后面用对象
+    &lt;/div&gt;
+    &lt;div data-bind=&quot;class:profitStatus,css:&#123;
+      majorHighlight:isSever
+    &#125;&quot;&gt;
+      混合使用 class 和 css
+    &lt;/div&gt;
+    &lt;!-- 通过一个变量来控制多个类 --&gt;
+    &lt;div data-bind=&quot;css:&#123;&#39;large majorHighlight profitWarning&#39;:isSever&#125;&quot;&gt;
+    混合使用 class和css
+    &lt;/div&gt;
+    &lt;!-- 蛇形命名的类名称需要引号包裹 --&gt;
+    &lt;div data-bind=&quot;css:&#123;&#39;btn-success&#39;:isSever&#125;&quot;&gt;
+      btn-success
+    &lt;/div&gt;
+    &lt;script&gt;
+      var vm = &#123;
+        currentProfit:ko.observable(150000),
+        isSever:ko.observable()
+      &#125;
+      vm.profitStatus=ko.pureComputed(
+        function () &#123;
+          return this.currentProfit() &lt; 0 ? &quot;profitWarning&quot;:&quot;profitPositive&quot;
+        &#125;,vm
+      )
+     vm.isSever(true)
+     ko.applyBindings(vm)
+    &lt;/script&gt;
+  &lt;/body&gt;
+&lt;/html&gt;
+&lt;!-- class控制单个样式类显示 --&gt;
+&lt;!-- css是对象写法，里面可以写一些条件，可以写true、false也可以写表达式 --&gt;
+</code></pre>
+<ul>
+<li><p>style</p>
+<pre><code class="html">&lt;!DOCTYPE html&gt;
+&lt;html lang=&quot;en&quot;&gt;
+  &lt;head&gt;
+    &lt;title&gt;&lt;/title&gt;
+    &lt;meta charset=&quot;UTF-8&quot;&gt;
+    &lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1&quot;&gt;
+    &lt;link href=&quot;css/style.css&quot; rel=&quot;stylesheet&quot;&gt;
+    &lt;script type=&#39;text/javascript&#39; src=&#39;ko.js&#39;&gt;&lt;/script&gt;
+    &lt;style&gt;
+      .profitWarning&#123;
+        color: cadetblue;
+      &#125;
+      .profitPositive&#123;
+        color: tomato;
+      &#125;
+      .majorHighlight&#123;
+        font-weight: bold;
+      &#125;
+      .large&#123;
+        font-size: 36px;
+      &#125;
+      .medium&#123;
+        font-size: 24px;
+      &#125;
+      .small&#123;
+        font-size: 12px;
+      &#125;
+      .btn-success&#123;
+        padding:10px;
+        border:1px solid #aff233;
+        background-color: cornflowerblue;
+        color: aliceblue;
+      &#125;
+    &lt;/style&gt;
+  &lt;/head&gt;
+  &lt;body&gt;
+    &lt;div data-bind=&quot;style:&#123; color:currentProfit() &lt; 0 ? &#39;red&#39; : &#39;black&#39;&#125;&quot;&gt;
+      基本用法
+    &lt;/div&gt;
+    &lt;div data-bind=&quot;style:&#123;
+      color:currentProfit() &lt; 0 ? &#39;red&#39;:&#39;black&#39;,
+      fontWeight:isSever()?&#39;bold&#39;:&#39;&#39;,
+      &#39;font-size&#39;:&#39;32px&#39;
+    &#125;&quot;&gt;
+      设置多个样式
+    &lt;/div&gt;
+    
+  
+    &lt;script&gt;
+      var vm = &#123;
+        currentProfit:ko.observable(150000),
+        isSever:ko.observable()
+      &#125;
+      vm.profitStatus=ko.pureComputed(
+        function () &#123;
+          return this.currentProfit() &lt; 0 ? &quot;profitWarning&quot;:&quot;profitPositive&quot;
+        &#125;,vm
+      )
+      vm.currentProfit(-50)
+     vm.isSever(true)
+     ko.applyBindings(vm)
+    &lt;/script&gt;
+  &lt;/body&gt;
+&lt;/html&gt;
+</code></pre>
+</li>
+</ul>
+</li>
+<li><p>属性</p>
+<ul>
+<li><p>attr</p>
+<pre><code class="html">&lt;!DOCTYPE html&gt;
+&lt;html lang=&quot;en&quot;&gt;
+  &lt;head&gt;
+    &lt;title&gt;&lt;/title&gt;
+    &lt;meta charset=&quot;UTF-8&quot;&gt;
+    &lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1&quot;&gt;
+    &lt;link href=&quot;css/style.css&quot; rel=&quot;stylesheet&quot;&gt;
+    &lt;script type=&#39;text/javascript&#39; src=&#39;ko.js&#39;&gt;&lt;/script&gt;
+  &lt;/head&gt;
+  &lt;body&gt;
+    &lt;a data-bind=&quot;attr: &#123; href: url,title: details,target: ways &#125;&quot;&gt;
+       百度
+    &lt;/a&gt;
+    &lt;script&gt;
+      var vm = &#123;
+        url:ko.observable(&quot;https:www.baidu.com&quot;),
+        details:ko.observable(&quot;百度一下，你就知道&quot;),
+        ways:ko.observable(&#39;_blank&#39;)
+      &#125;
+     ko.applyBindings(vm)
+    &lt;/script&gt;
+  &lt;/body&gt;
+&lt;/html&gt;
+</code></pre>
+</li>
+</ul>
+</li>
+</ul>
+<h2 id=""><a href="#" class="headerlink" title=""></a></h2>
       </div>
       <div class="post-tags-categories">
         
         <div class="tags">
           
-            <a href="/tags/react/" class="">
-              react
+            <a href="/tags/Knockout-js/" class="">
+              Knockout.js
             </a>
           
         </div>
@@ -748,7 +869,7 @@ export default Foo;
     </li>
     <li class="post-copyright-link">
     <strong>文章链接:  </strong>
-    <a href="/2020/01/01/Redux/" target="_blank" title="有关Redux">http://example.com/2020/01/01/Redux/</a>
+    <a href="/2022/10/18/Knockout绑定(文件与外观)/" target="_blank" title="Knockout.js监控(文件与外观)">http://example.com/2022/10/18/Knockout绑定(文件与外观)/</a>
     </li>
     <li class="post-copyright-license">
       <strong>版权声明:   </strong>
@@ -770,16 +891,22 @@ export default Foo;
   <div class="post-nav-prev post-nav-item">
     <div class="post-nav-img" style="background-size: cover; 
       background-position: center center;">
-      <img class="lazyload lazyload placeholder" src="/medias/13.jpg" class="lazyload placeholder" data-srcset="/medias/13.jpg" srcset="https://img2.baidu.com/it/u=2037979560,2772131037&fm=26&fmt=auto&gp=0.jpg" alt="">
+      <img class="lazyload lazyload placeholder" src="/medias/12.jpg" class="lazyload placeholder" data-srcset="/medias/12.jpg" srcset="https://img2.baidu.com/it/u=2037979560,2772131037&fm=26&fmt=auto&gp=0.jpg" alt="">
     </div>
-    <a href="/2020/01/05/Redux%E4%B8%AD%E9%97%B4%E4%BB%B6/" class="post-nav-link">
+    <a href="/2022/10/18/Knockout.js%E7%BB%91%E5%AE%9A(%E6%B5%81%E7%A8%8B%E6%8E%A7%E5%88%B6-1)/" class="post-nav-link">
       <div class="title">
         <i class="fas fa-angle-left"></i> 上一篇:
-        <div class="title-text">Redux中间件</div>
+        <div class="title-text">Knockout.js绑定(流程控制-1)</div>
       </div>
       
       <!-- <div class="content">
-        一、是什么中间件（Middleware）是介于应用系统和系统软件之间的一类软件，它使用系统软件所提供的基础服务（功能），
+        流程与控制
+foreach
+
+$index当前循环索引
+$data当前循环变量
+
+&lt;!DOCTYPE html&g
       </div> -->
     </a>
   </div>
@@ -790,17 +917,17 @@ export default Foo;
   <div class="post-nav-next post-nav-item">
     <div class="post-nav-img" style="background-size: cover; 
       background-position: center center;">
-      <img class="lazyload lazyload placeholder" src="/medias/11.jpg" class="lazyload placeholder" data-srcset="/medias/11.jpg" srcset="https://img2.baidu.com/it/u=2037979560,2772131037&fm=26&fmt=auto&gp=0.jpg" src="" alt="">
+      <img class="lazyload lazyload placeholder" src="/medias/1.jpg" class="lazyload placeholder" data-srcset="/medias/1.jpg" srcset="https://img2.baidu.com/it/u=2037979560,2772131037&fm=26&fmt=auto&gp=0.jpg" src="" alt="">
     </div>
-    <a href="/2019/12/24/%E6%9C%89%E5%85%B3React-3.0/" class="post-nav-link">
+    <a href="/2022/10/17/Knockout.js/" class="post-nav-link">
       <div class="title">
         下一篇: <i class="fas fa-angle-right"></i>
-        <div class="title-text">有关React-2.0</div>
+        <div class="title-text">Knockout.js入门-0.1</div>
       </div>
       <!-- <div class="content">
-        1、 setState 是同步的还是异步的有时表现出同步，有时表现出异步
-
-setState 只有在 React 自身的
+        KO入门简介KnockoutJS是在微软在2010年推出的，MVVM模式的JS库
+是一款纯js库（不需要任何依赖）
+兼容
       </div> -->
     </a>
   </div>
